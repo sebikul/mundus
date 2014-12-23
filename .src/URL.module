@@ -1,0 +1,55 @@
+' Gambas module file
+
+Public Sub Encode(Path As String) As String
+
+  Dim iInd As Integer
+  Dim sRes As String
+  Dim sCar As String
+
+  For iInd = 1 To Len(Path)
+    sCar = Mid$(Path, iInd, 1)
+    If IsLetter(sCar) Or If IsDigit(sCar) Or If InStr("-._~", sCar) Then
+    Else
+      sCar = "%" & Hex$(Asc(sCar), 2)
+    Endif
+    sRes &= sCar
+  Next
+
+  Return sRes
+
+End
+
+Public Sub Decode(Path As String) As String
+
+  Dim iInd As Integer
+  Dim sRes As String
+  Dim sCar As String
+
+  For iInd = 1 To Len(Path)
+    sCar = Mid$(Path, iInd, 1)
+    If sCar = "%" Then
+      sCar = Chr$(Val("&H" & Mid$(Path, iInd + 1, 2)))
+      iInd += 2
+    Else If sCar = "+" Then
+      sCar = " "
+    Endif
+    sRes &= sCar
+  Next
+
+  Return sRes
+
+End
+
+Public Function BuildRequest(sParameters As Collection) As String
+
+  Dim sParameter As String
+
+  Dim sReturn As String = ""
+
+  For Each sParameter In sParameters
+    sReturn &= sParameters.Key & "=" & URL.Encode(sParameter) & "&"
+  Next
+
+  Return Mid(sReturn, 1, -1)
+
+End

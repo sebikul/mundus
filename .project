@@ -1,0 +1,29 @@
+# Gambas Project File 3.0
+# Compiled with Gambas 3.6.2
+Title=Mundus
+Startup=Main
+Icon=icon.png
+Version=3.0.0
+Component=gb.image
+Component=gb.qt4
+Component=gb.form
+Component=gb.desktop.x11
+Component=gb.desktop
+Component=gb.settings
+Description="Clean and backup your /home folder from old configuration files created by now uninstalled software."
+Authors="sebikul  <sebikul@gmail.com>"
+TabSize=2
+Translate=1
+Language=en_US
+SourcePath=/home/sebi/Documentos/Mundus/Releases/2.3.1
+Maintainer=sebikul
+Address=sebikul@gmail.com
+Url=https://launchpad.net/mundus
+License=General Public License
+PackageName=mundus-1.4
+CreateEachDirectory=1
+Packager=1
+Systems=archlinux
+Menus=archlinux:"Applications/System/Administration"
+Categories=archlinux:"System"
+Groups=archlinux:"admin"

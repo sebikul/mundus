@@ -1,0 +1,14 @@
+{
+    "Name": "NetBeans",
+    "Category": "Integrated Development Environment",
+    "Description": "A free, open-source Integrated Development Environment for software developers. All the tools needed to create professional desktop, enterprise, web, and mobile applications with the Java platform, as well as with C/C++, PHP, JavaScript and Groovy.",
+    "Submodules": {
+        "0": {
+            "Path": "~/.netbeans",
+            "Name": "Configuration & Plugins"
+        }
+    },
+    "Executable": "netbeans",
+    "Website": "http://netbeans.org",
+    "Version": 1
+}

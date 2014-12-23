@@ -1,0 +1,16 @@
+{
+    "Name": "Audacity",
+    "Category": "Sound Editor",
+    "Description": "Free, Cross-Platform Sound Editor. Audacity is free, open source software for recording and editing sounds.",
+    "Submodules": {
+        "0": {
+            "Path": "~/.audacity-data",
+            "Name": "Configuration",
+            "Description": "Configuration Files",
+            "Warning": "Any modification, auto-save or presets will be lost"
+        }
+    },
+    "Executable": "audacity",
+    "Website": "http://audacity.sourceforge.net",
+    "Version": 1
+}

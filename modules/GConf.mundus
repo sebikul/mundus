@@ -1,0 +1,15 @@
+{
+    "Name": "GConf",
+    "Category": "Application Preferences storage",
+    "Description": "GConf is a system for storing application preferences. It is intended for user preferences; not configuration of something like Apache, or arbitrary data storage.",
+    "Submodules": {
+        "0": {
+            "Path": "~/.gconf",
+            "Name": "Preferences storage"
+        }
+    },
+    "Executable": "gconftool-2",
+    "Website": "http://projects.gnome.org/gconf",
+    "Warning": "Each module has it's own gconf directory added when appropriate, you do not need to clean this module if you only intend to clean one application",
+    "Version": 1
+}

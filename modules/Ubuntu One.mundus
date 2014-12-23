@@ -1,0 +1,22 @@
+{
+    "Name": "Ubuntu One",
+    "Category": "Online backup service",
+    "Description": "Ubuntu One helps you sync your files, share your work with others or work remotely, all with your Ubuntu computer.",
+    "Submodules": {
+        "0": {
+            "Path": "~/.config/ubuntuone",
+            "Name": "Configuration"
+        },
+        "1": {
+            "Path": "~/.local/share/ubuntuone",
+            "Name": "Runtime data"
+        },
+        "2": {
+            "Path": "~/.cache/ubuntuone",
+            "Name": "Cache"
+        }
+    },
+    "Executable": "ubuntuone-launch",
+    "Website": "https://one.ubuntu.com",
+    "Version": 1
+}

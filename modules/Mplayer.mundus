@@ -1,0 +1,14 @@
+{
+    "Name": "Mplayer",
+    "Category": "Media Player",
+    "Description": "MPlayer is a movie player which runs on many systems and supports a large variety of formats",
+    "Submodules": {
+        "0": {
+            "Path": "~/.mplayer",
+            "Name": "Configuration"
+        }
+    },
+    "Executable": "mplayer",
+    "Website": "http://www.mplayerhq.hu",
+    "Version": 1
+}

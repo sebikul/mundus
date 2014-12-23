@@ -1,0 +1,14 @@
+{
+    "Name": "Eclipse",
+    "Version": 1,
+    "Submodules": {
+        "0": {
+            "Name": "Configuration",
+            "Path": "~/.eclipse"
+        }
+    },
+    "Category": "Integrated Development Environment",
+    "Description": "Eclipse is probably best known as a Java IDE, but it is more: it is an IDE framework, a tools framework, an open source project, a community, an eco-system, and a foundation.",
+    "Executable": "eclipse",
+    "Website": "http://www.eclipse.org/"
+}

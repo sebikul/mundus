@@ -1,0 +1,143 @@
+' Gambas module file
+
+' Mundus
+' Copyright(C)2012 sebikul <sebikul@gmail.com>
+
+' This program is free software: you can redistribute it and/or modify
+' it under the terms of the GNU General Public License as published by
+' the Free Software Foundation, either version 3 of the License, or
+' (at your option) any later version.
+
+' This program is distributed in the hope that it will be useful,
+' but WITHOUT ANY WARRANTY; without even the implied warranty of
+' MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+' GNU General Public License for more details.
+
+' You should have received a copy of the GNU General Public License
+' along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+Property Read HasTar As Boolean
+
+Public Const METADATA_TEMP_FILE As String = ".mundus_metadata"
+
+Public Enum RESTORE_OK, RESTORE_FAILED, RESTORE_EXIST
+
+Public Function Backup(mModule As Module, sSubmodule As String) As Boolean
+
+  Dim sPath, sDestination As String
+
+  If Not Me.HasTar Then Return
+
+  'Debug (Subst("Creating backup of &1 => &2", mModule.Name, Submodule))
+
+  sPath = GetPathFor(mModule, sSubmodule)
+
+  If Not sPath Then Return False
+
+  sDestination = GetDestination(mModule) &/ Format$(Now, "yyyy-mm-dd_hh-nn-ss")
+
+  CreateMetadataFile(mModule, sSubmodule, sPath)
+
+  Return Tar(sPath, sDestination)
+
+End
+
+Public Function GetPathFor(mModule As Module, sSubmodule As String) As Variant
+
+  Return Replace(mModule[sSubmodule].Path, "~/", "")
+
+End
+
+Private Function Tar(sPath As String, sDest As String) As Boolean
+
+  If Not Me.HasTar Then Return
+
+  If sDest Not Ends ".tar.gz" Then sDest &= ".tar.gz"
+  If Exist(sDest) Or Not Exist(User.Home &/ sPath) Then Return False
+
+  'Debug (Subst("Compressing &1 at &2", Path, Dest))
+
+  Shell Subst("tar cz -C &3 -f &1 &2 &4", Shell(sDest), Shell(sPath), Shell(User.Home), Shell(METADATA_TEMP_FILE)) Wait
+
+  Try Kill User.Home &/ METADATA_TEMP_FILE
+
+  Return (Process.LastValue = 0)
+
+End
+
+Private Function GetDestination(mModule As Module) As String
+
+  Dim sPath As String
+
+  sPath = Main.PATH_BACKUPS &/ Main.Trim(mModule.Name)
+
+  If Not Exist(sPath) Then Mkdir sPath
+
+  Return sPath
+
+End
+
+Public Function List(BackupArchive As String) As String[]
+
+  Dim sContent As String
+
+  If Not Me.HasTar Then Return
+
+  If Not Exist(BackupArchive) Then Return False
+
+  Exec ["tar", "tf", BackupArchive] To sContent
+
+  Return Split(sContent, "\n")
+
+End
+
+Public Function GetMetadata(TarFile As String) As Collection
+
+  Dim sOutput As String
+
+  If Not Me.HasTar Then Return
+
+  Exec ["tar", "--extract", "--to-stdout", "--file=" & Main.Trim(TarFile), METADATA_TEMP_FILE] To sOutput
+
+  If Process.LastValue Then Return ["Error": "001"]
+
+  Return JSON.Decode(sOutput)
+
+End
+
+Public Function Restore(sBackup As String, sDest As String) As Integer
+
+  If Not Me.HasTar Then Return
+
+  If Not Exist(sBackup) Then Return RESTORE_FAILED
+
+  If Exist(User.Home &/ sDest) Then Return RESTORE_EXIST
+
+  'Debug (Subst("Restoring  &1 at &2", BackupArchive, User.Home &/ Location))
+  Shell Subst("tar -C &2 -x -f &1", Shell(sBackup), Shell(User.Home)) Wait
+
+  If Process.LastValue Then Return RESTORE_FAILED
+
+  Return RESTORE_OK
+
+End
+
+Private Sub CreateMetadataFile(mModule As Module, sSubmodule As String, sDest As String)
+
+  Dim sMetadata As Collection
+
+  sMetadata = ["Version": Application.Version,
+    "Module": mModule.Name,
+    "Created": Now,
+    "Source": sDest,
+    "Submodule": sSubmodule]
+
+  File.Save(User.Home &/ METADATA_TEMP_FILE, JSON.Encode(sMetadata))
+
+End
+
+Private Function HasTar_Read() As Boolean
+
+  Return Main.CheckProgram("tar")
+
+End

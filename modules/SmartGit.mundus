@@ -1,0 +1,14 @@
+{
+    "Name": "SmartGit",
+    "Version": 1,
+    "Website": "http://www.syntevo.com/smartgit",
+    "Submodules": {
+        "0": {
+            "Name": "Configuration",
+            "Path": "~/.smartgit"
+        }
+    },
+    "Category": "Git GUI",
+    "Description": "SmartGit is a graphical client for the version control systems Git and Mercurial.",
+    "Executable": "smartgit|smartgit.sh"
+}

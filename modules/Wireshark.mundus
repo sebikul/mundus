@@ -1,0 +1,15 @@
+{
+    "Name": "Wireshark",
+    "Category": "Network Protocol Analyzer",
+    "Description": "Wireshark is the world's foremost network protocol analyzer. It lets you capture and interactively browse the traffic running on a computer network. It is the de facto (and often de jure) standard across many industries and educational institutions.",
+    "Submodules": {
+        "0": {
+            "Path": "~/.wireshark",
+            "Name": "Configuration",
+            "Description": "Configuration file and recent used files"
+        }
+    },
+    "Executable": "wireshark",
+    "Website": "http://www.wireshark.org",
+    "Version": 1
+}

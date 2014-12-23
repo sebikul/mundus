@@ -1,0 +1,13 @@
+# Gambas Form File 3.0
+
+{ Form Form
+  MoveScaled(0,0,83,65)
+  Text = ("Supported Applications")
+  Icon = Picture["icon.png"]
+  Arrangement = Arrange.Fill
+  { ivAppList IconView
+    MoveScaled(12,6,46,37)
+    Sorted = True
+    ScrollBar = Scroll.Vertical
+  }
+}

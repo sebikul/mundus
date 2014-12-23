@@ -1,0 +1,14 @@
+{
+    "Name": "AbiWord",
+    "Category": "Word Processor",
+    "Description": "AbiWord is a free word processing program similar to Microsoft® Word. It is suitable for a wide variety of word processing tasks.",
+    "Submodules": {
+        "0": {
+            "Path": "~/.AbiSuite",
+            "Name": "Configuration"
+        }
+    },
+    "Executable": "abiword",
+    "Website": "http://www.abisource.com",
+    "Version": 1
+}

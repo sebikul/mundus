@@ -1,0 +1,21 @@
+{
+    "Name": "Dropbox",
+    "Category": "Online backup service",
+    "Description": "Dropbox is a free service that lets you bring all your photos, docs, and videos anywhere.",
+    "Submodules": {
+        "0": {
+            "Path": "~/.dropbox",
+            "Name": "Configuration",
+            "Description": "Holds the configuration and the files database",
+            "Warning": "Cleaning this directory will leave dropbox useless. you will need to reconfigure your account."
+        },
+        "1": {
+            "Path": "~/.dropbox-dist",
+            "Name": "Dropbox binaries",
+            "Description": "If installed through the website, the dropbox binaries will be downloaded here."
+        }
+    },
+    "Executable": "dropbox",
+    "Website": "http://www.dropbox.com",
+    "Version": 1
+}

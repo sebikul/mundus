@@ -1,0 +1,23 @@
+{
+    "Name": "Docky",
+    "Category": "Dock application",
+    "Description": "Docky is an advanced shortcut bar that sits at the edges of your screen. It provides easy access to some of the files, folders and applications on your computer, displays which applications are currently running, holds windows in their minimized state and more.",
+    "Submodules": {
+        "0": {
+            "Path": "~/.local/share/docky",
+            "Name": "Configuration",
+            "Description": "Configuration Files"
+        },
+        "1": {
+            "Path": "~/.local/share/dockmanager",
+            "Name": "Dockmanager"
+        },
+        "2": {
+            "Path": "~/.cache/docky",
+            "Name": "Cache"
+        }
+    },
+    "Executable": "docky",
+    "Website": "http://www.go-docky.com",
+    "Version": 1
+}

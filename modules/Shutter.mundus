@@ -1,0 +1,14 @@
+{
+    "Name": "Shutter",
+    "Category": "Screenshot Program",
+    "Description": "Shutter allows you to capture nearly anything on your screen without loosing control over your screenshots (tabbed interface).",
+    "Submodules": {
+        "0": {
+            "Path": "~/.shutter",
+            "Name": "Configuration"
+        }
+    },
+    "Executable": "shutter",
+    "Website": "http://shutter-project.org",
+    "Version": 1
+}

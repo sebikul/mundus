@@ -1,0 +1,16 @@
+{
+    "Name": "Gtranslator",
+    "Category": "gettext Editor",
+    "Description": "Gtranslator is an enhanced gettext po file editor for the GNOME desktop environment.",
+    "Submodules": {
+        "0": {
+            "Path": "~/.config/gtranslator",
+            "Name": "Configuration & Translation Memory",
+            "Description": "Configuration files and translation memory stored over time.",
+            "Warning": "You will lose your Translation Memory."
+        }
+    },
+    "Executable": "gtranslator",
+    "Website": "http://projects.gnome.org/gtranslator",
+    "Version": 2
+}

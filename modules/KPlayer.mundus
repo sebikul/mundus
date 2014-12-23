@@ -1,0 +1,14 @@
+{
+    "Name": "KPlayer",
+    "Category": "Multimedia Player",
+    "Description": "KPlayer is a KDE multimedia player. With KPlayer you can easily play a wide variety of video and audio files and streams using a rich and friendly interface that follows KDE standards.",
+    "Submodules": {
+        "0": {
+            "Path": "~/.kde/share/config/kplayerrc",
+            "Name": "Configuration"
+        }
+    },
+    "Executable": "kplayer",
+    "Website": "http://kplayer.sourceforge.net",
+    "Version": 1
+}

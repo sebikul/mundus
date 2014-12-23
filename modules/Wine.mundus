@@ -1,0 +1,30 @@
+{
+    "Name": "Wine",
+    "Category": "Windows compatibility layer",
+    "Description": "Wine lets you run Windows software on other operating systems. With Wine, you can install and run these applications just like you would in Windows.",
+    "Submodules": {
+        "0": {
+            "Path": "~/.wine",
+            "Name": "Main Profile",
+            "Description": "Default profile used when executing Wine"
+        },
+        "1": {
+            "Path": "~/.cache/winetricks",
+            "Name": "Winetricks Cache",
+            "Description": "Stores the installable packages of downloaded software"
+        },
+        "2": {
+            "Path": "~/.local/share/wineprefixes",
+            "Name": "Wine Prefixes",
+            "Description": "Additional profiles to isolate installed software"
+        },
+        "3": {
+            "Path": "~/.local/share/applications/wine",
+            "Name": "Wine Applications Launchers",
+            "Description": "Launchers added from installed software"
+        }
+    },
+    "Executable": "wine",
+    "Website": "http://www.winehq.org",
+    "Version": 1
+}

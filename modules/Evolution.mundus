@@ -1,0 +1,31 @@
+{
+    "Name": "Evolution",
+    "Category": "Email Client",
+    "Description": "Evolution provides integrated mail, addressbook and calendaring functionality to users of the GNOME desktop.",
+    "Submodules": {
+        "0": {
+            "Path": "~/.config/evolution",
+            "Name": "Configuration & Downloaded data",
+            "Description": "This includes your Email accounts, downloaded email, calendar, contacts, tasks, etc.",
+            "Warning": "This folder contains personal data. Once removed it cannot be recovered unless you have the automatic backup feature enabled."
+        },
+        "1": {
+            "Path": "~/.cache/evolution",
+            "Name": "Cache",
+            "Description": "Temporary downloaded data"
+        },
+        "2": {
+            "Path": "~/.gconf/apps/evolution",
+            "Name": "Gconf configuration",
+            "Description": "This directory holds your personal configuration",
+            "Warning": "You will lose all your configuration!"
+        },
+        "3": {
+            "Name": "Local Data",
+            "Path": "~/.local/share/evolution"
+        }
+    },
+    "Executable": "evolution",
+    "Website": "http://projects.gnome.org/evolution",
+    "Version": 2
+}

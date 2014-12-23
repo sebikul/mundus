@@ -1,0 +1,14 @@
+{
+    "Name": "Terminator",
+    "Category": "Terminal Emulator",
+    "Description": "The goal of this project is to produce a useful tool for arranging terminals.",
+    "Submodules": {
+        "0": {
+            "Path": "~/.config/terminator",
+            "Name": "Configuration"
+        }
+    },
+    "Executable": "terminator",
+    "Website": "https://launchpad.net/terminator",
+    "Version": 1
+}

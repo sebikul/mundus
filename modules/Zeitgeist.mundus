@@ -1,0 +1,19 @@
+{
+    "Name": "Zeitgeist",
+    "Category": "User activity logger",
+    "Description": "Zeitgeist is a service which logs the users’ activities and events, anywhere from files opened to websites visited and conversations had.",
+    "Submodules": {
+        "0": {
+            "Path": "~/.local/share/zeitgeist",
+            "Name": "Configuration & Tracking Database",
+            "Description": "Contains the activity database."
+        },
+        "1": {
+            "Path": "~/.cache/zeitgeist",
+            "Name": "Cache"
+        }
+    },
+    "Executable": "zeitgeist-daemon",
+    "Website": "http://zeitgeist-project.com",
+    "Version": 1
+}

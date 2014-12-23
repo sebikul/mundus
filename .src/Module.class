@@ -1,0 +1,243 @@
+' Gambas class file
+
+' Mundus
+' Copyright(C)2012 sebikul <sebikul@gmail.com>
+
+' This program is free software: you can redistribute it and/or modify
+' it under the terms of the GNU General Public License as published by
+' the Free Software Foundation, either version 3 of the License, or
+' (at your option) any later version.
+
+' This program is distributed in the hope that it will be useful,
+' but WITHOUT ANY WARRANTY; without even the implied warranty of
+' MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+' GNU General Public License for more details.
+
+' You should have received a copy of the GNU General Public License
+' along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+Property Read Name As String
+Property Read Category As String
+Property Read Description As String
+Property Read Executable As String[]
+Property isInstalled As Boolean
+Property HasConfig As Boolean
+Property Read RootOnly As Boolean
+Property Read Directories As String[]
+Property Read Submodules As Submodule[]
+Property Read Warning As String
+Property Read Website As String
+Property Read Version As Integer
+
+Private $HasConfig As Boolean
+Private $isInstalled As Boolean
+
+Private $mArray As Collection
+Private $cSubmodules As New Collection
+
+Private $aSubmodulesCache As New Submodule[]
+
+Public Sub _new(mArray As Collection, Optional bAutoload As Boolean = True)
+
+  Dim cSubmodule As Collection
+
+  Dim tmpSubmodule As Submodule
+
+  $mArray = mArray
+
+  For Each cSubmodule In $mArray["Submodules"]
+
+    tmpSubmodule = New Submodule(cSubmodule, $mArray["Submodules"].Key)
+
+    $aSubmodulesCache.Add(tmpSubmodule)
+
+    $cSubmodules.Add(tmpSubmodule.Index, tmpSubmodule.Name)
+
+  Next
+
+  If bAutoload Then Me.Load()
+
+End
+
+Public Sub _get(sSubmodule As String) As Submodule
+
+  Return Me.Submodules[$cSubmodules[sSubmodule]]
+
+End
+
+Public Sub Load()
+
+  Dim sFile As String
+
+  Dim oSubmodule As Submodule
+
+  For Each sFile In Me.Executable
+
+    If Main.CheckProgram(sFile) Then
+      $isInstalled = True
+      Break
+    Endif
+
+  Next
+
+  For Each oSubmodule In Me.Submodules
+
+    If Exist(oSubmodule.Path) Then
+      Me.HasConfig = True
+      Break
+    Endif
+
+  Next
+
+End
+
+Public Function IsRunning() As Boolean
+
+  Dim sExecutable As String
+
+  If Not Main.CheckProgram("pgrep") Or Not Me.Executable Then Return False
+
+  For Each sExecutable In Me.Executable
+
+    If _IsRunning(sExecutable) Then Return True
+
+  Next
+
+End
+
+Private Function _IsRunning(sExec As String) As Boolean
+
+  Dim sOutput As String
+
+  Dim iCount As Integer
+
+  Exec ["pgrep", "-x", "-c", sExec] To sOutput
+
+  Try iCount = CInt(Trim(sOutput))
+
+  If Error Then
+
+    Shell Subst("pgrep -x &1 | wc -l", Shell(sExec)) To sOutput
+
+    Try iCount = CInt(Trim(sOutput))
+
+  Endif
+
+  Return (iCount > 0)
+
+End
+
+Private Function Name_Read() As String
+
+  If Not $mArray.Exist("Name") Then Return
+
+  Return $mArray["Name"]
+
+End
+
+Private Function Directories_Read() As String[]
+
+  Dim aList As New String[]
+  Dim oSubmodule As Submodule
+
+  For Each oSubmodule In Me.Submodules
+
+    aList.Add(oSubmodule.Path)
+
+  Next
+
+  Return aList
+
+End
+
+Private Function Category_Read() As String
+
+  If Not $mArray.Exist("Category") Then Return
+
+  Return $mArray["Category"]
+
+End
+
+Private Function Description_Read() As String
+
+  If Not $mArray.Exist("Description") Then Return
+
+  Return $mArray["Description"]
+
+End
+
+Private Function Executable_Read() As String[]
+
+  If Not $mArray.Exist("Executable") Then Return
+
+  If InStr($mArray["Executable"], "|") Then
+    Return Split($mArray["Executable"], "|")
+  Else
+    Return [$mArray["Executable"]]
+  Endif
+
+End
+
+Private Function isInstalled_Read() As Boolean
+
+  Return $isInstalled
+
+End
+
+Private Function HasConfig_Read() As Boolean
+
+  Return $HasConfig
+
+End
+
+Private Sub HasConfig_Write(Value As Boolean)
+
+  $HasConfig = Value
+
+End
+
+Private Sub isInstalled_Write(Value As Boolean)
+
+  $isInstalled = Value
+
+End
+
+Private Function RootOnly_Read() As Boolean
+
+  If Not $mArray.Exist("RootOnly") Then Return
+
+  Return $mArray["RootOnly"]
+
+End
+
+Private Function Submodules_Read() As Submodule[]
+
+  If Not $mArray.Exist("Submodules") Then Return
+
+  Return $aSubmodulesCache
+
+End
+
+Private Function Warning_Read() As String
+
+  If Not $mArray.Exist("Warning") Then Return
+
+  Return $mArray["Warning"]
+
+End
+
+Private Function Website_Read() As String
+
+  If Not $mArray.Exist("Website") Then Return
+
+  Return $mArray["Website"]
+
+End
+
+Private Function Version_Read() As Integer
+
+  If Not $mArray.Exist("Version") Then Return
+
+  Return $mArray["Version"]
+
+End

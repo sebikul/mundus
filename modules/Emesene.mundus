@@ -1,0 +1,15 @@
+{
+    "Name": "Emesene",
+    "Category": "Messaging Application",
+    "Description": "emesene is a chat program that allows you to connect to different networks like MSN, Gtalk, Facebook chat, Jabber and others.",
+    "Submodules": {
+        "0": {
+            "Path": "~/.config/emesene2",
+            "Name": "Configuration",
+            "Description": "Configuration Files"
+        }
+    },
+    "Executable": "emesene",
+    "Website": "http://emesene.org",
+    "Version": 1
+}

@@ -1,0 +1,18 @@
+{
+    "Name": "Gajim",
+    "Category": "Messaging Application",
+    "Description": "The goal of Gajim is to provide a full featured and easy to use Jabber/XMPP client. Gajim works nicely with GNOME, but does not require it to run.",
+    "Submodules": {
+        "0": {
+            "Path": "~/.config/gajim",
+            "Name": "Configuration"
+        },
+        "1": {
+            "Path": "~/.cache/gajim",
+            "Name": "Cache"
+        }
+    },
+    "Executable": "gajim",
+    "Website": "http://gajim.org",
+    "Version": 1
+}

@@ -1,0 +1,14 @@
+{
+    "Name": "Gnome MPlayer",
+    "Category": "Multimedia Player",
+    "Description": "A GTK2/GTK3 interface to MPlayer. The power of MPlayer combined with a friendly interface for your desktop.",
+    "Submodules": {
+        "0": {
+            "Path": "~/.config/gnome-mplayer",
+            "Name": "Configuration"
+        }
+    },
+    "Executable": "gnome-mplayer",
+    "Website": "http://code.google.com/p/gnome-mplayer",
+    "Version": 1
+}

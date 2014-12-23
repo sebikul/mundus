@@ -1,0 +1,21 @@
+{
+    "Name": "Google Chrome",
+    "Category": "Web Browser",
+    "Description": "Google Chrome is a web browser developed by Google that uses the WebKit layout engine.",
+    "Submodules": {
+        "0": {
+            "Path": "~/.config/google-chrome",
+            "Name": "Configuration & Profiles",
+            "Description": "Configuration Files",
+            "Warning": "This folder contains personal data. Once removed it cannot be recovered unless you have the automatic backup feature enabled."
+        },
+        "1": {
+            "Path": "~/.cache/google-chrome",
+            "Name": "Downloaded Cache",
+            "Description": "Temporary storage of downloaded files"
+        }
+    },
+    "Executable": "chrome|google-chrome|google-chrome-stable",
+    "Website": "http://www.google.com/chrome",
+    "Version": 2
+}

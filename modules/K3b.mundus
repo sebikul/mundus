@@ -1,0 +1,18 @@
+{
+    "Name": "K3b",
+    "Category": "CD Burner",
+    "Description": "K3b was created to be a feature-rich and easy to handle CD burning application.",
+    "Submodules": {
+        "0": {
+            "Path": "~/.kde/share/apps/k3b",
+            "Name": "Configuration"
+        },
+        "1": {
+            "Path": "~/.kde/share/config/k3brc",
+            "Name": "Configuration2"
+        }
+    },
+    "Executable": "k3b",
+    "Website": "http://www.k3b.org",
+    "Version": 1
+}

@@ -1,0 +1,14 @@
+{
+    "Name": "Terminal",
+    "Version": 1,
+    "Submodules": {
+        "0": {
+            "Name": "Configuration",
+            "Path": "~/.config/Terminal/"
+        }
+    },
+    "Category": "Terminal Emulator",
+    "Description": "A modern terminal emulator primarly for the Xfce desktop environment.",
+    "Executable": "terminal|Terminal",
+    "Website": "http://www.xfce.org/projects/terminal/"
+}

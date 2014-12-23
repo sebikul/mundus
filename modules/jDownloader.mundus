@@ -1,0 +1,16 @@
+{
+    "Name": "jDownloader",
+    "Category": "Download manager",
+    "Description": "JDownloader is a free, open-source download management tool with a huge community of developers that makes downloading as easy and fast as it should be.",
+    "Submodules": {
+        "0": {
+            "Path": "~/.jd",
+            "Name": "Configuration & binaries",
+            "Description": "Stores the configuration files along the application binaries",
+            "Warning": "Your configuration and download queue will be deleted"
+        }
+    },
+    "Executable": "jdownlaoder",
+    "Website": "http://jdownloader.org",
+    "Version": 1
+}

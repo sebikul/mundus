@@ -1,0 +1,15 @@
+{
+    "Name": "Eye Of Gnome",
+    "Category": "Image Viewer",
+    "Description": "The Eye of GNOME image viewer is the official image viewer for the GNOME Desktop environment. With it, you can view single image files, as well as large image collections.",
+    "Submodules": {
+        "0": {
+            "Path": "~/.config/eog",
+            "Name": "Configuration",
+            "Description": "Configuration Files"
+        }
+    },
+    "Executable": "eog",
+    "Website": "http://projects.gnome.org/eog",
+    "Version": 1
+}

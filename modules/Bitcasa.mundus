@@ -1,0 +1,14 @@
+{
+    "Name": "Bitcasa",
+    "Version": 1,
+    "Website": "http://www.bitcasa.com/",
+    "Description": "Bitcasa is a personal app that integrates infinite storage, sync, backup and share into your desktop and across all your devices.",
+    "Submodules": {
+        "0": {
+            "Name": "Configuration",
+            "Path": "~/.bitcasa"
+        }
+    },
+    "Category": "Online backup service",
+    "Executable": "bitcasa"
+}

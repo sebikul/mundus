@@ -1,0 +1,18 @@
+{
+    "Name": "Kile",
+    "Category": "TeX/LaTeX editor",
+    "Description": "Kile is a user-friendly TeX/LaTeX editor for the KDE desktop environment. KDE is available for many architectures and operating systems such as PC, Mac, and BSD, including Linux and Microsoft Windows.",
+    "Submodules": {
+        "0": {
+            "Path": "~/.kde/share/apps/kile",
+            "Name": "Configuration"
+        },
+        "1": {
+            "Path": "~/.kde/share/config/kilerc",
+            "Name": "Configuration2"
+        }
+    },
+    "Executable": "kile",
+    "Website": "http://kile.sourceforge.net",
+    "Version": 1
+}

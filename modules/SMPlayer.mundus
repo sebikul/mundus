@@ -1,0 +1,14 @@
+{
+    "Name": "SMPlayer",
+    "Category": "Multimedia Player",
+    "Description": "SMPlayer intends to be a complete front-end for MPlayer, from basic features like playing videos, DVDs, and VCDs to more advanced features like support for MPlayer filters and more.",
+    "Submodules": {
+        "0": {
+            "Path": "~/.config/smplayer",
+            "Name": "Configuration"
+        }
+    },
+    "Executable": "smplayer",
+    "Website": "http://smplayer.sourceforge.net",
+    "Version": 1
+}

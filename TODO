@@ -1,0 +1,7 @@
+Bundles:
+ - Groups of apps
+ - Easy cleaning of a bundle
+ - Add filter to group them
+
+Backups:
+ - Implement a metadata version number. Make old backups compatible.

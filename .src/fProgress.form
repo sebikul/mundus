@@ -1,0 +1,20 @@
+# Gambas Form File 3.0
+
+{ Form Form
+  MoveScaled(0,0,74,20)
+  Icon = Picture["icon.png"]
+  Persistent = True
+  Resizable = False
+  { ProgressBar1 ProgressBar
+    MoveScaled(6,4,60,4)
+    Expand = True
+  }
+  { lblStatus Label
+    MoveScaled(24,10,24,4)
+    AutoResize = True
+  }
+  { btnCancel Button
+    MoveScaled(29,15,16,4)
+    Text = ("Cancel")
+  }
+}

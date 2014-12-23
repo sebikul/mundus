@@ -1,0 +1,18 @@
+{
+    "Name": "Ristretto",
+    "Version": 1,
+    "Submodules": {
+        "0": {
+            "Name": "Configuration",
+            "Path": "~/.config/ristretto/"
+        },
+        "1": {
+            "Name": "Local Data",
+            "Path": "~/.local/share/ristretto"
+        }
+    },
+    "Category": "Lightweight picture-viewer",
+    "Description": "Ristretto is a fast and lightweight picture-viewer for the Xfce desktop environment.",
+    "Executable": "ristretto",
+    "Website": "http://goodies.xfce.org/projects/applications/ristretto"
+}

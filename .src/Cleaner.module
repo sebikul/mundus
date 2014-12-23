@@ -1,0 +1,177 @@
+' Gambas module file
+
+' Mundus
+' Copyright(C)2012 sebikul <sebikul@gmail.com>
+
+' This program is free software: you can redistribute it and/or modify
+' it under the terms of the GNU General Public License as published by
+' the Free Software Foundation, either version 3 of the License, or
+' (at your option) any later version.
+
+' This program is distributed in the hope that it will be useful,
+' but WITHOUT ANY WARRANTY; without even the implied warranty of
+' MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+' GNU General Public License for more details.
+
+' You should have received a copy of the GNU General Public License
+' along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+Private iDepth As Integer
+
+Private Function CleanDirectories(sPath As String) As Boolean
+
+  Dim sDirectory As String
+
+  Dim bError As Boolean
+
+  If Not Exist(sPath) Then Return False
+
+  For Each sDirectory In Dir(sPath, Null, gb.Directory)
+
+    sDirectory = sPath &/ sDirectory
+
+    Print Subst("Cleaning directory &1\t", sDirectory),
+
+    If Exist(sDirectory) Then Try Rmdir sDirectory
+
+    If Not Error Then
+      Print ("Done")
+
+    Else
+
+      Select Case Error.Code
+        Case 43
+          Message.Warning(Subst(("Access forbiden. You can't access &1"), sDirectory))
+
+        Case 42, 70
+          Print ("Directory has content")
+
+          Execute(sDirectory)
+
+          Print Subst("Deleting directory &1\t", sDirectory),
+          Rmdir sDirectory
+          Print ("Done")
+
+        Case 49
+          Try Kill sDirectory
+
+        Case Else
+          Message.Error(Error.Code & " - " & Error.Text)
+          bError = True
+          Print ("Failed")
+      End Select
+
+    Endif
+
+  Next
+
+  Return (Not bError)
+
+End
+
+Private Function CleanFiles(sPath As String) As Boolean
+
+  Dim sFile As String
+
+  Dim bError As Boolean
+
+  If Not Exist(sPath) Then Return False
+
+  For Each sFile In Dir(sPath, Null, gb.File)
+
+    sFile = sPath &/ sFile
+
+    Print Subst("Cleaning file &1\t", sFile),
+
+    If Not Access(sFile, gb.Write) Then
+      Message.Warning(Subst(("Access forbiden. You don't have write permissions on &1"), sFile))
+      bError = True
+      Continue
+    Endif
+
+    Try Kill sFile
+
+    'TODO: Error codes
+    If Error And Error.Code = 43 Then
+      Message.Warning(Subst(("Access forbiden. You don't have write permissions on &1"), sFile))
+      'Print
+    Else If Error Then
+
+      Message.Error(Error.Code & " - " & Error.Text)
+      bError = True
+      Print ("Failed")
+    Else
+      Print ("Done")
+    Endif
+
+  Next
+
+  Return (Not bError)
+
+End
+
+Public Function Clean(sPath As String, Optional bCleanRoot As Boolean = True) As Boolean
+
+  Select Case sPath
+
+    Case User.Home
+      Return
+
+    Case User.Home &/ ".config"
+      Return
+
+    Case User.Home &/ ".local"
+      Return
+
+  End Select
+
+  iDepth = 1
+
+  Return Execute(sPath, bCleanRoot)
+
+End
+
+Private Function Execute(sPath As String, Optional bCleanRoot As Boolean = True) As Boolean
+
+  If Not Access(sPath, gb.Write) Then Return False
+
+  If IsDir(sPath) Then
+
+    Inc iDepth
+
+    If Not CleanFiles(sPath) Or Not CleanDirectories(sPath) Then
+      Message.Error(Subst(("There was an error while cleaning the directory &1.\n You may check the logs for further information. " &
+        "If this is a bug, please report it."), sPath))
+      Return False
+    Endif
+
+    Dec iDepth
+
+    If bCleanRoot And iDepth = 1 Then
+      Print Subst(("Deleting directory &1\t"), sPath),
+      Try Rmdir sPath
+      Print ("Done")
+    Endif
+
+    Return True
+
+  Else
+
+    Print Subst(("Cleaning file &1\t"), sPath),
+
+    Try Kill sPath
+
+    If Error Then
+      Message.Error(Error.Code & " - " & Error.Text)
+      Print ("Failed")
+      Return False
+
+    Else
+
+      Print ("Done")
+      Return True
+
+    Endif
+  Endif
+
+End

@@ -1,0 +1,15 @@
+{
+    "Name": "Avidemux",
+    "Category": "Video Editor",
+    "Description": "Free video editor designed for simple cutting, filtering and encoding tasks.",
+    "Submodules": {
+        "0": {
+            "Path": "~/.avidemux",
+            "Name": "Configuration",
+            "Description": "Configuration Files"
+        }
+    },
+    "Executable": "avidemux",
+    "Website": "http://avidemux.sourceforge.net",
+    "Version": 1
+}

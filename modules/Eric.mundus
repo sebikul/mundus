@@ -1,0 +1,14 @@
+{
+    "Name": "Eric",
+    "Version": 1,
+    "Executable": "eric4|eric5|eric",
+    "Website": "http://eric-ide.python-projects.org",
+    "Category": "Integrated Development Environment",
+    "Submodules": {
+        "0": {
+            "Name": "Eric5 Configuration",
+            "Path": "~/.config/Eric5/"
+        }
+    },
+    "Description": "Eric is a full featured Python and Ruby editor and IDE, written in python."
+}

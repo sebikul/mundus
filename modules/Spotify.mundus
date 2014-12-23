@@ -1,0 +1,21 @@
+{
+    "Name": "Spotify",
+    "Category": "Music streaming",
+    "Description": "Spotify is an award-winning digital music service that gives you on-demand access to millions of tracks.",
+    "Submodules": {
+        "0": {
+            "Path": "~/.config/spotify",
+            "Name": "Configuration & Profiles",
+            "Description": "Configuration Files, account information, etc.",
+            "Warning": "This folder contains personal data. Once removed it cannot be recovered. You will need to login again."
+        },
+        "1": {
+            "Path": "~/.cache/spotify",
+            "Name": "Downloaded Cache",
+            "Description": "Filled over time to save bandwidth"
+        }
+    },
+    "Executable": "spotify",
+    "Website": "http://www.spotify.com",
+    "Version": 1
+}

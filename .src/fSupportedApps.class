@@ -1,0 +1,69 @@
+' Gambas class file
+
+' Mundus
+' Copyright(C)2012 sebikul <sebikul@gmail.com>
+
+' This program is free software: you can redistribute it and/or modify
+' it under the terms of the GNU General Public License as published by
+' the Free Software Foundation, either version 3 of the License, or
+' (at your option) any later version.
+
+' This program is distributed in the hope that it will be useful,
+' but WITHOUT ANY WARRANTY; without even the implied warranty of
+' MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+' GNU General Public License for more details.
+
+' You should have received a copy of the GNU General Public License
+' along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+Public Sub Form_Open()
+
+  Main.Settings.Read(fSupportedApps)
+  LoadApplications()
+
+End
+
+Private Sub LoadApplications()
+
+  Dim mModule As Module
+
+  Dim pPic As Picture
+
+  ivAppList.Clear()
+
+  For Each mModule In Modules.All
+
+    pPic = Icons[mModule.Name]
+
+    ivAppList.Add(mModule.Name, mModule.Name, pPic)
+
+  Next
+  Picture.Flush()
+
+End
+
+Public Sub Form_Close()
+
+  Main.Settings.Write(fSupportedApps)
+
+  ivAppList.Clear()
+
+End
+
+Public Sub Form_KeyPress()
+
+  If Key.Code = Key.Escape Then Me.Close
+
+End
+
+Public Sub ivAppList_Activate()
+
+  Dim mModule As Module
+
+  mModule = Modules[ivAppList.Key]
+
+  If Not mModule.Website Then Return
+
+  Try Desktop.Open(mModule.Website)
+
+End

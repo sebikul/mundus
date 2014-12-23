@@ -1,0 +1,22 @@
+{
+    "Name": "VirtualBox",
+    "Category": "Cross-platform virtualization application",
+    "Description": "VirtualBox is a general-purpose full virtualizer for x86 hardware, targeted at server, desktop and embedded use.",
+    "Submodules": {
+        "0": {
+            "Path": "~/.VirtualBox",
+            "Name": "Virtual Machines configuration",
+            "Description": "Holds the manager configuration and all the VMs configuration files.",
+            "Warning": "You will need to reconfigure your images to work."
+        },
+        "1": {
+            "Path": "~/VirtualBox VMs",
+            "Name": "Virtual Machines",
+            "Description": "Stores all the virtual machines images.",
+            "Warning": "You will lose all your virtual machines!"
+        }
+    },
+    "Executable": "virtualbox",
+    "Website": "http://www.virtualbox.org",
+    "Version": 1
+}

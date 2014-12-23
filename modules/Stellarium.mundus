@@ -1,0 +1,18 @@
+{
+    "Name": "Stellarium",
+    "Category": "Planetarium application",
+    "Description": "Stellarium is a free open source planetarium for your computer. It shows a realistic sky in 3D, just like what you see with the naked eye, binoculars or a telescope.",
+    "Submodules": {
+        "0": {
+            "Path": "~/.stellarium",
+            "Name": "Configuration"
+        },
+        "1": {
+            "Path": "~/.cache/stellarium",
+            "Name": "Cache"
+        }
+    },
+    "Executable": "stellarium",
+    "Website": "http://www.stellarium.org",
+    "Version": 1
+}

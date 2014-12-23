@@ -1,0 +1,179 @@
+' Gambas module file
+
+' Mundus
+' Copyright(C)2012 sebikul <sebikul@gmail.com>
+
+' This program is free software: you can redistribute it and/or modify
+' it under the terms of the GNU General Public License as published by
+' the Free Software Foundation, either version 3 of the License, or
+' (at your option) any later version.
+
+' This program is distributed in the hope that it will be useful,
+' but WITHOUT ANY WARRANTY; without even the implied warranty of
+' MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+' GNU General Public License for more details.
+
+' You should have received a copy of the GNU General Public License
+' along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+Property Read Haslibnotify As Boolean
+
+Private Enum URGENCY_LOW, URGENCY_NORMAL, URGENCY_CRITICAL
+
+Property Urgency As Integer
+Property Expire As Integer
+Property Icon As String
+Property Title As String
+Property Body As String
+
+Private $iUrgency As Integer
+Private $iExpire As Integer
+Private $sIcon As String
+Private $sTitle As String
+Private $sBody As String
+
+Public Sub _init()
+
+  Defaults()
+
+End
+
+Public Function _call(sBody As String) As Boolean
+
+  If Not Me.Haslibnotify Then Return
+
+  $sBody = sBody
+
+  If Not Exist(Main.PATH_CONFIG &/ "icon.png") Then Copy "icon.png" To Main.PATH_CONFIG &/ "icon.png"
+
+  Return ExecuteNotify()
+
+End
+
+Private Function ExecuteNotify() As Boolean
+
+  Dim aCommand As New String[]
+
+  With aCommand
+
+    .Add("notify-send")
+
+    .Add($sTitle)
+
+    .Add($sBody)
+
+    .Add("-t")
+    .Add($iExpire)
+
+    .Add("-i")
+    .Add($sIcon)
+
+    .Add("-u")
+    .Add(GetUrgency())
+
+  End With
+
+  Defaults()
+
+  ' Debug "Executing " & aCommand.Join(" ")
+  Exec aCommand Wait
+
+  Return (Not Process.LastValue)
+
+End
+
+Private Function GetUrgency() As String
+
+  Select Case $iUrgency
+
+    Case URGENCY_LOW
+      Return "low"
+
+    Case URGENCY_NORMAL
+      Return "normal"
+
+    Case URGENCY_CRITICAL
+      Return "critical"
+
+  End Select
+
+End
+
+Private Sub Defaults()
+
+  $iUrgency = URGENCY_NORMAL
+  $iExpire = 5000
+  $sIcon = Main.PATH_CONFIG &/ "icon.png"
+  $sTitle = "Mundus"
+
+End
+
+Private Function Haslibnotify_Read() As Boolean
+
+  Return Main.CheckProgram("notify-send")
+
+End
+
+Private Function Body_Read() As String
+
+  Return $sBody
+
+End
+
+Private Sub Body_Write(Value As String)
+
+  $sBody = Value
+
+End
+
+Private Function Title_Read() As String
+
+  Return $sTitle
+
+End
+
+Private Sub Title_Write(Value As String)
+
+  $sTitle = Value
+
+End
+
+Private Function Icon_Read() As String
+
+  Return $sIcon
+
+End
+
+Private Sub Icon_Write(Value As String)
+
+  If Not Exist(Value) Then Return
+
+  $sIcon = Value
+
+End
+
+Private Function Expire_Read() As Integer
+
+  Return $iExpire
+
+End
+
+Private Sub Expire_Write(Value As Integer)
+
+  $iExpire = Value
+
+End
+
+Private Function Urgency_Read() As Integer
+
+  Return $iUrgency
+
+End
+
+Private Sub Urgency_Write(Value As Integer)
+
+  If Value < 0 Or Value > 2 Then Return
+
+  $iUrgency = Value
+
+End

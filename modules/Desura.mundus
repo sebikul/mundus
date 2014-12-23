@@ -1,0 +1,15 @@
+{
+    "Name": "Desura",
+    "Category": "Digital Distribution Service",
+    "Description": "Desura is a community driven digital distribution service for gamers, putting the best games, mods and downloadable content from developers at gamers fingertips, ready to buy and play.",
+    "Submodules": {
+        "0": {
+            "Path": "~/.desura",
+            "Name": "Configuration",
+            "Description": "Configuration Files"
+        }
+    },
+    "Executable": "desura",
+    "Website": "http://www.desura.com",
+    "Version": 1
+}

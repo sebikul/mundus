@@ -1,0 +1,31 @@
+{
+    "Name": "Transmission",
+    "Category": "BitTorrent Client",
+    "Description": "Transmission is a BitTorrent client which features a simple interface on top of a cross-platform back-end.",
+    "Submodules": {
+        "0": {
+            "Path": "~/.config/transmission",
+            "Name": "Configuration",
+            "Warning": "You will lose your download list!"
+        },
+        "1": {
+            "Path": "~/.cache/transmission",
+            "Name": "Cache"
+        },
+        "2": {
+            "Name": "Daemon Configuration",
+            "Path": "~/.config/transmission-daemon"
+        },
+        "3": {
+            "Name": "Remote Configuration",
+            "Path": "~/.config/transmission-remote-gtk"
+        },
+        "4": {
+            "Name": "Remote GUI Configuration",
+            "Path": "~/.config/Transmission Remote GUI/"
+        }
+    },
+    "Executable": "transmission|transmission-qt|transmission-gtk|transmission-cli|transmission-daemon",
+    "Website": "http://www.transmissionbt.com",
+    "Version": 3
+}

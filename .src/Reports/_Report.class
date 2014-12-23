@@ -1,0 +1,181 @@
+' Gambas class file
+
+' Mundus
+' Copyright(C)2012 sebikul <sebikul@gmail.com>
+
+' This program is free software: you can redistribute it and/or modify
+' it under the terms of the GNU General Public License as published by
+' the Free Software Foundation, either version 3 of the License, or
+' (at your option) any later version.
+
+' This program is distributed in the hope that it will be useful,
+' but WITHOUT ANY WARRANTY; without even the implied warranty of
+' MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+' GNU General Public License for more details.
+
+' You should have received a copy of the GNU General Public License
+' along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+Private $sPath As String
+Private $bNew As Boolean
+
+Private $cAtomSession As New Collection
+
+Private $cReport As Collection
+
+Public Sub _new(Optional sPath As String)
+
+  If sPath Then
+
+    If Not Exist(sPath) Then
+      Message.Error(("The report does no exist."))
+      Return
+    Else
+      $cReport = JSON.Decode(File.Load(sPath))
+    Endif
+
+  Else
+
+    $bNew = True
+    $cReport = New Collection
+  Endif
+
+End
+
+Public Function _get(sKey As String) As Variant
+
+  If $cReport.Exist(sKey) Then Return $cReport[sKey]
+
+End
+
+Private Function _Format() As String
+
+  Dim Module As Collection
+  Dim cCleaned, cReport As New Collection
+  Dim iCount As Integer
+
+  cReport.Add(Application.Version, "Version")
+  cReport.Add(Now, "Date")
+
+  cReport.Add(["Files": Totals(Report.FILES), "Space": Totals(Report.SIZE), "Runs": Totals(Report.RUNS)], "Totals")
+
+  If $cReport.Length > 0 Then
+
+    iCount = 0
+
+    For Each Module In $cReport
+      cCleaned.Add(["Module": $cReport.Key,
+        "Space": Module["Size"],
+        "Files": Module["Files"],
+        "Runs": Module["Runs"]], iCount)
+
+      Inc iCount
+    Next
+
+    cReport.Add(cCleaned, "Modules")
+
+  Endif
+
+  Return JSON.Encode(cReport)
+
+End
+
+Public Sub Save()
+
+  Dim sPath As String
+
+  If Not Report.Enabled Then Return
+
+  If $cReport.Count = 0 Then Return
+
+  If $bNew Then
+    sPath = Main.PATH_REPORTS &/ Format$(Now, "yyyy-mm-dd_hh-nn-ss.log") '$sPath
+  Else
+    sPath = $sPath
+  Endif
+
+  If Not Access(File.Dir(sPath), gb.Write) Then
+    Message.Error(("You don't have permission to save this report."))
+    Return
+  Endif
+
+  ''TODO
+  File.Save(sPath, _Format())
+
+End
+
+Public Sub Add(mModule As Module, iSize As Integer, iFiles As Integer)
+
+  If Not Report.Enabled Then Return
+
+  If $cAtomSession.Count > 0 Then
+    Message.Warning(("There was an error saving one of the reports. The last clean won't be saved."))
+  Endif
+
+  $cAtomSession = ["Module": mModule.Name, "Size": iSize, "Files": iFiles]
+
+End
+
+Public Sub Discard()
+
+  If Not Report.Enabled Then Return
+
+  $cAtomSession.Clear()
+
+End
+
+Private Sub _SaveAtomic()
+
+  If Not Report.Enabled Then Return
+
+  If $cReport.Exist($cAtomSession["Module"]) Then
+
+    $cReport[$cAtomSession["Module"]]["Size"] += $cAtomSession["Size"]
+    $cReport[$cAtomSession["Module"]]["Files"] += $cAtomSession["Files"]
+    Inc $cReport[$cAtomSession["Module"]]["Runs"]
+  Else
+    $cReport.Add(["Size": $cAtomSession["Size"], "Files": $cAtomSession["Files"], "Runs": 1], $cAtomSession["Module"])
+  Endif
+
+  $cAtomSession.Clear()
+
+End
+
+Public Sub Confirm()
+
+  _SaveAtomic()
+
+End
+
+Public Sub Clear()
+
+  $cAtomSession.Clear()
+
+  $cReport.Clear()
+
+End
+
+Public Function Totals(sKey As String) As Variant
+
+  Dim iTotal As Integer
+  Dim cModule As Collection
+
+  For Each cModule In $cReport
+    iTotal += cModule[sKey]
+  Next
+
+  Return iTotal
+
+End
+
+Public Function GetAtomSize() As Integer
+
+  If $cAtomSession.Exist("Size") Then Return $cAtomSession["Size"]
+
+End
+
+Public Function GetAtomFiles() As Integer
+
+  If $cAtomSession.Exist("Files") Then Return $cAtomSession["Files"]
+
+End

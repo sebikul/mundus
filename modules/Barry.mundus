@@ -1,0 +1,17 @@
+{
+    "Name": "Barry",
+    "Category": "Linux Blackberry Manager",
+    "Description": "Open Source application that will provide synchronization, backup, restore and program management for BlackBerry devices.",
+    "Submodules": {
+        "0": {
+            "Path": "~/.barry",
+            "Name": "Configuration",
+            "Description": "Configuration files and backups",
+            "Warning": "Any previously made backups will be permanently removed!"
+        }
+    },
+    "Executable": "barrybackup",
+    "Website": "http://www.netdirect.ca/software/packages/barry",
+    "Warning": "Please be sure to have a backup of your backups ;-). You never know when you may need them.",
+    "Version": 1
+}

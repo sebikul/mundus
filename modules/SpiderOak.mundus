@@ -1,0 +1,13 @@
+{
+    "Name": "SpiderOak",
+    "Category": "Online backup service",
+    "Executable": "SpiderOak",
+    "Website": "https://spideroak.com",
+    "Submodules": {
+        "0": {
+            "Name": "Configuration",
+            "Path": "~/.SpiderOak"
+        }
+    },
+    "Version": 1
+}

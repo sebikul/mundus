@@ -1,0 +1,50 @@
+# Gambas Form File 3.0
+
+{ Form Form
+  MoveScaled(0,0,87,63)
+  Text = ("Welcome to Mundus")
+  Icon = Picture["stock/mundus.xpm"]
+  Resizable = False
+  SkipTaskbar = True
+  Arrangement = Arrange.Vertical
+  AutoResize = True
+  Spacing = True
+  Margin = True
+  { HBox1 HBox
+    MoveScaled(0,0,87,19)
+    AutoResize = True
+    Spacing = True
+    { PictureBox1 PictureBox
+      MoveScaled(0,0,18.2857,18.2857)
+      Expand = True
+      Picture = Picture["icon.png"]
+    }
+    { lblTitle Label
+      MoveScaled(20,1,53,13)
+      Font = Font["+9"]
+      AutoResize = True
+    }
+  }
+  { Separator2 Separator
+    MoveScaled(1,18,13,5)
+    Expand = True
+  }
+  { Label2 Label
+    MoveScaled(1,22,15,4)
+    Font = Font["Arial,Bold,+2"]
+    Text = ("Warning:")
+  }
+  { TextLabel1 TextLabel
+    MoveScaled(1,28,84,9)
+    AutoResize = True
+    Text = ("This tool can mess up your configuration if misused, please be sure when pressing the \"Clean\" button. \nAlways make a backup if you think you may later need that data.\n\nI will not be responsible for any data loss that this application may incur.\n\n")
+  }
+  { Panel1 Panel
+    MoveScaled(4,42,11,8)
+    Expand = True
+  }
+  { btnClose Button
+    MoveScaled(66,57,16,4)
+    Text = ("Close")
+  }
+}

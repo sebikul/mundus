@@ -1,0 +1,18 @@
+{
+    "Name": "Exaile",
+    "Category": "Multimedia Player",
+    "Description": "Exaile is a music manager and player for GTK+ written in Python. It incorporates automatic fetching of album art, lyrics fetching, Last.fm scrobbling, support for many portable media players, internet radio such as shoutcast, and tabbed playlists.",
+    "Submodules": {
+        "0": {
+            "Path": "~/.config/exaile",
+            "Name": "Configuration"
+        },
+        "1": {
+            "Path": "~/.cache/exaile",
+            "Name": "Cache"
+        }
+    },
+    "Executable": "exaile",
+    "Website": "http://www.exaile.org",
+    "Version": 1
+}

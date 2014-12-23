@@ -1,0 +1,19 @@
+{
+    "Name": "Ubuntu Software Center",
+    "Category": "Software management utility",
+    "Description": "The Ubuntu Software Centre gives you instant access to thousands of free and open-source applications. And now you can buy apps from some of the leading providers too. All our software is easy to find and install so you can have a customised desktop that suits you in no time.",
+    "Submodules": {
+        "0": {
+            "Path": "~/.config/software-center",
+            "Name": "Configuration",
+            "Description": "Configuration files"
+        },
+        "1": {
+            "Path": "~/.cache/software-center",
+            "Name": "Cache"
+        }
+    },
+    "Executable": "software-center",
+    "Website": "http://www.ubuntu.com/ubuntu/features/ubuntu-software-centre",
+    "Version": 1
+}

@@ -1,0 +1,18 @@
+{
+    "Name": "Anjuta DevStudio",
+    "Category": "Integrated Development Environment",
+    "Description": "Anjuta DevStudio is a versatile software development studio featuring a number of advanced programming facilities including project management, application wizard, interactive debugger, source editor, version control, GUI designer, profiler and many more tools.",
+    "Submodules": {
+        "0": {
+            "Path": "~/.config/anjuta",
+            "Name": "Dummy files"
+        },
+        "1": {
+            "Path": "~/.cache/anjuta",
+            "Name": "Cache"
+        }
+    },
+    "Executable": "anjuta",
+    "Website": "http://projects.gnome.org/anjuta",
+    "Version": 1
+}

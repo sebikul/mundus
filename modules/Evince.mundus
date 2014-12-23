@@ -1,0 +1,15 @@
+{
+    "Name": "Evince",
+    "Category": "Document Viewer",
+    "Description": "Evince is a document viewer for multiple document formats.",
+    "Submodules": {
+        "0": {
+            "Path": "~/.config/evince",
+            "Name": "Configuration",
+            "Description": "Configuration Files"
+        }
+    },
+    "Executable": "evince",
+    "Website": "http://projects.gnome.org/evince",
+    "Version": 1
+}

@@ -1,0 +1,14 @@
+{
+    "Name": "Code::Blocks",
+    "Category": "C++ IDE",
+    "Description": "Code::Blocks is a free C++ IDE built to meet the most demanding needs of its users. It is designed to be very extensible and fully configurable.",
+    "Submodules": {
+        "0": {
+            "Path": "~/.codeblocks",
+            "Name": "Configuration"
+        }
+    },
+    "Executable": "codeblocks",
+    "Website": "http://www.codeblocks.org",
+    "Version": 1
+}

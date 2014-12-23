@@ -1,0 +1,22 @@
+{
+    "Name": "0 A.D.",
+    "Category": "RTS Game",
+    "Description": "A free, open-source game of ancient warfare",
+    "Submodules": {
+        "0": {
+            "Path": "~/.config/0ad",
+            "Name": "Configuration"
+        },
+        "1": {
+            "Path": "~/.cache/0ad",
+            "Name": "Game Cache"
+        },
+        "2": {
+            "Path": "~/.local/share/0ad",
+            "Name": "Saves & Screenshots"
+        }
+    },
+    "Executable": "0ad",
+    "Website": "http://wildfiregames.com/0ad",
+    "Version": 1
+}

@@ -1,0 +1,46 @@
+# Gambas Form File 3.0
+
+{ Form Form
+  MoveScaled(0,0,100,79)
+  Text = ("Mundus Reports")
+  Icon = Picture["icon.png"]
+  Utility = True
+  Arrangement = Arrange.Fill
+  AutoResize = True
+  { mFile Menu
+    Text = ("File")
+    { mLoadFromFile Menu
+      Text = ("Load Report From File")
+    }
+    { mReload Menu
+      Text = ("Reload Reports")
+    }
+    { mFileSeparator Menu
+    }
+    { mClose Menu
+      Text = ("Close")
+    }
+  }
+  { mEdit Menu
+    Text = ("Edit")
+    { mDelete Menu
+      Text = ("Delete Report")
+    }
+  }
+  { HSplit1 HSplit
+    MoveScaled(9,5,79,61)
+    Expand = True
+    { tvReports TreeView
+      MoveScaled(3,9,17,29)
+      Expand = True
+      Sorted = True
+    }
+    { txtReport TextArea
+      MoveScaled(37,8,25,30)
+      Expand = True
+      ReadOnly = True
+      Wrap = True
+      ScrollBar = Scroll.Vertical
+    }
+  }
+}

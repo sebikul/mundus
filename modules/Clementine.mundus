@@ -1,0 +1,20 @@
+{
+    "Name": "Clementine",
+    "Category": "Multimedia Player",
+    "Description": "Multiplatform music player. It is inspired by Amarok 1.4, focusing on a fast and easy-to-use interface for searching and playing your music.",
+    "Submodules": {
+        "0": {
+            "Path": "~/.config/Clementine",
+            "Name": "Configuration & Music database",
+            "Description": "Configuration files, song library and album covers",
+            "Warning": "You will need to reconstruct your song database."
+        },
+        "1": {
+            "Path": "~/.cache/Clementine",
+            "Name": "Cache"
+        }
+    },
+    "Executable": "clementine",
+    "Website": "http://www.clementine-player.org",
+    "Version": 1
+}

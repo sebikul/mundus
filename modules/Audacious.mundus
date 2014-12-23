@@ -1,0 +1,18 @@
+{
+    "Name": "Audacious",
+    "Category": "Multimedia Player",
+    "Description": "Audacious is an open source audio player.It plays your music how you want it, without stealing away your computer’s resources from other tasks.",
+    "Submodules": {
+        "0": {
+            "Path": "~/.config/audacious",
+            "Name": "Configuration"
+        },
+        "1": {
+            "Path": "~/.cache/audacious",
+            "Name": "Cache"
+        }
+    },
+    "Executable": "audacious",
+    "Website": "http://audacious-media-player.org",
+    "Version": 1
+}

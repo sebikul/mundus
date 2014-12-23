@@ -1,0 +1,21 @@
+{
+    "Name": "Gwibber",
+    "Category": "Microblogging Client",
+    "Description": "Gwibber brings the most popular social networking web services to your desktop and gives you the ability to control how you communicate.",
+    "Submodules": {
+        "0": {
+            "Path": "~/.config/gwibber",
+            "Name": "Configuration & Accounts",
+            "Description": "Stores your accounts login information and your configuration.",
+            "Warning": "You will need to login again in all your accounts!"
+        },
+        "1": {
+            "Path": "~/.cache/gwibber",
+            "Name": "Logs & Temporary Data",
+            "Description": "Error logs and temporary downloaded Avatars."
+        }
+    },
+    "Executable": "gwibber",
+    "Website": "http://gwibber.com",
+    "Version": 1
+}

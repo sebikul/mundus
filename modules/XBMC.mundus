@@ -1,0 +1,14 @@
+{
+    "Name": "XBMC",
+    "Category": "Xbox Media Center",
+    "Description": "XBMC is an award-winning free and open source (GPL) software media player and entertainment hub for digital media.",
+    "Submodules": {
+        "0": {
+            "Path": "~/.xbmc",
+            "Name": "Configuration"
+        }
+    },
+    "Executable": "xbmc",
+    "Website": "http://xbmc.org",
+    "Version": 1
+}

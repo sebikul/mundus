@@ -1,0 +1,15 @@
+{
+    "Name": "Thunderbird",
+    "Category": "Email Client",
+    "Description": "Thunderbird is a free email application that's easy to set up and customize - and it's loaded with great features!",
+    "Submodules": {
+        "0": {
+            "Path": "~/.thunderbird",
+            "Name": "Profiles folder",
+            "Warning": "You will lose all your bookmarks, configuration, addons, etc."
+        }
+    },
+    "Executable": "thunderbird",
+    "Website": "http://www.mozilla.org/thunderbird",
+    "Version": 1
+}

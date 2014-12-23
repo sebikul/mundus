@@ -1,0 +1,4 @@
+?package(mundus):needs="X11" section="Applications/System/Administration"\
+title="Mundus"\
+command="mundus"\
+icon="/usr/share/pixmaps/mundus.svg"

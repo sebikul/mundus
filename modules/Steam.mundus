@@ -1,0 +1,16 @@
+{
+    "Name": "Steam",
+    "Version": 1,
+    "Category": "Digital distribution client",
+    "Submodules": {
+        "0": {
+            "Name": "Local package",
+            "Description": "It contains the Steam Client (installed by the bootstrap package) and any downloaded content (including games).",
+            "Path": "~/.local/share/Steam",
+            "Warning": "Steam will need to reinstall itself in your /home folder!"
+        }
+    },
+    "Description": "Steam is a digital distribution, digital rights management, multiplayer and communications platform.",
+    "Executable": "steam",
+    "Website": "http://steampowered.com/"
+}

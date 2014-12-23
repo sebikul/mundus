@@ -1,0 +1,18 @@
+{
+    "Name": "Medit",
+    "Version": 1,
+    "Submodules": {
+        "0": {
+            "Name": "Configuration",
+            "Path": "~/.local/share/medit-1/"
+        },
+        "1": {
+            "Name": "Cache",
+            "Path": "~/.cache/medit-1/"
+        }
+    },
+    "Category": "Text Editor",
+    "Description": "medit is a programming and around-programming text editor.",
+    "Executable": "medit",
+    "Website": "http://mooedit.sourceforge.net"
+}

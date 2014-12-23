@@ -1,0 +1,13 @@
+{
+    "Name": "gSharkDown",
+    "Category": "Text Editor",
+    "Submodules": {
+        "0": {
+            "Path": "~/.gsharkdown",
+            "Name": "Configuration"
+        }
+    },
+    "Executable": "gsharkdown",
+    "Website": "http://gsharkdown.bultux.org",
+    "Version": 1
+}

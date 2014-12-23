@@ -1,0 +1,14 @@
+{
+    "Name": "F-Spot",
+    "Category": "Image Organizer",
+    "Description": "F-Spot is a cross platform application for organizing thousands of photos. It shuns 'organizing in folders.' instead, metadata is the basis for viewing and drilling down the collection. Adding and maintaining metadata is easy and enjoyable in F-Spot.",
+    "Submodules": {
+        "0": {
+            "Path": "~/.config/f-spot",
+            "Name": "Configuration"
+        }
+    },
+    "Executable": "f-spot",
+    "Website": "http://f-spot.org",
+    "Version": 1
+}

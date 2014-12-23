@@ -1,0 +1,30 @@
+{
+    "Name": "Empathy",
+    "Category": "Messaging Application",
+    "Description": "Empathy is a messaging program which supports text, voice, and video chat and file transfers over many different protocols.",
+    "Submodules": {
+        "0": {
+            "Path": "~/.config/Empathy",
+            "Name": "Configuration",
+            "Description": "Configuration Files"
+        },
+        "1": {
+            "Path": "~/.cache/telepathy",
+            "Name": "Session Cache",
+            "Description": "Downloaded data used to speed up the application"
+        },
+        "2": {
+            "Path": "~/.purple",
+            "Name": "libpurple Configuration",
+            "Description": "Settings, logs, accounts, etc of your messenger account.",
+            "Warning": "This folder contains your messenger account!"
+        },
+        "3": {
+            "Path": "~/.mission-control",
+            "Name": "Other Logs"
+        }
+    },
+    "Executable": "empathy",
+    "Website": "http://live.gnome.org/Empathy",
+    "Version": 1
+}

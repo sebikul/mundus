@@ -1,0 +1,15 @@
+{
+    "Name": "Xine",
+    "Category": "Multimedia Player",
+    "Description": "xine is a free multimedia player. It plays back CDs, DVDs, and VCDs. It also decodes multimedia files like AVI, MOV, WMV, and MP3 from local disk drives, and displays multimedia streamed over the Internet.",
+    "Submodules": {
+        "0": {
+            "Path": "~/.xine",
+            "Name": "Configuration",
+            "Description": "Configuration Files"
+        }
+    },
+    "Executable": "xine",
+    "Website": "http://www.xine-project.org",
+    "Version": 1
+}

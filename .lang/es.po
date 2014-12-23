@@ -1,0 +1,569 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-12-23 03:39 UTC\n"
+"PO-Revision-Date: 2012-12-27 23:54+0000\n"
+"Last-Translator: sebikul <Unknown>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2013-07-12 00:44+0000\n"
+"X-Generator: Launchpad (build 16696)\n"
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: mundus-gb 3.6.2\n"
+"PO-Revision-Date: 2014-12-23 04:19 UTC\n"
+"Last-Translator: sebi <sebi@Sebi-Mac>\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: .project:1 fMain.form:63
+msgid "Mundus"
+msgstr "-"
+
+#: .project:2
+msgid "Clean and backup your /home folder from old configuration files created by now uninstalled software."
+msgstr ""
+
+#: Cleaner.module:38
+msgid "Done"
+msgstr "Finalizado"
+
+#: Cleaner.module:44
+msgid "Access forbiden. You can't access &1"
+msgstr "Acceso no permitido. Usted no puede acceder a &1"
+
+#: Cleaner.module:47
+msgid "Directory has content"
+msgstr "El direcotorio tiene contenidos"
+
+#: Cleaner.module:61
+msgid "Failed"
+msgstr "Fallo"
+
+#: Cleaner.module:87
+msgid "Access forbiden. You don't have write permissions on &1"
+msgstr "Acceso no permitido. Usted no tiene permisos de escritura en &1"
+
+#: Cleaner.module:151
+msgid "Deleting directory &1\t"
+msgstr "Eliminando directorio &1\t"
+
+#: Cleaner.module:160
+msgid "Cleaning file &1\t"
+msgstr "Limpiando archivo &1\t"
+
+#: Main.module:36
+msgid "coreutils not found"
+msgstr ""
+
+#: Main.module:37
+msgid "You need to install coreutils"
+msgstr "Debe instalar coreutils"
+
+#: Main.module:42
+msgid "Running as root is not allowed!"
+msgstr ""
+
+#: Main.module:198 fBackups.form:59 fReports.form:38 fStartUp.form:66
+msgid "Close"
+msgstr "Cerrar"
+
+#: Main.module:198
+msgid "Continue anyway"
+msgstr "Continuar de todos modos"
+
+#: Main.module:198
+msgid "Mundus is already running!"
+msgstr "¡Mundus ya se está ejecutando!"
+
+#: Modules.module:48
+msgid "Loading Modules"
+msgstr "Cargando módulos"
+
+#: Modules.module:54
+msgid "Loading module: &1"
+msgstr "Cargando módulo: &1"
+
+#: _Report.class:31
+msgid "The report does no exist."
+msgstr "El reporte no existe."
+
+#: _Report.class:98
+msgid "You don't have permission to save this report."
+msgstr "No tiene permisos para guardar este reporte."
+
+#: _Report.class:112
+msgid "There was an error saving one of the reports. The last clean won't be saved."
+msgstr "Ocurrió un error al guardar uno de los reportes. La última limpieza no será guardada."
+
+#: fAbout.class:24
+msgid "<h2>Mundus Home Folder Cleaner v&1</h2><p><h4> by sebikul</h4><p><p>Includes icon from the Faenza Icons Theme"
+msgstr "<h2>Mundus Home Folder Cleaner v&1</h2><p><h4> por sebikul</h4><p><p>Incluye iconos de Faenza Icons Theme"
+
+#: fAbout.form:9
+msgid "About"
+msgstr "Acerca de"
+
+#: fAbout.form:17 fBackups.class:216
+msgid "Ok"
+msgstr "-"
+
+#: fBackups.class:99
+msgid "Not Supported"
+msgstr "No soportada"
+
+#: fBackups.class:152
+msgid "Backup Deletion"
+msgstr "Eliminación de copia de seguridad"
+
+#: fBackups.class:153
+msgid "Are you sure you want to delete this backup?"
+msgstr "¿Esta seguro de que desea eliminar esta copia de respaldo?"
+
+#: fBackups.class:153 fSettings.form:66
+msgid "No"
+msgstr "No"
+
+#: fBackups.class:153 fMain.class:277 fSettings.form:66
+msgid "Yes"
+msgstr "Si"
+
+#: fBackups.class:160
+msgid "The backup does not exist or you do not have permission to delete it."
+msgstr "Esta copia de seguridad no existe o no tiene permiso para eliminarla."
+
+#: fBackups.class:215
+msgid "Backup restore completed"
+msgstr "Restauración de copia de seguridad completada"
+
+#: fBackups.class:216
+msgid "The backup was successfully restored."
+msgstr "La copia de seguridad fue restaurada correctamente."
+
+#: fBackups.class:222
+msgid "Backup restore failed"
+msgstr "Restauración de copia de seguridad fallida"
+
+#: fBackups.class:227
+msgid "Backup destination already exist"
+msgstr "El destino de la copia de seguridad ya existe"
+
+#: fBackups.class:324
+msgid "You don't have permission to delete &1."
+msgstr "No tiene permisos para eliminar &1."
+
+#: fBackups.class:341
+msgid "Cleaning completed"
+msgstr "Limpieza completada"
+
+#: fBackups.class:342
+msgid "Cleaned &1 backups."
+msgstr "Limpiadas &1 copias de seguridad."
+
+#: fBackups.class:366
+msgid "Saving Mundus Backup"
+msgstr "Guardar un reporte de Mundus"
+
+#: fBackups.class:367
+msgid "gzip Compressed Tarball"
+msgstr "Archivo comprimido con gzip"
+
+#: fBackups.class:373
+msgid "You don't have permission to write &1."
+msgstr "No tiene permisos para escribir &1."
+
+#: fBackups.form:41
+msgid "Mundus Backups"
+msgstr "Archivos de respaldo de Mundus"
+
+#: fBackups.form:49 fMain.form:71 fReports.form:24
+msgid "File"
+msgstr "Archivo"
+
+#: fBackups.form:52
+msgid "Reload Backups"
+msgstr "Recargar archivos de respaldo"
+
+#: fBackups.form:64
+msgid "Actions"
+msgstr "Acciones"
+
+#: fBackups.form:67
+msgid "Clear backups made with previous versions"
+msgstr "Limpiar copas de seguridad realizadas con versiones anteriores"
+
+#: fBackups.form:94
+msgid "Source Version"
+msgstr "Versión de origen"
+
+#: fBackups.form:111
+msgid "Created"
+msgstr "Creado"
+
+#: fBackups.form:128
+msgid "Size"
+msgstr "Tamaño"
+
+#: fBackups.form:148
+msgid "Module"
+msgstr "Módulo"
+
+#: fBackups.form:164
+msgid "Submodule"
+msgstr "Submódulo"
+
+#: fBackups.form:180
+msgid "Path"
+msgstr "El módulo &1 no existe o está dañado."
+
+#: fBackups.form:203
+msgid "Restore"
+msgstr "Restaurar"
+
+#: fBackups.form:209
+msgid "Delete"
+msgstr "Eliminar"
+
+#: fBackups.form:215
+msgid "Save As"
+msgstr ""
+
+#: fBackups.form:221
+msgid "Open"
+msgstr "Abrir"
+
+#: fMain.class:172
+msgid "&1 file"
+msgstr "&1 archivo"
+
+#: fMain.class:172
+msgid "&1 files"
+msgstr "&1 archivos"
+
+#: fMain.class:218
+msgid "No category found"
+msgstr "No se encontro una categoria"
+
+#: fMain.class:261
+msgid "To avoid damage or any undesired behaviour, you need to close the application first."
+msgstr "Para evitar daños o un comportamiento inesperado debe cerrar la aplicación primero."
+
+#: fMain.class:276
+msgid "Cleaning &1"
+msgstr "Limpiando &1"
+
+#: fMain.class:277
+msgid "Are you sure you want to clean &1?"
+msgstr "¿Esta seguro de que desea limpiar &1?"
+
+#: fMain.class:277 fProgress.form:26
+msgid "Cancel"
+msgstr "Cancelar"
+
+#: fMain.class:306
+msgid "module"
+msgstr "módulo"
+
+#: fMain.class:328
+msgid "submodule"
+msgstr "submódulo"
+
+#: fMain.class:333
+msgid "The selected &1 was successfully cleaned."
+msgstr "El &1 seleccionado fue limpiado correctamente."
+
+#: fMain.class:335
+msgid "Successfully cleaned"
+msgstr "Limpiado correctamente"
+
+#: fMain.class:356
+msgid "There was an error while performing the automatic backup. Cleaning aborted."
+msgstr "Ocurrió un error al realizar la copia de seguridad automática. Limpieza abortada."
+
+#: fMain.class:361
+msgid "Automatic backup of &1 skipped, size over maximum."
+msgstr "Copia de seguridad automática de &1 omitida, tamaño sobre el máximo."
+
+#: fMain.class:463
+msgid "The directory was successfully backed up"
+msgstr "El directorio fue respaldado correctamente"
+
+#: fMain.class:496
+msgid "No description included"
+msgstr "No se incluyo una descripcion"
+
+#: fMain.class:518
+msgid "No warnings has been provided"
+msgstr "No se incluyeron advertencias"
+
+#: fMain.form:74
+msgid "Refresh"
+msgstr "Actualizar"
+
+#: fMain.form:83
+msgid "Exit"
+msgstr "Salir"
+
+#: fMain.form:88 fReports.form:43
+msgid "Edit"
+msgstr "Editar"
+
+#: fMain.form:91 fSettings.form:35
+msgid "Settings"
+msgstr "Preferencias"
+
+#: fMain.form:97
+msgid "View"
+msgstr "Ver"
+
+#: fMain.form:100 fSettings.form:143
+msgid "Reports"
+msgstr "Reportes"
+
+#: fMain.form:105 fSettings.form:106
+msgid "Backups"
+msgstr "Archivos de respaldo"
+
+#: fMain.form:110 fSupportedApps.form:8
+msgid "Supported Applications"
+msgstr "Aplicaciones soportadas"
+
+#: fMain.form:116
+msgid "Filter"
+msgstr "Filtrar"
+
+#: fMain.form:120
+msgid "List All Applications"
+msgstr "Listar todas las aplicaciones"
+
+#: fMain.form:131
+msgid "List Installed Applications"
+msgstr "Listar aplicaciones instaladas"
+
+#: fMain.form:137
+msgid "List Uninstalled Applications with Configuration"
+msgstr "Listar aplicaciones desinstaladas con configuración"
+
+#: fMain.form:143
+msgid "Help"
+msgstr "Ayuda"
+
+#: fMain.form:146
+msgid "Show Help"
+msgstr "Mostrar ayuda"
+
+#: fMain.form:151
+msgid "Report a Bug"
+msgstr "Reportar un fallo"
+
+#: fMain.form:160
+msgid "Project Website"
+msgstr "Sitio web del Proyecto"
+
+#: fMain.form:164
+msgid "Project Blog"
+msgstr "Blog del Proyecto"
+
+#: fMain.form:172
+msgid "About Mundus"
+msgstr "Acerca de Mundus"
+
+#: fMain.form:208
+msgid "Clear"
+msgstr "Limpiar"
+
+#: fMain.form:288
+msgid "Installed"
+msgstr "Instalado"
+
+#: fMain.form:298
+msgid "Total Size:"
+msgstr "Tamaño total:"
+
+#: fMain.form:320
+msgid "Has Configuration Files"
+msgstr "Tiene archivos de configuración"
+
+#: fMain.form:330
+msgid "Total Files:"
+msgstr "Archivos totales:"
+
+#: fMain.form:355
+msgid "Clean"
+msgstr "Limpiar"
+
+#: fMain.form:360
+msgid "Preview Files"
+msgstr "Ver archivos"
+
+#: fMain.form:366
+msgid "Backup"
+msgstr "Realizar copia de seguridad"
+
+#: fReports.class:77
+msgid "Mundus v&1"
+msgstr "-"
+
+#: fReports.class:78
+msgid "Project URL: &1"
+msgstr "URL del proyecto: &1"
+
+#: fReports.class:79
+msgid "Date: &1"
+msgstr "Fecha: &1"
+
+#: fReports.class:82
+msgid "Cleaned Modules:"
+msgstr "Módulos limpiados:"
+
+#: fReports.class:93
+msgid "Total files cleaned: &1\n"
+msgstr "Total de archivos limpiados: &1\n"
+
+#: fReports.class:94
+msgid "Total space cleaned: &1\n"
+msgstr "Total de espacio limpiado: &1\n"
+
+#: fReports.class:95
+msgid "Total executions:    &1\n"
+msgstr "Total de ejecuciones:    &1\n"
+
+#: fReports.class:99
+msgid "Per-Module Report\n"
+msgstr "Reporte por módulo\n"
+
+#: fReports.class:105
+msgid "Module:  &1\n"
+msgstr "Módulo: &1\n"
+
+#: fReports.class:106
+msgid "Space Cleaned:  &1\n"
+msgstr "Espacio liberado: &1\n"
+
+#: fReports.class:107
+msgid "Files Cleaned:  &1\n"
+msgstr "Archivos eliminados: &1\n"
+
+#: fReports.class:108
+msgid "Times Executed: &1\n"
+msgstr "Veces ejecutado: &1\n"
+
+#: fReports.class:207
+msgid "Open a Report"
+msgstr "Abrir un reporte"
+
+#: fReports.class:208
+msgid "Mundus JSON Report"
+msgstr "Reporte JSON de Mundus"
+
+#: fReports.class:223
+msgid "The report file is invalid"
+msgstr "Este archivo de reporte es invalido"
+
+#: fReports.form:17
+msgid "Mundus Reports"
+msgstr "Reportes de Mundus"
+
+#: fReports.form:27
+msgid "Load Report From File"
+msgstr "Cargar reporte desde archivo"
+
+#: fReports.form:31
+msgid "Reload Reports"
+msgstr "Recargar reportes"
+
+#: fReports.form:46
+msgid "Delete Report"
+msgstr "Eliminar reporte"
+
+#: fSettings.class:87
+msgid "Are you sure you want to delete all your backups?"
+msgstr "¿Esta seguro de que desea eliminar todas las copias de respaldo?"
+
+#: fSettings.class:96
+msgid "Are you sure you want to delete all your reports?"
+msgstr "¿Esta seguro de que desea eliminar todos los reportes?"
+
+#: fSettings.class:105
+msgid "Are you sure you want to reset the settings to it's default values?"
+msgstr "¿Está seguro de que desea reiniciar la configuración a su valor por defecto?"
+
+#: fSettings.form:49
+msgid "General"
+msgstr "General"
+
+#: fSettings.form:60
+msgid "Automatically expand submodules:"
+msgstr "Expandir submódulos automaticamente:"
+
+#: fSettings.form:78
+msgid "Enable notifications:"
+msgstr "Habilitar notificaciones:"
+
+#: fSettings.form:96
+msgid "Reset Warnings"
+msgstr "Reiniciar advertencias"
+
+#: fSettings.form:102
+msgid "Reset Settings to Default"
+msgstr "Reiniciar la configuración a su valor por defecto"
+
+#: fSettings.form:117
+msgid "Automatically backup when cleaning:"
+msgstr "Realizar una copia de seguridad automaticamente al limpiar:"
+
+#: fSettings.form:134
+msgid "Maximum directory size (KB):"
+msgstr "Tamaño máximo del directorio (KB):"
+
+#: fSettings.form:139
+msgid "Set to 0 to always backup"
+msgstr "Establecer en 0 para siempre realizar una copia de seguridad"
+
+#: fSettings.form:154
+msgid "Enable reports:"
+msgstr "Habilitar reportes:"
+
+#: fSettings.form:164
+msgid "Maintenance"
+msgstr "Mantenimiento"
+
+#: fSettings.form:174
+msgid "Total Backups"
+msgstr "Archivos de respaldo totales:"
+
+#: fSettings.form:191
+msgid "Total Reports"
+msgstr "Reportes totales"
+
+#: fSettings.form:208
+msgid "Clean Backups Folder"
+msgstr "Limpiar carpeta de archivos de respaldo"
+
+#: fSettings.form:214
+msgid "Clean Reports Folder"
+msgstr "Limpiar la carpeta de reportes"
+
+#: fStartUp.class:23
+msgid "Welcome to Mundus &1"
+msgstr "Bianvenido a Mundus &1"
+
+#: fStartUp.form:15
+msgid "Welcome to Mundus"
+msgstr "Bianvenido a Mundus"
+
+#: fStartUp.form:50
+msgid "Warning:"
+msgstr "Advertencia:"
+
+#: fStartUp.form:56
+msgid "This tool can mess up your configuration if misused, please be sure when pressing the \"Clean\" button. \nAlways make a backup if you think you may later need that data.\n\nI will not be responsible for any data loss that this application may incur.\n\n"
+msgstr "Ésta herramienta puede arruinar su configuración si no es usada correctamente, este seguro al presionar el botón de \"Limpiar\". Siempre haga una copia de seguridad si cree que puede necesitar esos datos en un futuro.No seré responsable por cualquier perdida de información que esta aplicación puede llegar a ocasionarle.\n\n"
+

@@ -1,0 +1,14 @@
+{
+    "Name": "Emacs",
+    "Category": "Text Editor",
+    "Description": "GNU Emacs is an extensible, customizable text editor—and more. At its core is an interpreter for Emacs Lisp, a dialect of the Lisp programming language with extensions to support text editing.",
+    "Submodules": {
+        "0": {
+            "Path": "~/.emacs.d",
+            "Name": "Configuration"
+        }
+    },
+    "Executable": "emacs",
+    "Website": "http://www.gnu.org/software/emacs",
+    "Version": 1
+}

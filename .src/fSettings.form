@@ -1,0 +1,161 @@
+# Gambas Form File 3.0
+
+{ Form Form
+  MoveScaled(0,0,107,57)
+  Text = ("Settings")
+  Icon = Picture["icon.png"]
+  Persistent = True
+  Resizable = False
+  Arrangement = Arrange.Fill
+  { IconPanel1 IconPanel
+    MoveScaled(2,3,102,52)
+    Expand = True
+    Arrangement = Arrange.Vertical
+    Spacing = True
+    Margin = True
+    Count = 4
+    Index = 0
+    Text = ("General")
+    Picture = Picture["icon:/32/exec"]
+    { HBox9 HBox
+      MoveScaled(0,0,62,4)
+      Spacing = True
+      { Label8 Label
+        MoveScaled(1,0,30,4)
+        Expand = True
+        AutoResize = True
+        Text = ("Automatically expand submodules:")
+      }
+      { cbAutoExpand ComboBox
+        MoveScaled(48,0,14,4)
+        ReadOnly = True
+        List = [("No"), ("Yes")]
+      }
+    }
+    { HBox10 HBox
+      MoveScaled(0,6,62,4)
+      Spacing = True
+      { Label9 Label
+        MoveScaled(1,0,30,4)
+        Expand = True
+        AutoResize = True
+        Text = ("Enable notifications:")
+      }
+      { cbEnableNotifications ComboBox
+        MoveScaled(48,0,14,4)
+        ReadOnly = True
+        List = [("No"), ("Yes")]
+      }
+    }
+    { HBox11 HBox
+      MoveScaled(0,38,62,4)
+      Spacing = True
+      { Button1 Button
+        MoveScaled(0,0,16,4)
+        Visible = False
+        AutoResize = True
+        Text = ("Reset Warnings")
+      }
+      { btnResetDefaults Button
+        MoveScaled(21,0,23,4)
+        AutoResize = True
+        Text = ("Reset Settings to Default")
+      }
+    }
+    Index = 1
+    Text = ("Backups")
+    Picture = Picture["icon:/32/archive"]
+    { HBox1 HBox
+      MoveScaled(0,0,62,4)
+      Spacing = True
+      { Label2 Label
+        MoveScaled(1,0,30,4)
+        Expand = True
+        AutoResize = True
+        Text = ("Automatically backup when cleaning:")
+      }
+      { cbAutoBackup ComboBox
+        MoveScaled(48,0,14,4)
+        ReadOnly = True
+        List = [("No"), ("Yes")]
+      }
+    }
+    { HBox2 HBox
+      MoveScaled(0,6,62,4)
+      { Label1 Label
+        MoveScaled(0,0,24,4)
+        Expand = True
+        AutoResize = True
+        Text = ("Maximum directory size (KB):")
+      }
+      { vbMaxSize ValueBox
+        MoveScaled(48,0,14,4)
+        ToolTip = ("Set to 0 to always backup")
+      }
+    }
+    Index = 2
+    Text = ("Reports")
+    Picture = Picture["icon:/32/edit"]
+    { HBox5 HBox
+      MoveScaled(0,0,62,4)
+      Spacing = True
+      { Label5 Label
+        MoveScaled(1,0,30,4)
+        Expand = True
+        AutoResize = True
+        Text = ("Enable reports:")
+      }
+      { cbEnableReports ComboBox
+        MoveScaled(33,0,14,4)
+        ReadOnly = True
+        List = [("No"), ("Yes")]
+      }
+    }
+    Index = 3
+    Text = ("Maintenance")
+    Picture = Picture["icon:/32/file-manager"]
+    { HBox6 HBox
+      MoveScaled(0,0,61,4)
+      { Label6 Label
+        MoveScaled(0,0,24,4)
+        Expand = True
+        AutoResize = True
+        Text = ("Total Backups")
+      }
+      { vbTotalBackups ValueBox
+        MoveScaled(47,0,14,4)
+        Value = "0"
+        ReadOnly = True
+      }
+    }
+    { HBox7 HBox
+      MoveScaled(0,6,61,4)
+      { Label7 Label
+        MoveScaled(0,0,24,4)
+        Expand = True
+        AutoResize = True
+        Text = ("Total Reports")
+      }
+      { vbTotalReports ValueBox
+        MoveScaled(47,0,14,4)
+        Value = "0"
+        ReadOnly = True
+      }
+    }
+    { HBox8 HBox
+      MoveScaled(0,12,60,4)
+      Spacing = True
+      { btnCleanBackups Button
+        MoveScaled(0,0,19,4)
+        AutoResize = True
+        Text = ("Clean Backups Folder")
+      }
+      { btnCleanReports Button
+        MoveScaled(20,0,20,4)
+        AutoResize = True
+        Text = ("Clean Reports Folder")
+      }
+    }
+    Index = 0
+  }
+}

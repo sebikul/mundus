@@ -1,0 +1,257 @@
+# Gambas Form File 3.0
+
+{ Form Form
+  MoveScaled(0,0,128,76)
+  Text = ("Mundus")
+  Icon = Picture["icon.png"]
+  Utility = True
+  Arrangement = Arrange.Vertical
+  Spacing = True
+  Margin = True
+  { mFile Menu
+    Text = ("File")
+    { mRefresh Menu
+      Text = ("Refresh")
+      Shortcut = "F5"
+    }
+    { mFileSeparator Menu
+      Enabled = False
+    }
+    { mExit Menu
+      Text = ("Exit")
+    }
+  }
+  { mEdit Menu
+    Text = ("Edit")
+    { mSettings Menu
+      Text = ("Settings")
+      Shortcut = "Alt+S"
+    }
+  }
+  { mView Menu
+    Text = ("View")
+    { mReports Menu
+      Text = ("Reports")
+      Shortcut = "Alt+R"
+    }
+    { mBackups Menu
+      Text = ("Backups")
+      Shortcut = "Alt+B"
+    }
+    { mSupportedApps Menu
+      Text = ("Supported Applications")
+      Shortcut = "Alt+A"
+    }
+  }
+  { mFilter Menu
+    Text = ("Filter")
+    { mAll Menu FilterMenu
+      Name = "mAll"
+      Text = ("List All Applications")
+      Checked = True
+      Tag = "0"
+    }
+    { mFilterSeparator Menu
+      Enabled = False
+    }
+    { mInstalled Menu FilterMenu
+      Name = "mInstalled"
+      Text = ("List Installed Applications")
+      Tag = "1"
+    }
+    { mUninstalled Menu FilterMenu
+      Name = "mUninstalled"
+      Text = ("List Uninstalled Applications with Configuration")
+      Tag = "2"
+    }
+  }
+  { mHelp Menu
+    Text = ("Help")
+    { mShowHelp Menu
+      Text = ("Show Help")
+      Shortcut = "F1"
+    }
+    { mReportBug Menu
+      Text = ("Report a Bug")
+      Picture = Picture["icon:/22/important"]
+    }
+    { mHelpSeparator Menu
+      Enabled = False
+    }
+    { mProject Menu
+      Text = ("Project Website")
+    }
+    { mBlog Menu
+      Text = ("Project Blog")
+    }
+    { mHelpSeparator1 Menu
+      Enabled = False
+    }
+    { mAbout Menu
+      Text = ("About Mundus")
+      Shortcut = "Alt+A"
+    }
+  }
+  { HSplit1 HSplit
+    MoveScaled(0,1,127,70)
+    Expand = True
+    { VBox3 VBox
+      MoveScaled(2,2,28,66)
+      Expand = True
+      Spacing = True
+      { panFilter Panel
+        MoveScaled(1,4,26,3.5714)
+        Background = Color.TextBackground
+        Arrangement = Arrange.Horizontal
+        AutoResize = True
+        Border = Border.Plain
+        { PictureBox1 PictureBox
+          MoveScaled(0,0,3.5714,4)
+          Picture = Picture["icon:/16/find"]
+          Alignment = Align.Center
+        }
+        { tbFilter TextBox
+          MoveScaled(9,0,8,3.5714)
+          Expand = True
+          MaxLength = 20
+          Border = False
+        }
+        { tbClearFilter ToolButton
+          MoveScaled(22,0,3.5714,4)
+          ToolTip = ("Clear")
+          Picture = Picture["icon:/16/close"]
+        }
+      }
+      { tvModules TreeView
+        MoveScaled(5,13,21,51)
+        Expand = True
+        Sorted = True
+      }
+    }
+    { VBox1 VBox
+      MoveScaled(32,3,94,66)
+      Expand = True
+      Spacing = True
+      Margin = True
+      { HBox4 HBox
+        MoveScaled(1,1,68,23)
+        AutoResize = True
+        { VBox2 VBox
+          MoveScaled(1,1,17,18)
+          AutoResize = True
+          Spacing = True
+          { lblTitle Label
+            MoveScaled(0,0,16,6)
+            Font = Font["+8"]
+            AutoResize = True
+          }
+          { lblCategory Label
+            MoveScaled(1,6,14,4)
+            Font = Font["+2"]
+            AutoResize = True
+          }
+          { lblWebsite Label
+            MoveScaled(1,11,15,4)
+            Foreground = Color.SelectedBackground
+            Mouse = Mouse.Pointing
+            AutoResize = True
+          }
+        }
+        { Panel5 Panel
+          MoveScaled(19,4,15,7)
+          Expand = True
+        }
+        { pbAppIcon PictureBox
+          MoveScaled(50,2,16,16)
+          Picture = Picture["icon:/128/exec"]
+          AutoResize = True
+          Alignment = Align.Center
+        }
+      }
+      { lblDescription TextArea
+        MoveScaled(1,27,68,8)
+        Expand = True
+        ReadOnly = True
+        Wrap = True
+        ScrollBar = Scroll.Vertical
+      }
+      { HBox2 HBox
+        MoveScaled(1,38,66,5)
+        { pbInstalled PictureBox
+          MoveScaled(0,0,5,5)
+          Picture = Picture["icon:/32/apply"]
+        }
+        { Label2 Label
+          MoveScaled(6,0,31,4)
+          Expand = True
+          AutoResize = True
+          Text = ("Installed")
+        }
+        { HBox5 HBox
+          MoveScaled(39,0,27,4)
+          AutoResize = True
+          { lblSizeText Label
+            MoveScaled(1,0,11,4)
+            AutoResize = True
+            Text = ("Total Size:")
+          }
+          { lblSize Label
+            MoveScaled(12,0,15,4)
+            Alignment = Align.Right
+          }
+        }
+      }
+      { HBox3 HBox
+        MoveScaled(1,45,66,5)
+        { pbHasConfig PictureBox
+          MoveScaled(0,0,5,5)
+          Picture = Picture["icon:/32/cancel"]
+        }
+        { Label3 Label
+          MoveScaled(6,0,24,4)
+          Expand = True
+          AutoResize = True
+          Text = ("Has Configuration Files")
+        }
+        { HBox6 HBox
+          MoveScaled(39,0,27,4)
+          AutoResize = True
+          { lblFilesText Label
+            MoveScaled(1,0,11,4)
+            AutoResize = True
+            Text = ("Total Files:")
+          }
+          { lblFiles Label
+            MoveScaled(12,0,15,4)
+            Alignment = Align.Right
+          }
+        }
+      }
+      { lblWarning TextArea
+        MoveScaled(1,52,68,6)
+        Expand = True
+        ReadOnly = True
+        Wrap = True
+        ScrollBar = Scroll.Vertical
+      }
+      { HBox1 HBox
+        MoveScaled(1,61,59,4)
+        Spacing = True
+        { btnClean Button
+          MoveScaled(0,0,16,4)
+          AutoResize = True
+          Text = ("Clean")
+        }
+        { btnPreview Button
+          MoveScaled(22,0,16,4)
+          Text = ("Preview Files")
+        }
+        { btnBackup Button
+          MoveScaled(43,0,16,4)
+          AutoResize = True
+          Text = ("Backup")
+        }
+      }
+    }
+  }
+}

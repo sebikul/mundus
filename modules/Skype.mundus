@@ -1,0 +1,15 @@
+{
+    "Name": "Skype",
+    "Category": "VOIP",
+    "Description": "Skype is a proprietary voice over Internet Protocol service and software application.\nThe service allows users to communicate with peers by voice, video, and instant messaging over the Internet. Phone calls may be placed to recipients on the traditional telephone networks. Calls to other users within the Skype service are free of charge, while calls to landline telephones and mobile phones are charged via a debit-based user account system.",
+    "Submodules": {
+        "0": {
+            "Path": "~/.Skype",
+            "Name": "Configuration & Accounts",
+            "Description": "Stores your configuration files and temporary information of any account who logged in."
+        }
+    },
+    "Executable": "skype",
+    "Website": "http://www.skype.com",
+    "Version": 1
+}

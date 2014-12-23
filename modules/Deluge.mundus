@@ -1,0 +1,15 @@
+{
+    "Name": "Deluge",
+    "Category": "BitTorrent Client",
+    "Description": "Deluge is a lightweight, Free Software, cross-platform BitTorrent client.",
+    "Submodules": {
+        "0": {
+            "Path": "~/.config/deluge",
+            "Name": "Configuration",
+            "Description": "Configuration Files"
+        }
+    },
+    "Executable": "deluge",
+    "Website": "http://deluge-torrent.org",
+    "Version": 1
+}

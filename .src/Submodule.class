@@ -1,0 +1,68 @@
+' Gambas class file
+
+' Mundus
+' Copyright(C)2012 sebikul <sebikul@gmail.com>
+
+' This program is free software: you can redistribute it and/or modify
+' it under the terms of the GNU General Public License as published by
+' the Free Software Foundation, either version 3 of the License, or
+' (at your option) any later version.
+
+' This program is distributed in the hope that it will be useful,
+' but WITHOUT ANY WARRANTY; without even the implied warranty of
+' MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+' GNU General Public License for more details.
+
+' You should have received a copy of the GNU General Public License
+' along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+Property Read Name As String
+Property Read Path As String
+Property Read Description As String
+Property Read Warning As String
+Property Read Index As Integer
+
+Private $cArray As Collection
+Private $iIndex As Integer
+
+Public Sub _new(cArray As Collection, iIndex As Integer)
+
+  $cArray = cArray
+
+  $iIndex = iIndex
+
+End
+
+Private Function Path_Read() As String
+
+  Return $cArray["Path"]
+
+End
+
+Private Function Name_Read() As String
+
+  Return $cArray["Name"]
+
+End
+
+Private Function Description_Read() As String
+
+  If $cArray.Exist("Description") Then
+    Return $cArray["Description"]
+  Endif
+
+End
+
+Private Function Warning_Read() As String
+
+  If $cArray.Exist("Warning") Then
+    Return $cArray["Warning"]
+  Endif
+
+End
+
+Private Function Index_Read() As Integer
+
+  Return $iIndex
+
+End

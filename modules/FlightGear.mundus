@@ -1,0 +1,14 @@
+{
+    "Name": "FlightGear",
+    "Category": "Flight Simulator",
+    "Description": "FlightGear is an open-source flight simulator.  It supports a variety of popular platforms (Windows, Mac, Linux, etc.) and is developed by skilled volunteers from around the world.",
+    "Submodules": {
+        "0": {
+            "Path": "~/.fgfs",
+            "Name": "Configuration"
+        }
+    },
+    "Executable": "fgfs",
+    "Website": "http://www.flightgear.org",
+    "Version": 1
+}

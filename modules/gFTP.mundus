@@ -1,0 +1,14 @@
+{
+    "Name": "gFTP",
+    "Version": 1,
+    "Submodules": {
+        "0": {
+            "Name": "Configuration & Cache",
+            "Path": "~/.gftp"
+        }
+    },
+    "Category": "FTP Client",
+    "Description": "gFTP is a free multithreaded file transfer client for *NIX based machines.",
+    "Executable": "gftp|gftp-gtk",
+    "Website": "http://gftp.seul.org/"
+}

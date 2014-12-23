@@ -1,0 +1,14 @@
+{
+    "Name": "Sunflower",
+    "Version": 1,
+    "Category": "File Manager",
+    "Description": "Sunflower is a small and highly customizable twin-panel file manager for Linux with support for plugins. It is intended to be an easy-to-use and powerful file manager that seamlessly integrates into the GNOME desktop environment (but not limited to).",
+    "Submodules": {
+        "0": {
+            "Name": "Configuration",
+            "Path": "~/.config/sunflower/"
+        }
+    },
+    "Executable": "sunflower",
+    "Website": "http://code.google.com/p/sunflower-fm/"
+}

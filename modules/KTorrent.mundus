@@ -1,0 +1,19 @@
+{
+    "Name": "KTorrent",
+    "Category": "BitTorrent Client",
+    "Description": "KTorrent is a bittorrent application for KDE which allows you to download files using the BitTorrent protocol. It enables you to run multiple torrents at the same time and comes with extended features to make it a full-featured client for BitTorrent.",
+    "Submodules": {
+        "0": {
+            "Path": "~/.kde/share/apps/ktorrent",
+            "Name": "Configuration",
+            "Description": "Configuration Files"
+        },
+        "1": {
+            "Path": "~/.kde/share/config/ktorrentrc",
+            "Name": "Configuration 2"
+        }
+    },
+    "Executable": "ktorrent",
+    "Website": "http://ktorrent.org/",
+    "Version": 1
+}

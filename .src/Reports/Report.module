@@ -1,0 +1,38 @@
+' Gambas module file
+
+' Mundus
+' Copyright(C)2012 sebikul <sebikul@gmail.com>
+
+' This program is free software: you can redistribute it and/or modify
+' it under the terms of the GNU General Public License as published by
+' the Free Software Foundation, either version 3 of the License, or
+' (at your option) any later version.
+
+' This program is distributed in the hope that it will be useful,
+' but WITHOUT ANY WARRANTY; without even the implied warranty of
+' MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+' GNU General Public License for more details.
+
+' You should have received a copy of the GNU General Public License
+' along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+Public Const SIZE As String = "Size"
+Public Const FILES As String = "Files"
+Public Const RUNS As String = "Runs"
+
+Property Read Session As _Report
+Private $oReport As New _Report
+
+Property Read Enabled As Boolean
+
+Private Function Enabled_Read() As Boolean
+
+  Return Main.Settings["EnableReports", True]
+
+End
+
+Private Function Session_Read() As _Report
+
+  Return $oReport
+
+End

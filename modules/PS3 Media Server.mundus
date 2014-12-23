@@ -1,0 +1,14 @@
+{
+    "Name": "PS3 Media Server",
+    "Version": 1,
+    "Submodules": {
+        "0": {
+            "Name": "Configuration",
+            "Path": "~/.config/PMS/"
+        }
+    },
+    "Category": "Upnp Media Server",
+    "Description": "PS3 Media Server is a DLNA compliant Upnp Media Server for the PS3, written in Java, with the purpose of streaming or transcoding any kind of media files, with minimum configuration. It's backed up with the powerful Mplayer/FFmpeg packages.",
+    "Executable": "ps3mediaserver",
+    "Website": "https://code.google.com/p/ps3mediaserver"
+}

@@ -1,0 +1,14 @@
+{
+    "Name": "KeePassX",
+    "Category": "Password Manager",
+    "Description": "KeePassX is an application for people with extremly high demands on secure personal data management. It has a light interface, is cross platform and published under the terms of the GNU General Public License.",
+    "Submodules": {
+        "0": {
+            "Path": "~/.config/keepassx",
+            "Name": "Configuration"
+        }
+    },
+    "Executable": "keepassx",
+    "Website": "http://www.kde.org",
+    "Version": 1
+}

@@ -1,0 +1,14 @@
+{
+    "Name": "Synapse",
+    "Category": "Application Launcher",
+    "Description": "Synapse is a semantic launcher written in Vala that you can use to start applications as well as find and access relevant documents and files by making use of the Zeitgeist engine.",
+    "Submodules": {
+        "0": {
+            "Path": "~/.config/synapse",
+            "Name": "Configuration"
+        }
+    },
+    "Executable": "synapse",
+    "Website": "http://synapse.zeitgeist-project.com",
+    "Version": 1
+}

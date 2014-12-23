@@ -1,0 +1,15 @@
+{
+    "Name": "aMule",
+    "Category": "eD2k client",
+    "Description": "aMule is an eMule-like client for the eD2k and Kademlia networks, supporting multiple platforms.",
+    "Submodules": {
+        "0": {
+            "Path": "~/.aMule",
+            "Name": "Configuration",
+            "Description": "Configuration Files"
+        }
+    },
+    "Executable": "amule",
+    "Website": "http://amule.org",
+    "Version": 1
+}

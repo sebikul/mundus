@@ -1,0 +1,15 @@
+{
+    "Name": "gedit",
+    "Category": "Text Editor",
+    "Description": "gedit is the official text editor of the GNOME desktop environment. While aiming at simplicity and ease of use, gedit is a powerful general purpose text editor.",
+    "Submodules": {
+        "0": {
+            "Path": "~/.config/gedit",
+            "Name": "Configuration",
+            "Description": "Configuration Files"
+        }
+    },
+    "Executable": "gedit",
+    "Website": "http://projects.gnome.org/gedit",
+    "Version": 1
+}

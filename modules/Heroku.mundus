@@ -1,0 +1,14 @@
+{
+    "Name": "Heroku",
+    "Version": 1,
+    "Description": "The heroku command-line tool is an interface to the Heroku Web API.",
+    "Website": "http://heroku.com/",
+    "Category": "Command-Line Interface",
+    "Executable": "heroku",
+    "Submodules": {
+        "0": {
+            "Name": "Configuration",
+            "Path": "~/.heroku"
+        }
+    }
+}

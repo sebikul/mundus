@@ -1,0 +1,15 @@
+{
+    "Name": "Bitcoin",
+    "Category": "P2P Digital Currency",
+    "Description": "Bitcoin is an experimental new digital currency that enables instant payments to anyone, anywhere in the world.",
+    "Executable": "bitcoin-qt",
+    "Website": "http://bitcoin.org/",
+    "Submodules": {
+        "0": {
+            "Name": "Configuration & Wallet",
+            "Path": "~/.bitcoin",
+            "Warning": "You will lose your wallet. Please make a backup!"
+        }
+    },
+    "Version": 1
+}

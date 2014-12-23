@@ -1,0 +1,15 @@
+{
+    "Name": "Firefox",
+    "Category": "Web Browser",
+    "Description": "Mozilla Firefox is a fast, full-featured web browser that's easy to use.",
+    "Submodules": {
+        "0": {
+            "Path": "~/.mozilla/firefox",
+            "Name": "Profiles folder",
+            "Warning": "You will lose all your bookmarks, configuration, addons, etc."
+        }
+    },
+    "Executable": "firefox",
+    "Website": "http://www.mozilla.org/firefox",
+    "Version": 1
+}

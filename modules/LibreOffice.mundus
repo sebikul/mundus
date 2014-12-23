@@ -1,0 +1,18 @@
+{
+    "Name": "LibreOffice",
+    "Category": "Productivity Suite",
+    "Description": "LibreOffice is a free and open source office suite developed by The Document Foundation as a fork of OpenOffice.org.",
+    "Submodules": {
+        "0": {
+            "Path": "~/.libreoffice",
+            "Name": "Configuration"
+        },
+        "1": {
+            "Path": "~/.config/.libreoffice",
+            "Name": "Configuration (mirror)"
+        }
+    },
+    "Executable": "libreoffice",
+    "Website": "http://www.libreoffice.org",
+    "Version": 1
+}

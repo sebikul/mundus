@@ -1,0 +1,15 @@
+{
+    "Name": "Amarok",
+    "Category": "Music Player",
+    "Description": "Amarok is a powerful music player for Linux and Unix, MacOS X and Windows with an intuitive interface. It makes playing the music you love and discovering new music easier than ever before - and it looks good doing it! ",
+    "Submodules": {
+        "0": {
+            "Path": "~/.kde/share/apps/amarok",
+            "Name": "Configuration & Music database",
+            "Warning": "You will need to reconstruct your song database."
+        }
+    },
+    "Executable": "amarok",
+    "Website": "http://amarok.kde.org",
+    "Version": 1
+}

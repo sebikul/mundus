@@ -1,0 +1,21 @@
+{
+    "Name": "Chromium",
+    "Category": "Web Browser",
+    "Description": "Chromium is an open-source browser project that aims to build a safer, faster, and more stable way for all Internet users to experience the web.",
+    "Submodules": {
+        "0": {
+            "Path": "~/.config/chromium",
+            "Name": "Configuration & Profiles",
+            "Description": "Configuration Files",
+            "Warning": "This folder contains personal data. Once removed it cannot be recovered."
+        },
+        "1": {
+            "Path": "~/.cache/chromium",
+            "Name": "Downloaded Cache",
+            "Description": "Temporary storage of downloaded files"
+        }
+    },
+    "Executable": "chromium|chromium-browser",
+    "Website": "http://www.chromium.org/Home",
+    "Version": 1
+}

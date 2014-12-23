@@ -1,0 +1,19 @@
+{
+    "Name": "Midori",
+    "Category": "Web Browser",
+    "Description": "Midori is a lightweight web browser.",
+    "Submodules": {
+        "0": {
+            "Path": "~/.config/midori",
+            "Name": "Configuration",
+            "Description": "Configuration Files"
+        },
+        "1": {
+            "Path": "~/.cache/midori",
+            "Name": "Cache"
+        }
+    },
+    "Executable": "midori",
+    "Website": "http://twotoasts.de/index.php/midori",
+    "Version": 1
+}

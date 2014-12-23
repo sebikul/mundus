@@ -1,0 +1,19 @@
+{
+    "Name": "Conduit",
+    "Category": "Synchronization Application",
+    "Description": "Conduit is a synchronization application for GNOME. It allows you to synchronize your files, photos, emails, contacts, notes, calendar data and any other type of personal information and synchronize that data with another computer, an online service, or even another electronic device.",
+    "Submodules": {
+        "0": {
+            "Path": "~/.config/conduit",
+            "Name": "Configuration",
+            "Description": "Configuration Files"
+        },
+        "1": {
+            "Path": "~/.gconf/apps/conduit",
+            "Name": "Gconf configuration"
+        }
+    },
+    "Executable": "conduit",
+    "Website": "http://live.gnome.org/Conduit",
+    "Version": 1
+}

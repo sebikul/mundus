@@ -1,0 +1,15 @@
+{
+    "Name": "Team Viewer",
+    "Category": "Remote Access and Support",
+    "Description": "TeamViewer connects to any PC or server around the world within a few seconds. You can remote control your partner's PC as if you were sitting right in front of it.",
+    "Submodules": {
+        "0": {
+            "Path": "~/.teamviewer",
+            "Name": "Configuration & binaries",
+            "Description": "Stores the configuration files along the application binaries"
+        }
+    },
+    "Executable": "teamviewer6|teamviewer7|teamviewer",
+    "Website": "http://www.teamviewer.com",
+    "Version": 2
+}

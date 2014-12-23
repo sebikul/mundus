@@ -1,0 +1,18 @@
+{
+    "Name": "Epiphany",
+    "Category": "GNOME web browser",
+    "Description": "Epiphany is the web browser for the GNOME desktop. Its goal is to be simple and easy to use.",
+    "Submodules": {
+        "0": {
+            "Path": "~/.cache/epiphany",
+            "Name": "Cache"
+        },
+        "1": {
+            "Path": "~/.local/share/epiphany",
+            "Name": "Page icons cache"
+        }
+    },
+    "Executable": "epiphany",
+    "Website": "http://projects.gnome.org/epiphany",
+    "Version": 1
+}

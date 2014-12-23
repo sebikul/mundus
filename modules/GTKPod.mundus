@@ -1,0 +1,16 @@
+{
+    "Name": "GTKPod",
+    "Category": "Apple iPod Manager",
+    "Description": "GTKPod is a graphical user interface for the Apple iPod for Unix-like systems, written using the GTK+ toolkit.",
+    "Submodules": {
+        "0": {
+            "Path": "~/.gtkpod",
+            "Name": "Configuration",
+            "Description": "Configuration files and backed up databases",
+            "Warning": "Any backed up database will be lost!"
+        }
+    },
+    "Executable": "gtkpod",
+    "Website": "http://www.gtkpod.org",
+    "Version": 1
+}

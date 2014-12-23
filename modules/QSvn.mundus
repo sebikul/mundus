@@ -1,0 +1,14 @@
+{
+    "Name": "QSvn",
+    "Version": 1,
+    "Submodules": {
+        "0": {
+            "Name": "Configuration",
+            "Path": "~/.config/QSvn/"
+        }
+    },
+    "Category": "Subversion GUI",
+    "Description": "QSvn is a GUI  Subversion client for Linux, UNIX, Mac OS X and Windows. It is a real client not a GUI wrapper for the command line client from Subversion.",
+    "Executable": "qsvn",
+    "Website": "http://www.anrichter.net/projects/qsvn"
+}

@@ -1,0 +1,15 @@
+{
+    "Name": "Blender",
+    "Category": "3D graphics creation suite",
+    "Description": "Blender is the free open source 3D content creation suite, available for all major operating systems under the GNU General Public License.",
+    "Submodules": {
+        "0": {
+            "Path": "~/.blender",
+            "Name": "Configuration",
+            "Description": "Configuration Files"
+        }
+    },
+    "Executable": "blender",
+    "Website": "http://www.blender.org",
+    "Version": 1
+}

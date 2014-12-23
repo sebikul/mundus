@@ -1,0 +1,21 @@
+{
+    "Name": "Bazaar",
+    "Category": "Distributed Version Control System",
+    "Description": "Bazaar is a decentralized version control system that enables easy collaboration in open software development projects.",
+    "Submodules": {
+        "0": {
+            "Path": "~/.bazaar",
+            "Name": "Configuration",
+            "Description": "Configuration files, authentication, and other configuration files",
+            "Warning": "Cleaning this folder will require you to reauthorize your Bazaar installation to access your remotes branches. Your Bazaar Explorer configuration will be lost."
+        },
+        "1": {
+            "Path": "~/.bazaar/explorer",
+            "Name": "Bazaar Explorer"
+        }
+    },
+    "Executable": "bzr",
+    "Website": "http://bazaar.canonical.com",
+    "Warning": "Please be sure to have a backup of your backups ;-). You never know when you may need them.",
+    "Version": 1
+}

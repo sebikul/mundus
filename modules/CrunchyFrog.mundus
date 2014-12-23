@@ -1,0 +1,18 @@
+{
+    "Name": "CrunchyFrog",
+    "Version": 2,
+    "Submodules": {
+        "0": {
+            "Name": "Configuration",
+            "Path": "~/.config/crunchyfrog/"
+        },
+        "1": {
+            "Name": "Plugins",
+            "Path": "~/.local/share/crunchyfrog/"
+        }
+    },
+    "Category": "GNOME SQL client",
+    "Description": "CrunchyFrog is a SQL client and schema browser mainly (but not solely) for the GNOME desktop.",
+    "Executable": "crunchyfrog",
+    "Website": "http://code.google.com/p/crunchyfrog/"
+}

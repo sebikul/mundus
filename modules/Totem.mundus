@@ -1,0 +1,19 @@
+{
+    "Name": "Totem",
+    "Category": "Multimedia Player",
+    "Description": "Totem is the official movie player of the GNOME desktop environment based on GStreamer.",
+    "Submodules": {
+        "0": {
+            "Path": "~/.config/totem",
+            "Name": "Configuration",
+            "Description": "Configuration files"
+        },
+        "1": {
+            "Path": "~/.cache/totem",
+            "Name": "Cache"
+        }
+    },
+    "Executable": "totem",
+    "Website": "http://projects.gnome.org/totem",
+    "Version": 1
+}

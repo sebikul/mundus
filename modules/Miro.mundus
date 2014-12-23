@@ -1,0 +1,14 @@
+{
+    "Name": "Miro",
+    "Category": "Multimedia Player",
+    "Description": "Miro is a popular, free, and open internet TV application. It brings video channels from thousands of sources and has more free HD than any other platform.",
+    "Submodules": {
+        "0": {
+            "Path": "~/.miro",
+            "Name": "Configuration"
+        }
+    },
+    "Executable": "miro",
+    "Website": "http://www.getmiro.com",
+    "Version": 1
+}

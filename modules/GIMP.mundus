@@ -1,0 +1,22 @@
+{
+    "Name": "GIMP",
+    "Category": "Image Manipulation Program",
+    "Description": "GIMP is an acronym for GNU Image Manipulation Program. It is a freely distributed program for such tasks as photo retouching, image composition and image authoring.",
+    "Submodules": {
+        "0": {
+            "Path": "~/.gimp-2.6",
+            "Name": "Configuration",
+            "Description": "Configuration files, and imported resources",
+            "Warning": "Any imported resource, such as brushes, patterns, gradients, etc. will be lost!"
+        },
+        "1": {
+            "Name": "Configuration v2.8",
+            "Description": "Configuration files, and imported resources",
+            "Path": "~/.gimp-2.8",
+            "Warning": "Any imported resource, such as brushes, patterns, gradients, etc. will be lost!"
+        }
+    },
+    "Executable": "gimp",
+    "Website": "http://www.gimp.org",
+    "Version": 1
+}

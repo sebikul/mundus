@@ -1,0 +1,15 @@
+{
+    "Name": "CCache",
+    "Version": 1,
+    "Submodules": {
+        "0": {
+            "Name": "Cached Compiler Output",
+            "Description": "This directory contains every file ccache ever procesed.",
+            "Path": "~/.ccache"
+        }
+    },
+    "Category": "Compiler Cache",
+    "Description": "ccache is a compiler cache. It speeds up recompilation by caching previous compilations and detecting when the same compilation is being done again.",
+    "Executable": "ccache",
+    "Website": "http://ccache.samba.org/"
+}

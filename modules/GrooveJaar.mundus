@@ -1,0 +1,15 @@
+{
+    "Name": "GrooveJaar",
+    "Category": "Text Editor",
+    "Description": "Geany is a text editor using the GTK2 toolkit with basic features of an integrated development environment. It was developed to provide a small and fast IDE, which has only a few dependencies from other packages.",
+    "Submodules": {
+        "0": {
+            "Path": "~/.groovejaar",
+            "Name": "Configuration"
+        }
+    },
+    "Executable": "groovejaar",
+    "Website": "http://www.gnome.org",
+    "Warning": "Each module has it's own gconf directory added when appropriate, you do not need to clean this module if you only intend to clean one application",
+    "Version": 1
+}

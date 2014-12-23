@@ -1,0 +1,109 @@
+' Gambas class file
+
+' Mundus
+' Copyright(C)2012 sebikul <sebikul@gmail.com>
+
+' This program is free software: you can redistribute it and/or modify
+' it under the terms of the GNU General Public License as published by
+' the Free Software Foundation, either version 3 of the License, or
+' (at your option) any later version.
+
+' This program is distributed in the hope that it will be useful,
+' but WITHOUT ANY WARRANTY; without even the implied warranty of
+' MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+' GNU General Public License for more details.
+
+' You should have received a copy of the GNU General Public License
+' along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+Private $iTotal As Integer
+
+Property Read HasCancelled As Boolean
+Private $bHasCancelled As Boolean
+
+Private $bCanCancel As Boolean
+
+Property Progress As Float
+
+Private $bHasFinished As Boolean
+
+Public Sub btnCancel_Click()
+
+  $bHasCancelled = True
+
+End
+
+Public Sub Form_Open()
+
+  Me.Center
+
+End
+
+Public Sub Increment()
+
+  ProgressBar1.Value = ProgressBar1.Value + (1 / $iTotal)
+  Wait
+
+End
+
+Public Sub SetStatus(sStatus As String)
+
+  lblStatus.Text = sStatus
+
+End
+
+Public Sub Start(iTotal As Integer, Optional sTitle As String, Optional bCanCancel As Boolean = True)
+
+  $bHasFinished = False
+
+  btnCancel.Enabled = bCanCancel
+  $bCanCancel = bCanCancel
+
+  ProgressBar1.Value = 0
+
+  $iTotal = iTotal
+  $bHasCancelled = False
+
+  If sTitle Then Me.Title = sTitle
+
+  If Not Me.Visible Then Me.Show()
+
+  Wait
+
+End
+
+Public Sub Finish()
+
+  ProgressBar1.Value = 1
+
+  $bHasFinished = True
+
+  Me.Close()
+
+End
+
+Private Function HasCancelled_Read() As Boolean
+
+  Return $bHasCancelled
+
+End
+
+Public Sub Form_Close()
+
+  If Not $bHasFinished And Not $bCanCancel Then
+    Stop Event
+  Endif
+
+End
+
+Private Function Progress_Read() As Float
+
+  Return ProgressBar1.Value
+
+End
+
+Private Sub Progress_Write(Value As Float)
+
+  ProgressBar1.Value = Value
+
+End

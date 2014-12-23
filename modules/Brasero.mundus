@@ -1,0 +1,15 @@
+{
+    "Name": "Brasero",
+    "Category": "Gnome CD/DVD Burner",
+    "Description": "CD/DVD burner for the Gnome Desktop. It is designed to be as simple as possible and has some unique features to enable users to create their discs easily and quickly.",
+    "Submodules": {
+        "0": {
+            "Path": "~/.config/brasero",
+            "Name": "Configuration",
+            "Description": "Configuration Files"
+        }
+    },
+    "Executable": "brasero",
+    "Website": "http://projects.gnome.org/brasero",
+    "Version": 1
+}

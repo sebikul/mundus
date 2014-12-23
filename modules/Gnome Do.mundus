@@ -1,0 +1,14 @@
+{
+    "Name": "Gnome Do",
+    "Category": "Intelligent Launcher Tool",
+    "Description": "GNOME Do allows you to quickly search for many items present on your desktop or the web, and perform useful actions on those items.",
+    "Submodules": {
+        "0": {
+            "Path": "~/.local/share/gnome-do",
+            "Name": "Configuration"
+        }
+    },
+    "Executable": "gnome-do",
+    "Website": "http://do.davebsd.com",
+    "Version": 1
+}

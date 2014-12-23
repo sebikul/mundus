@@ -1,0 +1,18 @@
+{
+    "Name": "Tomboy",
+    "Category": "Note-taking Application",
+    "Description": "Tomboy is a desktop note-taking application for Linux, Unix, Windows, and Mac OS X. Simple and easy to use, but with potential to help you organize the ideas and information you deal with every day.",
+    "Submodules": {
+        "0": {
+            "Path": "~/.config/tomboy",
+            "Name": "Configuration"
+        },
+        "1": {
+            "Path": "~/.cache/tomboy",
+            "Name": "Cache"
+        }
+    },
+    "Executable": "tomboy",
+    "Website": "http://projects.gnome.org/tomboy",
+    "Version": 1
+}

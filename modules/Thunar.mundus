@@ -1,0 +1,18 @@
+{
+    "Name": "Thunar",
+    "Version": 1,
+    "Category": "File Manager",
+    "Description": "Thunar is a new modern file manager for the Xfce Desktop  Environment. Thunar has been designed from the ground up to be fast and easy-to-use.",
+    "Executable": "thunar|Thunar",
+    "Website": "http://thunar.xfce.org/",
+    "Submodules": {
+        "0": {
+            "Name": "Configuration",
+            "Path": "~/.config/Thunar/"
+        },
+        "1": {
+            "Name": "Cache",
+            "Path": "~/.cache/Thunar/"
+        }
+    }
+}

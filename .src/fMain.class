@@ -1,0 +1,672 @@
+' Gambas class file
+
+' Mundus
+' Copyright(C)2012 sebikul <sebikul@gmail.com>
+
+' This program is free software: you can redistribute it and/or modify
+' it under the terms of the GNU General Public License as published by
+' the Free Software Foundation, either version 3 of the License, or
+' (at your option) any later version.
+
+' This program is distributed in the hope that it will be useful,
+' but WITHOUT ANY WARRANTY; without even the implied warranty of
+' MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+' GNU General Public License for more details.
+
+' You should have received a copy of the GNU General Public License
+' along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+Private $sLastKey As String
+
+Private Enum SELECTION_MODULE, SELECTION_SUBMODULE
+
+Private Enum FILTER_ALL, FILTER_INSTALLED, FILTER_UNINSTALLED, FILTER_SINGLE
+
+Private $sFirst As String
+Private $iFilter As Integer
+Private $sPattern As String
+
+Public Sub Form_Open()
+
+  Main.Settings.Read(fMain)
+
+  If Not $iFilter Then $iFilter = FILTER_ALL
+
+  If Not $sPattern Then $sPattern = "*"
+
+  LoadModules()
+
+  If $sFirst And tvModules.Exist($sFirst) Then tvModules[$sFirst].Selected = True
+
+End
+
+Public Sub LoadModules()
+
+  Dim mModule As Module
+
+  panFilter.Enabled = True
+
+  tvModules.Clear()
+
+  For Each mModule In Modules.All
+    ParseAndLoad(mModule)
+  Next
+
+End
+
+Public Sub ReloadModule(mModule As Module)
+
+  Dim sTreeViewKey As String
+
+  sTreeViewKey = "Module|" & mModule.Name
+
+  If tvModules.Exist(sTreeViewKey) Then tvModules.Remove(sTreeViewKey)
+
+  ParseAndLoad(mModule)
+
+End
+
+Private Sub ParseAndLoad(mModule As Module)
+
+  If mModule.Name Not Like $sPattern Then Return
+
+  With mModule
+
+    Select Case $iFilter
+
+      Case FILTER_ALL
+        If .HasConfig Then LoadModule(mModule)
+
+      Case FILTER_SINGLE
+        If .isInstalled Or .HasConfig Then LoadModule(mModule)
+
+      Case FILTER_INSTALLED
+        If .isInstalled And .HasConfig Then LoadModule(mModule)
+
+      Case FILTER_UNINSTALLED
+        If Not .isInstalled And .HasConfig Then LoadModule(mModule)
+
+    End Select
+
+  End With
+
+End
+
+Private Sub LoadModule(mModule As Module)
+
+  Dim sKey As String
+
+  Dim oSubmodule As Submodule
+
+  Dim iCount As Integer
+
+  sKey = "Module|" & mModule.Name
+
+  tvModules.Add(sKey, mModule.Name)
+
+  If Not $sFirst Then $sFirst = sKey
+
+  iCount = 0
+
+  For Each oSubmodule In mModule.Submodules
+
+    sKey = "Submodule|" & mModule.Name & "|" & oSubmodule.Name
+
+    If Exist(oSubmodule.Path) Then
+
+      tvModules.Add(sKey, oSubmodule.Name, Null, "Module|" & mModule.Name)
+      Inc iCount
+
+    Endif
+
+  Next
+
+  If Main.Settings["AutoExpand", False] Then tvModules["Module|" & mModule.Name].Expanded = True
+  tvModules["Module|" & mModule.Name].Text &= Subst(" (&1)", iCount)
+
+  'Main.LoadedModules.Add(Module)
+
+End
+
+Public Sub tvModules_Select()
+
+  Dim fSize As Float
+  Dim iFiles As Integer
+  Dim oSubmodule As Submodule
+  Dim sPath As String
+  Dim mModule As Module
+
+  If Not tvModules.Key Then Return
+
+  If tvModules.Key = $sLastKey Then Return
+
+  Inc Application.Busy
+
+  LoadPicture()
+
+  mModule = GetSelection()
+
+  fSize = 0
+  iFiles = 0
+
+  Select Case GetSelectionType()
+
+    Case SELECTION_MODULE
+
+      For Each oSubmodule In mModule.Submodules
+
+        If Not Exist(oSubmodule.Path) Then Continue
+
+        If IsDir(oSubmodule.Path) Then
+          fSize += Main.GetDirectorySize(oSubmodule.Path)
+          iFiles += RDir(oSubmodule.Path).Count
+        Else
+          fSize += Stat(oSubmodule.Path).Size
+          iFiles += 1
+        Endif
+
+      Next
+
+      lblSize.Text = Main.SetSizeLabelScale(fSize)
+
+      lblFiles.Text = Subst(IIf(iFiles > 1, ("&1 files"), ("&1 file")), iFiles)
+
+      btnPreview.Enabled = False
+      btnBackup.Enabled = False
+
+    Case SELECTION_SUBMODULE
+
+      sPath = mModule[GetSelectionComponents()[2]].Path
+
+      If Exist(sPath) Then
+
+        If IsDir(sPath) Then
+
+          lblSize.Text = Main.SetSizeLabelScale(Main.GetDirectorySize(sPath))
+
+          iFiles = RDir(sPath).Count
+
+          lblFiles.Text = Subst(IIf(iFiles > 1, ("&1 files"), ("&1 file")), iFiles)
+        Else
+
+          lblSize.Text = Main.SetSizeLabelScale(Stat(sPath).Size)
+
+          lblFiles.Text = Subst(("&1 file"), 1)
+        Endif
+
+      Endif
+
+      btnPreview.Enabled = True
+      btnBackup.Enabled = True
+
+  End Select
+
+  btnClean.Enabled = True
+
+  SetStatusConfig()
+
+  If mModule.isInstalled Then
+    pbInstalled.Picture = Picture["icon:/32/apply"]
+  Else
+    pbInstalled.Picture = Picture["icon:/32/cancel"]
+  Endif
+
+  lblTitle.Text = mModule.Name
+
+  lblCategory.Text = mModule.Category
+
+  If Not lblCategory.Text Then lblCategory.Text = ("No category found")
+
+  LoadWarnings()
+
+  LoadDescription()
+
+  LoadModuleInformation()
+
+  $sLastKey = tvModules.Key
+
+  Dec Application.Busy
+
+End
+
+Public Sub SetStatusConfig()
+
+  If GetSelection().HasConfig Then
+    pbHasConfig.Picture = Picture["icon:/32/apply"]
+  Else
+    pbHasConfig.Picture = Picture["icon:/32/cancel"]
+  Endif
+
+  btnClean.Enabled = GetSelection().HasConfig
+
+  btnClean.Text = ("Clean")
+
+End
+
+Public Sub btnClean_Click()
+
+  Dim sPath, sSubmodule, sCleaningString, sType As String
+  'Dim aSelected As String[]
+  Dim mModule As Module
+  Dim oSubmodule As Submodule
+  Dim bResult As Boolean
+  Dim iFiles As Integer
+
+  'aSelected = Split(tvModules.Key, "|")
+  mModule = GetSelection()
+
+  If Not mModule Then Return
+
+  If mModule.IsRunning() Then
+    Message.Error(("To avoid damage or any undesired behaviour, you need to close the application first."))
+    Return
+  Endif
+
+  Select Case GetSelectionType()
+
+    Case SELECTION_MODULE
+      sCleaningString = mModule.Name
+
+    Case SELECTION_SUBMODULE
+      sSubmodule = GetSelectionComponents()[2]
+      sCleaningString = mModule.Name & " => " & sSubmodule
+
+  End Select
+
+  Message.Title = Subst(("Cleaning &1"), sCleaningString)
+  If Message.Question(Subst(("Are you sure you want to clean &1?"), sCleaningString), ("Yes"), ("Cancel")) <> 1 Then
+    Dec Application.Busy
+    Return
+
+  Endif
+
+  Inc Application.Busy
+
+  Select Case GetSelectionType()
+
+    Case SELECTION_MODULE
+      'For Each sPath In mModule.Directories
+      For Each oSubmodule In mModule.Submodules
+
+        sPath = oSubmodule.Path
+
+        Report.Session.Add(mModule, Main.GetDirectorySize(sPath), RDir(sPath).Count)
+
+        'Debug "Cleaning " & sPath
+
+        bResult = ExecuteClean(sPath, mModule, oSubmodule.Name)
+
+        If bResult Then
+          sSubmodule = "-all-"
+          Report.Session.Confirm()
+        Else
+          Report.Session.Discard()
+        Endif
+
+        sType = ("module")
+
+      Next
+
+    Case SELECTION_SUBMODULE
+
+      sPath = mModule[sSubmodule].Path
+
+      'Debug "Cleaning " & sPath
+
+      iFiles = RDir(sPath).Count
+
+      Report.Session.Add(mModule, Main.GetDirectorySize(sPath), iFiles)
+
+      bResult = ExecuteClean(sPath, mModule, sSubmodule)
+
+      If bResult Then
+        Report.Session.Confirm()
+      Else
+        Report.Session.Discard()
+      Endif
+
+      sType = ("submodule")
+
+  End Select
+
+  If Main.Settings["EnableNotifications", True] Then
+    Notify(Subst(("The selected &1 was successfully cleaned."), sType))
+  Else
+    Message.Title = ("Successfully cleaned")
+    Message.Info(Subst(("The selected &1 was successfully cleaned."), sType))
+  Endif
+
+  Modules.Reload(mModule.Name)
+  ReloadModule(mModule)
+
+  Dec Application.Busy
+
+End
+
+Private Function ExecuteClean(sPath As String, mModule As Module, sSubmodule As String) As Boolean
+
+  If Not Exist(sPath) Then Return
+
+  If Main.Settings["Backups/AutoBackup", True] Then
+
+    If Main.Settings["Backups/MaxSize", 0] = 0 Or Main.GetDirectorySize(sPath) <= (Main.Settings["Backups/MaxSize", 0] * 1024) Then
+
+      'Debug Subst("Automatic backup of &1 prior deletion", sPath)
+      If Not Backup.Backup(mModule, sSubmodule) Then
+        Message.Error(("There was an error while performing the automatic backup. Cleaning aborted."))
+        Return False
+      Endif
+    Else
+
+      Message.Info(Subst(("Automatic backup of &1 skipped, size over maximum."), sPath))
+    Endif
+
+  Endif
+
+  'Debug Subst("Cleaning &1", sPath)
+
+  Return Cleaner.Clean(sPath)
+
+End
+
+Public Sub btnPreview_Click()
+
+  Dim sPath As String
+
+  If GetSelectionType() = SELECTION_SUBMODULE Then
+    sPath = GetSelection()[GetSelectionComponents()[2]].Path
+    Desktop.Open(sPath)
+  Endif
+
+End
+
+Public Sub mExit_Click()
+
+  Me.Close
+
+End
+
+Public Sub mSettings_Click()
+
+  fSettings.ShowModal()
+
+End
+
+Public Sub LoadPicture()
+
+  Dim pPic As Picture
+
+  pPic = Icons[GetSelection().Name]
+
+  pbAppIcon.Stretch = Not (pPic.Height = 128 Or pPic.Width = 128)
+
+  pbAppIcon.Picture = pPic
+
+Finally
+
+  pPic = Null
+  Picture.Flush()
+
+End
+
+Public Sub mAbout_Click()
+
+  fAbout.ShowModal()
+
+End
+
+Public Sub mReportBug_Click()
+
+  Desktop.Open(Main.URL_BUG_NEW)
+
+End
+
+Public Sub Form_Close()
+
+  Report.Session.Save()
+  ' If Not fBackups.Closed Then fBackups.Close()
+  ' If Not fReports.Closed Then fReports.Close()
+  ' If Not fSupportedApps.Closed Then fSupportedApps.Close()
+  ' If Not fVote.Closed Then fVote.Close()
+  ' If Not FMCreator.Closed Then FMCreator.Close()
+
+  Main.Settings.Write(fMain)
+
+End
+
+Public Sub mReports_Click()
+
+  fReports.Show()
+
+End
+
+Public Sub mSupportedApps_Click()
+
+  fSupportedApps.Show()
+
+End
+
+Public Sub btnBackup_Click()
+
+  Dim mModule As Module
+
+  mModule = GetSelection()
+
+  btnBackup.Enabled = False
+
+  If GetSelectionType() = SELECTION_SUBMODULE Then
+    Inc Application.Busy
+
+    If Backup.Backup(mModule, GetSelectionComponents()[2]) Then
+
+      If Main.Settings["EnableNotifications", True] Then
+        Notify(("The directory was successfully backed up"))
+      Endif
+
+    Endif
+  Endif
+
+  btnBackup.Enabled = True
+
+  Dec Application.Busy
+
+End
+
+Public Sub mBackups_Click()
+
+  fBackups.Show()
+
+End
+
+Private Sub LoadDescription()
+
+  Dim sDescription As String
+
+  Select Case GetSelectionType()
+
+    Case SELECTION_MODULE
+      sDescription = GetSelection().Description
+
+    Case SELECTION_SUBMODULE
+      sDescription = GetSelection()[GetSelectionComponents()[2]].Description
+
+  End Select
+
+  If Not sDescription Then
+    sDescription = ("No description included")
+  Endif
+
+  lblDescription.Text = sDescription
+
+End
+
+Public Sub LoadWarnings()
+
+  Dim sWarning As String
+
+  Select Case GetSelectionType()
+
+    Case SELECTION_MODULE
+      sWarning = GetSelection().Warning
+
+    Case SELECTION_SUBMODULE
+      sWarning = GetSelection()[GetSelectionComponents()[2]].Warning
+
+  End Select
+
+  If Not sWarning Then
+    sWarning = ("No warnings has been provided")
+  Endif
+
+  lblWarning.Text = sWarning
+
+End
+
+Private Sub LoadModuleInformation()
+
+  Dim sWebsite As String
+
+  sWebsite = GetSelection().Website
+
+  If Not sWebsite Then
+    'Debug (Subst("Module &1 out-dated, No website provided", mModule.Name))
+    lblWebsite.Text = ""
+    lblWebsite.Mouse = Mouse.Default
+    Return
+  Endif
+
+  If sWebsite Begins "https" Then
+    sWebsite = Mid(sWebsite, 9)
+  Else If sWebsite Begins "http" Then
+    sWebsite = Mid(sWebsite, 8)
+  Else If Len(sWebsite) < 1 Then
+    sWebsite = ""
+  Endif
+
+  If sWebsite Begins "www." Then
+    sWebsite = Mid(sWebsite, 5)
+  Endif
+
+  If sWebsite Ends "/" Then
+    sWebsite = Mid(sWebsite, 1, -1)
+  Endif
+
+  lblWebsite.Text = sWebsite
+
+  lblWebsite.Mouse = Mouse.Pointing
+
+End
+
+Public Sub lblWebsite_MouseUp()
+
+  Dim mModule As Module
+
+  mModule = GetSelection()
+
+  If Not mModule.Website Then Return
+
+  Try Desktop.Open(mModule.Website)
+
+End
+
+Public Sub mBlog_Click()
+
+  Desktop.Open(Main.URL_BLOG)
+
+End
+
+Public Sub mProject_Click()
+
+  Desktop.Open(Main.URL_PROJECT)
+
+End
+
+Public Sub tvModules_KeyRelease()
+
+  If Key.Code = Key.Space Then
+    tvModules[tvModules.Key].Expanded = Not tvModules[tvModules.Key].Expanded
+  Endif
+
+End
+
+Public Sub mRefresh_Click()
+
+  Modules.Load()
+
+  Form_Open()
+
+End
+
+Public Sub mShowHelp_Click()
+
+  Desktop.Open(Main.URL_DOCS)
+
+End
+
+Private Function GetSelection() As Module
+
+  Dim aSelected As String[]
+
+  aSelected = GetSelectionComponents()
+
+  If Not aSelected Then Return
+
+  Return Modules[aSelected[1]]
+
+End
+
+Private Function GetSelectionComponents() As String[]
+
+  If Not tvModules.Key Then Return
+
+  Return Split(tvModules.Key, "|")
+
+End
+
+Private Function GetSelectionType() As Integer
+
+  Dim aSelected As String[]
+
+  aSelected = GetSelectionComponents()
+
+  If Not aSelected Then Return
+
+  Select Case aSelected[0]
+
+    Case "Module"
+      Return SELECTION_MODULE
+
+    Case "Submodule"
+      Return SELECTION_SUBMODULE
+
+  End Select
+
+End
+
+Public Sub FilterMenu_Click()
+
+  mAll.Checked = False
+  mUninstalled.Checked = False
+  mInstalled.Checked = False
+
+  Last.Checked = True
+
+  $iFilter = CInt(Last.Tag)
+
+  LoadModules()
+
+End
+
+Public Sub tbFilter_Change()
+
+  $sPattern = tbFilter.Text & "*"
+
+  LoadModules()
+
+End
+
+Public Sub tbClearFilter_Click()
+
+  tbFilter.Clear()
+
+End

@@ -1,0 +1,18 @@
+{
+    "Name": "Konsole",
+    "Category": "Terminal Emulator",
+    "Description": "Konsole is an X terminal emulator for the KDE platform, allowing users to have a convenient way to use the command line.",
+    "Submodules": {
+        "0": {
+            "Path": "~/.kde/share/apps/konsole",
+            "Name": "Configuration"
+        },
+        "1": {
+            "Path": "~/.kde/share/config/konsolerc",
+            "Name": "Configuration 2"
+        }
+    },
+    "Executable": "konsole",
+    "Website": "http://konsole.kde.org",
+    "Version": 1
+}

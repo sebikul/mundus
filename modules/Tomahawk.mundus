@@ -1,0 +1,24 @@
+{
+    "Name": "Tomahawk",
+    "Category": "Social Media Player",
+    "Description": "Social Media Player",
+    "Submodules": {
+        "0": {
+            "Path": "~/.config/Tomahawk",
+            "Name": "Configuration & Music Database",
+            "Description": "Configuration files and song library.",
+            "Warning": "Your song database will be lost!"
+        },
+        "1": {
+            "Path": "~/.cache/Tomahawk",
+            "Name": "Cache"
+        },
+        "2": {
+            "Name": "Database Cache",
+            "Path": "~/.local/share/Tomahawk/"
+        }
+    },
+    "Executable": "tomahawk",
+    "Website": "http://www.tomahawk-player.org",
+    "Version": 2
+}

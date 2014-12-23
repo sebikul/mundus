@@ -1,0 +1,20 @@
+{
+    "Name": "Banshee",
+    "Category": "Music Player",
+    "Description": "Play your music and videos. Keep up with your podcasts and Internet radio. Discover new music and podcasts. Keep your portable device loaded with good stuff.",
+    "Submodules": {
+        "0": {
+            "Path": "~/.config/banshee-1",
+            "Name": "Configuration & Music database",
+            "Description": "Configuration files, song library and album covers",
+            "Warning": "You will need to reconstruct your song database."
+        },
+        "1": {
+            "Path": "~/.cache/banshee-1",
+            "Name": "Cache"
+        }
+    },
+    "Executable": "banshee",
+    "Website": "http://banshee.fm",
+    "Version": 1
+}

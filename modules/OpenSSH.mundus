@@ -1,0 +1,16 @@
+{
+    "Name": "OpenSSH",
+    "Category": "Remote Access",
+    "Description": "OpenSSH is a FREE version of the SSH connectivity tools that technical users of the Internet rely on. Users of telnet, rlogin, and ftp may not realize that their password is transmitted across the Internet unencrypted, but it is. OpenSSH encrypts all traffic (including passwords) to effectively eliminate eavesdropping, connection hijacking, and other attacks.",
+    "Submodules": {
+        "0": {
+            "Path": "~/.ssh",
+            "Name": "Configuration & Private/Public Keys",
+            "Description": "This directory stores your configuration along the key pairs generated and public keys imported.",
+            "Warning": "You will lose any private keys generated. Once deleted, they cannot be recovered, please create a backup!"
+        }
+    },
+    "Executable": "ssh",
+    "Website": "http://www.openssh.com",
+    "Version": 1
+}

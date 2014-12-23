@@ -1,0 +1,421 @@
+' Gambas class file
+
+' Mundus
+' Copyright(C)2012 sebikul <sebikul@gmail.com>
+
+' This program is free software: you can redistribute it and/or modify
+' it under the terms of the GNU General Public License as published by
+' the Free Software Foundation, either version 3 of the License, or
+' (at your option) any later version.
+
+' This program is distributed in the hope that it will be useful,
+' but WITHOUT ANY WARRANTY; without even the implied warranty of
+' MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+' GNU General Public License for more details.
+
+' You should have received a copy of the GNU General Public License
+' along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+Private LastKey As String
+
+Public Sub Form_Open()
+
+  Main.Settings.Read(fBackups)
+
+  LoadBackups()
+
+End
+
+Private Sub LoadBackups()
+
+  Dim sModule, sBackup, sKey, sParent As String
+
+  Dim aBackupsList As String[]
+
+  Inc Application.Busy
+
+  tvBackups.Clear()
+
+  For Each sModule In Dir(Main.PATH_BACKUPS, Null, gb.Directory)
+
+    sModule = Main.UnTrim(sModule)
+
+    aBackupsList = Dir(Main.PATH_BACKUPS &/ Main.Trim(sModule), Null, gb.File)
+
+    sParent = "Module|" & sModule
+
+    If Not tvBackups.Exist(sParent) And aBackupsList.Count > 0 Then
+      tvBackups.Add(sParent, sModule)
+    Endif
+
+    For Each sBackup In aBackupsList
+
+      sKey = "Backup|" & sModule & "|" & sBackup
+
+      tvBackups.Add(sKey, sBackup, Null, sParent)
+
+    Next
+
+  Next
+
+  Dec Application.Busy
+
+End
+
+Public Sub tvBackups_Select()
+
+  Dim sBackupPath, sFile As String
+
+  Dim MetadataContent As Collection
+
+  Dim mModule As Module
+
+  If LastKey = tvBackups.Key Then Return
+
+  If GetSelectionComponents()[0] <> "Backup" Then
+    VBox1.Enabled = False
+    LastKey = Null
+    btnDelete.Enabled = False
+    btnRestore.Enabled = False
+    Clear()
+    Return
+  Endif
+
+  If Not VBox1.Enabled Then VBox1.Enabled = True
+
+  mModule = GetSelection()
+
+  sBackupPath = Main.PATH_BACKUPS &/ Main.Trim(mModule.Name) &/ GetSelectionComponents()[2]
+
+  tbSize.Text = Main.SetSizeLabelScale(Stat(sBackupPath).Size)
+
+  MetadataContent = Backup.GetMetadata(sBackupPath)
+
+  If MetadataContent.Exist("Error") Then
+
+    Select Case MetadataContent["Error"]
+
+      Case "001"
+        tbSourceVersion.Text = ("Not Supported")
+        btnRestore.Enabled = False
+
+    End Select
+
+  Else
+
+    btnDelete.Enabled = True
+    btnRestore.Enabled = True
+
+    Select Case MetadataContent["Version"]
+      Case "0.0.8", "1.0.0", "1.0.1"
+        tbSourceVersion.Text = MetadataContent["Version"]
+        tbModule.Text = MetadataContent["Module"]
+        tbSubModule.Text = MetadataContent["Submodule"]
+        dbCreated.Value = MetadataContent["Created"]
+        tbSource.Text = ""
+
+      Case "1.1.0", "1.1.3", "1.2.0", "1.3.0", "1.4.0", "2.0.0", "2.1.0", "2.2.0", "2.3.0", "2.3.1", "3.0.0"
+        tbSourceVersion.Text = MetadataContent["Version"]
+        tbModule.Text = MetadataContent["Module"]
+        tbSubModule.Text = MetadataContent["Submodule"]
+        dbCreated.Value = MetadataContent["Created"]
+
+        tbSource.Text = User.Home &/ MetadataContent["Source"]
+
+    End Select
+
+  Endif
+
+  lvBackupContent.Clear()
+
+  For Each sFile In Backup.List(sBackupPath)
+
+    If Not sFile Or sFile = Backup.METADATA_TEMP_FILE Then Continue
+
+    sFile = User.Home &/ sFile
+
+    lvBackupContent.Add(sFile, sFile)
+  Next
+
+  LastKey = tvBackups.Key
+
+End
+
+Public Sub btnDelete_Click()
+
+  Dim sPath As String
+
+  Dim mModule As Module
+
+  If GetSelectionComponents()[0] <> "Backup" Then Return
+
+  Message.Title = ("Backup Deletion")
+  If Message.Delete(("Are you sure you want to delete this backup?"), ("Yes"), ("No")) <> 1 Then Return
+
+  mModule = GetSelection()
+
+  sPath = Main.PATH_BACKUPS &/ Main.Trim(mModule.Name) &/ GetSelectionComponents()[2]
+
+  If Not Exist(sPath) Or Not Access(sPath, gb.Write) Then
+    Message.Error(("The backup does not exist or you do not have permission to delete it."))
+    Return
+  Endif
+
+  Kill sPath
+
+  tvBackups.Remove(GetSelectionComponents().Join("|"))
+
+Catch
+
+  Message.Error(Error.Text)
+
+End
+
+Public Sub btnRestore_Click()
+
+  Dim sPath, sDest As String
+  Dim MetadataContent As Collection
+  Dim mModule As Module
+
+  If GetSelectionComponents()[0] <> "Backup" Then Return
+
+  mModule = GetSelection()
+
+  sPath = Main.PATH_BACKUPS &/ Main.Trim(mModule.Name) &/ GetSelectionComponents()[2]
+
+  MetadataContent = Backup.GetMetadata(sPath)
+
+  If MetadataContent.Exist("Error") Then
+
+    Select Case MetadataContent["Error"]
+
+      Case "001"
+        Return
+
+    End Select
+
+  Else
+
+    Select Case MetadataContent["Version"]
+      Case "0.0.8", "1.0.0", "1.0.1", "1.1.0", "1.1.3", "1.2.0", "1.3.0", "1.4.0", "2.0.0", "2.1.0", "2.2.0", "2.3.0", "2.3.1"
+        'Debug Subst("Restoring backup &1", BackupPath)
+
+        If mModule.Name <> MetadataContent["Module"] Then Return
+
+        sDest = Backup.GetPathFor(mModule, MetadataContent["Submodule"])
+
+        If Not sDest Then
+          sDest = MetadataContent["Source"]
+        Endif
+
+        Select Case Backup.Restore(sPath, sDest)
+
+          Case Backup.RESTORE_OK
+
+            Message.Title = ("Backup restore completed")
+            Message.Info(("The backup was successfully restored."), ("Ok"))
+            Modules.Reload(mModule.Name)
+            fMain.ReloadModule(mModule)
+
+          Case Backup.RESTORE_FAILED
+
+            Message.Title = ("Backup restore failed")
+            Message.Warning(("The backup restoration process failed. " &
+              "For more info, please check the logs and open a new bug if necessary."), ("Ok"))
+
+          Case Backup.RESTORE_EXIST
+            Message.Title = ("Backup destination already exist")
+            Message.Info(("The destination directory already exist. " &
+              "If you want to restore a backup you need to previously clean the application."))
+
+        End Select
+
+    End Select
+
+  Endif
+
+End
+
+Public Sub mReload_Click()
+
+  LoadBackups()
+
+End
+
+Public Sub mClose_Click()
+
+  Me.Close
+
+End
+
+Public Sub Form_Close()
+
+  tvBackups.Clear()
+
+  Clear()
+
+  Main.Settings.Write(fSettings)
+
+End
+
+Private Sub Clear()
+
+  tbSourceVersion.Clear()
+  tbModule.Clear()
+  tbSubModule.Clear()
+  tbSize.Text = Null
+  tbSource.Clear()
+  dbCreated.Value = Null
+  lvBackupContent.Clear()
+
+End
+
+Public Sub Form_KeyPress()
+
+  If Key.Code = Key.Escape Then Me.Close
+
+End
+
+Public Sub tvBackups_KeyRelease()
+
+  If Key.Code = Key.Space Then
+    tvBackups[tvBackups.Key].Expanded = Not tvBackups[tvBackups.Key].Expanded
+  Endif
+
+End
+
+Public Sub mClearOld_Click()
+
+  Dim sModule, sBackup As String
+
+  Dim MetadataContent As Collection
+
+  Dim iCount As Integer
+
+  Inc Application.Busy
+
+  For Each sModule In Dir(Main.PATH_BACKUPS, Null, gb.Directory)
+
+    sModule = Main.UnTrim(sModule)
+
+    For Each sBackup In Dir(Main.PATH_BACKUPS &/ Main.Trim(sModule), Null, gb.File)
+
+      sBackup = Main.PATH_BACKUPS &/ Main.Trim(sModule) &/ sBackup
+
+      MetadataContent = Backup.GetMetadata(sBackup)
+
+      If MetadataContent.Exist("Error") Then
+
+        Select Case MetadataContent["Error"]
+
+          Case "001"
+            tbSourceVersion.Text = ("Not Supported")
+            btnRestore.Enabled = False
+
+        End Select
+
+      Else
+
+        If Application.Version > MetadataContent["Version"] Then
+
+          'Debug (sBackup & "\t Made with version " & MetadataContent["Version"])
+
+          If Not Access(sBackup, gb.Write) Then
+            Message.Warning(Subst(("You don't have permission to delete &1."), sBackup))
+            Continue
+          Endif
+
+          Kill sBackup
+
+          Inc iCount
+
+        Endif
+      Endif
+
+    Next
+
+  Next
+
+  Dec Application.Busy
+
+  Message.Title = ("Cleaning completed")
+  Message.Info(Subst(("Cleaned &1 backups."), iCount), ("Ok"))
+
+  LoadBackups()
+
+Catch
+
+  Message.Error(Error.Text)
+
+End
+
+Public Sub btnSaveAs_Click()
+
+  Dim mModule As Module
+
+  Dim sPath As String
+
+  If GetSelectionComponents()[0] <> "Backup" Then Return
+
+  mModule = GetSelection()
+
+  sPath = Main.PATH_BACKUPS &/ Main.Trim(mModule.Name) &/ GetSelectionComponents()[2]
+
+  With Dialog
+    .Path = User.Home &/ GetSelectionComponents()[2]
+    .Title = ("Saving Mundus Backup")
+    .Filter = ["*.tar.gz", ("gzip Compressed Tarball")]
+  End With
+
+  If Dialog.SaveFile() Then Return
+
+  If Not Access(File.Dir(Dialog.Path), gb.Write) Then
+    Message.Error(Subst(("You don't have permission to write &1."), Dialog.Path))
+    Return
+  Endif
+
+  If Exist(Dialog.Path) Then Kill Dialog.Path
+
+  Copy sPath To Dialog.Path
+
+Catch
+
+  Message.Error(Error.Text)
+
+End
+
+Private Function GetSelection() As Module
+
+  Dim aSelected As String[]
+
+  aSelected = GetSelectionComponents()
+
+  If Not aSelected Then Return
+
+  Return Modules[aSelected[1]]
+
+End
+
+Private Function GetSelectionComponents() As String[]
+
+  If Not tvBackups.Key Then Return
+
+  Return Split(tvBackups.Key, "|")
+
+End
+
+Public Sub btnOpen_Click()
+
+  Dim mModule As Module
+
+  Dim BackupPath As String
+
+  If GetSelectionComponents()[0] <> "Backup" Then Return
+
+  mModule = GetSelection()
+
+  BackupPath = Main.PATH_BACKUPS &/ Main.Trim(mModule.Name) &/ GetSelectionComponents()[2]
+
+  Desktop.Open(BackupPath)
+
+End

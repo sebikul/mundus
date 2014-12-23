@@ -1,0 +1,225 @@
+' Gambas class file
+
+' Mundus
+' Copyright(C)2012 sebikul <sebikul@gmail.com>
+
+' This program is free software: you can redistribute it and/or modify
+' it under the terms of the GNU General Public License as published by
+' the Free Software Foundation, either version 3 of the License, or
+' (at your option) any later version.
+
+' This program is distributed in the hope that it will be useful,
+' but WITHOUT ANY WARRANTY; without even the implied warranty of
+' MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+' GNU General Public License for more details.
+
+' You should have received a copy of the GNU General Public License
+' along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+Private LastKey As String
+
+Public Sub Form_Open()
+
+  Main.Settings.Read(fReports)
+  LoadReports()
+
+  tvReports_Select()
+
+End
+
+Private Sub LoadReports()
+
+  Dim sReport, sName, sParent As String
+
+  Dim sDate As String[]
+
+  Inc Application.Busy
+
+  For Each sReport In Dir(Main.PATH_REPORTS)
+
+    sDate = Split(sReport, "_")
+
+    sParent = "Date|" & sDate[0]
+
+    If Not tvReports.Exist(sParent) Then
+      tvReports.Add(sParent, sDate[0])
+    Endif
+
+    sName = Replace(File.BaseName(sDate[1]), "-", ":")
+
+    tvReports.Add(sReport, sName, Null, sParent)
+
+  Next
+
+  Dec Application.Busy
+
+End
+
+Private Function LoadReport(sName As String, Optional LoadPath As String) As String
+
+  Dim sReport, sPath, sLine As String
+
+  Dim cModule As Collection
+
+  Dim oReport As _Report
+
+  Inc Application.Busy
+
+  If Not LoadPath Then
+    sPath = Main.PATH_REPORTS &/ sName
+  Else
+    sPath = LoadPath
+  Endif
+
+  oReport = New _Report(sPath)
+
+  sReport = "==============================================" & "\n"
+  sReport &= Subst(("Mundus v&1"), oReport["Version"]) & "\n"
+  sReport &= Subst(("Project URL: &1"), Main.URL_PROJECT) & "\n"
+  sReport &= Subst(("Date: &1"), oReport["Date"]) & "\n"
+  sReport &= "==============================================" & "\n"
+  sReport &= ""
+  sReport &= ("Cleaned Modules:") & "\n"
+
+  sLine = Null
+
+  For Each cModule In oReport["Modules"]
+    sLine &= Subst("  -  &1", cModule["Module"])
+  Next
+
+  sReport &= Mid(sLine, 6)
+
+  sReport &= "\n\n"
+  sReport &= Subst(("Total files cleaned: &1\n"), oReport["Totals"]["Files"])
+  sReport &= Subst(("Total space cleaned: &1\n"), Main.SetSizeLabelScale(oReport["Totals"]["Space"]))
+  sReport &= Subst(("Total executions:    &1\n"), oReport["Totals"]["Runs"])
+
+  sReport &= "\n\n"
+  sReport &= "————————————————————————————\n"
+  sReport &= ("Per-Module Report\n")
+  sReport &= "————————————————————————————\n"
+  sReport &= "\n"
+
+  For Each cModule In oReport["Modules"]
+    sReport &= "==============================================\n"
+    sReport &= Subst(("Module:  &1\n"), cModule["Module"])
+    sReport &= Subst(("Space Cleaned:  &1\n"), Main.SetSizeLabelScale(cModule["Space"]))
+    sReport &= Subst(("Files Cleaned:  &1\n"), cModule["Files"])
+    sReport &= Subst(("Times Executed: &1\n"), cModule["Runs"])
+    sReport &= "==============================================\n"
+    sReport &= "\n" & "\n"
+
+  Next
+
+  Dec Application.Busy
+
+  Return sReport
+
+Catch
+
+  Dec Application.Busy
+
+  Message.Error(Error.Text)
+
+  Return File.Load(sPath)
+
+End
+
+Public Sub mClose_Click()
+
+  Me.Close
+
+End
+
+Public Sub mReload_Click()
+
+  Inc Application.Busy
+  tvReports.Clear()
+
+  LoadReports()
+  Dec Application.Busy
+
+End
+
+Public Sub mDelete_Click()
+
+  If Not tvReports.Key Then Return
+
+  If tvReports.Key Begins "Date" Then Return
+
+  Try Kill Main.PATH_REPORTS &/ tvReports.Key
+
+  tvReports.Remove(tvReports.Key)
+
+End
+
+Public Sub tvReports_Select()
+
+  If Not tvReports.Key Or tvReports.Key = LastKey Then Return
+
+  If tvReports.Key Begins "Date" Then
+    mDelete.Enabled = False
+    Return
+  Endif
+
+  mDelete.Enabled = True
+
+  txtReport.Text = LoadReport(tvReports.Key)
+
+  LastKey = tvReports.Key
+
+End
+
+Public Sub Form_Activate()
+
+  mReload_Click()
+
+End
+
+Public Sub Form_KeyPress()
+
+  If Key.Code = Key.Escape Then Me.Close
+
+  If Key.Code = Key.Delete Then
+    mDelete_Click()
+  Endif
+
+End
+
+Public Sub Form_Close()
+
+  Main.Settings.Write(fReports)
+
+  tvReports.Clear()
+
+End
+
+Public Sub tvReports_KeyRelease()
+
+  If Key.Code = Key.Space Then
+    tvReports[tvReports.Key].Expanded = Not tvReports[tvReports.Key].Expanded
+  Endif
+
+End
+
+Public Sub mLoadFromFile_Click()
+
+  Dialog.Title = ("Open a Report")
+  Dialog.Filter = ["*.log", ("Mundus JSON Report")]
+  Dialog.Path = User.Home
+
+  If Dialog.OpenFile(False) Then Return
+
+  Inc Application.Busy
+
+  mDelete.Enabled = False
+
+  txtReport.Text = LoadReport("", Dialog.Path)
+
+Finally
+  Dec Application.Busy
+
+Catch
+  txtReport.Text = ("The report file is invalid")
+
+End

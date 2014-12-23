@@ -1,0 +1,14 @@
+{
+    "Name": "QGit",
+    "Version": 1,
+    "Submodules": {
+        "0": {
+            "Name": "Configuration",
+            "Path": "~/.config/qgit/"
+        }
+    },
+    "Category": "Git GUI",
+    "Description": "QGit is a git GUI viewer built on Qt/C++. With qgit you will be able to browse revisions history, view patch content and changed files, graphically following different development branches. ",
+    "Executable": "qgit",
+    "Website": "http://digilander.libero.it/mcostalba/"
+}

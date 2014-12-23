@@ -1,0 +1,46 @@
+{
+    "Name": "Liferea",
+    "Category": "Linux Feed Reader",
+    "Description": "Liferea is an aggregator for online news feeds. It's fast, easy to use and easy to install",
+    "Submodules": {
+        "0": {
+            "Path": "~/.liferea_1.9",
+            "Name": "Configuration v1.9",
+            "Description": "Configuration files and translation memory stored over time. Current BETA release."
+        },
+        "1": {
+            "Path": "~/.liferea_1.8",
+            "Name": "Configuration v1.8",
+            "Description": "Configuration files and translation memory stored over time. Old stable release."
+        },
+        "2": {
+            "Path": "~/.liferea_1.7",
+            "Name": "Configuration v1.7",
+            "Description": "Configuration files and translation memory stored over time. Old stable release."
+        },
+        "3": {
+            "Path": "~/.liferea_1.6",
+            "Name": "Configuration v1.6",
+            "Description": "Configuration files and translation memory stored over time. Old stable release."
+        },
+        "4": {
+            "Path": "~/.gconf/apps/liferea",
+            "Name": "Gconf configuration"
+        },
+        "5": {
+            "Name": "Cache",
+            "Path": "~/.cache/liferea"
+        },
+        "6": {
+            "Name": "Configuration",
+            "Path": "~/.config/liferea"
+        },
+        "7": {
+            "Name": "Articles Database",
+            "Path": "~/.local/share/liferea"
+        }
+    },
+    "Executable": "liferea",
+    "Website": "http://liferea.sourceforge.net",
+    "Version": 1
+}

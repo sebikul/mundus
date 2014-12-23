@@ -1,0 +1,23 @@
+{
+    "Name": "Shotwell",
+    "Category": "Image Organizer",
+    "Description": "Shotwell is a digital photo organizer that runs on Linux.",
+    "Submodules": {
+        "0": {
+            "Path": "~/.shotwell",
+            "Name": "Configuration & Thumbs Cache",
+            "Warning": "You will need to re-import your whole library again!"
+        },
+        "1": {
+            "Path": "~/.cache/shotwell",
+            "Name": "Logs"
+        },
+        "2": {
+            "Name": "Temporary Data",
+            "Path": "~/.local/share/shotwell"
+        }
+    },
+    "Executable": "shotwell",
+    "Website": "http://yorba.org/shotwell",
+    "Version": 2
+}

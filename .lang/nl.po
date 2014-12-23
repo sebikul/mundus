@@ -1,0 +1,648 @@
+# Dutch translation for mundus
+# Copyright (c) 2013 Rosetta Contributors and Canonical Ltd 2013
+# This file is distributed under the same license as the mundus package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2013.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: mundus\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2002-11-01 04:27+0100\n"
+"PO-Revision-Date: 2013-02-05 09:36+0000\n"
+"Last-Translator: Johny Provoost <johny.provoost@skynet.be>\n"
+"Language-Team: Dutch <nl@li.org>\n"
+"Language: nl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2013-07-12 00:44+0000\n"
+"X-Generator: Launchpad (build 16696)\n"
+
+#: .project:1 fMain.form:64
+msgid "Mundus"
+msgstr ""
+
+#: .project:2
+msgid "Clean and backup your /home folder from old configuration files created by now uninstalled software."
+msgstr ""
+
+#: Cleaner.module:38
+msgid "Done"
+msgstr "Klaar"
+
+#: Cleaner.module:44
+msgid "Access forbiden. You can't access &1"
+msgstr ""
+
+#: Cleaner.module:47
+msgid "Directory has content"
+msgstr ""
+
+#: Cleaner.module:61
+msgid "Failed"
+msgstr "Niet gelukt"
+
+#: Cleaner.module:87
+msgid "Access forbiden. You don't have write permissions on &1"
+msgstr "Toegang verboden.  U heeft geen schrijfrechten op &1"
+
+#: Cleaner.module:151
+msgid "Deleting directory &1\t"
+msgstr "Verwijderen directorie &1\t"
+
+#: Cleaner.module:160
+msgid "Cleaning file &1\t"
+msgstr "Schoonmaken bestand &1\t"
+
+#: Icons.module:61
+msgid "Could not fetch icons index. Using cached pictures."
+msgstr ""
+
+#: Icons.module:152
+msgid "Mundus Icons Downloader"
+msgstr ""
+
+#: Icons.module:158
+msgid "Downlaoding icon for &1"
+msgstr ""
+
+#: Index.module:120
+msgid "Unable to fetch index file. Code: &1"
+msgstr ""
+
+#: Index.module:133
+msgid "The index is corrupted. Using local cache"
+msgstr ""
+
+#: Index.module:196
+msgid "Module does not exist"
+msgstr ""
+
+#: Index.module:210
+msgid "Downloading &1"
+msgstr ""
+
+#: Index.module:366
+msgid "Updating Index"
+msgstr ""
+
+#: Main.module:40
+msgid "coreutils not found"
+msgstr ""
+
+#: Main.module:41
+msgid "You need to install coreutils"
+msgstr ""
+
+#: Main.module:46
+msgid "Running as root is not allowed!"
+msgstr ""
+
+#: Main.module:63
+msgid "You are working in offline mode. Modules won't be updated."
+msgstr ""
+
+#: Main.module:86
+msgid "The index will be automatically rebuilt."
+msgstr ""
+
+#: Main.module:244 fBackups.form:59 fReports.form:38 fStartUp.form:108
+msgid "Close"
+msgstr ""
+
+#: Main.module:244
+msgid "Continue anyway"
+msgstr ""
+
+#: Main.module:244
+msgid "Mundus is already running!"
+msgstr ""
+
+#: Modules.module:51
+msgid "Loading Modules"
+msgstr ""
+
+#: Modules.module:57
+msgid "Loading module: &1"
+msgstr ""
+
+#: Modules.module:62
+msgid "Sorry, module &1 does not exist or is corrupted. It will be automatically fixed the next time you execute Mundus."
+msgstr ""
+
+#: _Report.class:31
+msgid "The report does no exist."
+msgstr ""
+
+#: _Report.class:98
+msgid "You don't have permission to save this report."
+msgstr ""
+
+#: _Report.class:112
+msgid "There was an error saving one of the reports. The last clean won't be saved."
+msgstr ""
+
+#: fAbout.class:24
+msgid "<h2>Mundus Home Folder Cleaner v&1</h2><p><h4> by sebikul</h4><p><p>Includes icon from the Faenza Icons Theme"
+msgstr ""
+
+#: fAbout.form:9
+msgid "About"
+msgstr "Over..."
+
+#: fAbout.form:17 fBackups.class:216
+msgid "Ok"
+msgstr "Ok"
+
+#: fBackups.class:99
+msgid "Not Supported"
+msgstr ""
+
+#: fBackups.class:152
+msgid "Backup Deletion"
+msgstr ""
+
+#: fBackups.class:153
+msgid "Are you sure you want to delete this backup?"
+msgstr ""
+
+#: fBackups.class:153 fSettings.form:78 fStartUp.form:82
+msgid "No"
+msgstr ""
+
+#: fBackups.class:153 fMain.class:286 fSettings.form:78 fStartUp.form:76
+msgid "Yes"
+msgstr ""
+
+#: fBackups.class:160
+msgid "The backup does not exist or you do not have permission to delete it."
+msgstr ""
+
+#: fBackups.class:215
+msgid "Backup restore completed"
+msgstr ""
+
+#: fBackups.class:216
+msgid "The backup was successfully restored."
+msgstr ""
+
+#: fBackups.class:222
+msgid "Backup restore failed"
+msgstr ""
+
+#: fBackups.class:227
+msgid "Backup destination already exist"
+msgstr ""
+
+#: fBackups.class:324
+msgid "You don't have permission to delete &1."
+msgstr ""
+
+#: fBackups.class:341
+msgid "Cleaning completed"
+msgstr ""
+
+#: fBackups.class:342
+msgid "Cleaned &1 backups."
+msgstr ""
+
+#: fBackups.class:366
+msgid "Saving Mundus Backup"
+msgstr ""
+
+#: fBackups.class:367
+msgid "gzip Compressed Tarball"
+msgstr ""
+
+#: fBackups.class:373
+msgid "You don't have permission to write &1."
+msgstr ""
+
+#: fBackups.form:41
+msgid "Mundus Backups"
+msgstr ""
+
+#: fBackups.form:49 fMain.form:72 fReports.form:24
+msgid "File"
+msgstr ""
+
+#: fBackups.form:52
+msgid "Reload Backups"
+msgstr ""
+
+#: fBackups.form:64
+msgid "Actions"
+msgstr ""
+
+#: fBackups.form:67
+msgid "Clear backups made with previous versions"
+msgstr ""
+
+#: fBackups.form:94
+msgid "Source Version"
+msgstr ""
+
+#: fBackups.form:111
+msgid "Created"
+msgstr ""
+
+#: fBackups.form:128
+msgid "Size"
+msgstr ""
+
+#: fBackups.form:148
+msgid "Module"
+msgstr ""
+
+#: fBackups.form:164
+msgid "Submodule"
+msgstr ""
+
+#: fBackups.form:180
+msgid "Path"
+msgstr ""
+
+#: fBackups.form:203
+msgid "Restore"
+msgstr ""
+
+#: fBackups.form:209
+msgid "Delete"
+msgstr ""
+
+#: fBackups.form:215
+msgid "Save As..."
+msgstr ""
+
+#: fBackups.form:221
+msgid "Open"
+msgstr ""
+
+#: fMain.class:179
+msgid "&1 file"
+msgstr ""
+
+#: fMain.class:179
+msgid "&1 files"
+msgstr ""
+
+#: fMain.class:227
+msgid "No category found"
+msgstr ""
+
+#: fMain.class:270
+msgid "To avoid damage or any undesired behaviour, you need to close the application first."
+msgstr ""
+
+#: fMain.class:285
+msgid "Cleaning &1"
+msgstr ""
+
+#: fMain.class:286
+msgid "Are you sure you want to clean &1?"
+msgstr ""
+
+#: fMain.class:286 fProgress.form:26
+msgid "Cancel"
+msgstr ""
+
+#: fMain.class:316
+msgid "module"
+msgstr ""
+
+#: fMain.class:339
+msgid "submodule"
+msgstr ""
+
+#: fMain.class:344
+msgid "The selected &1 was successfully cleaned."
+msgstr ""
+
+#: fMain.class:346
+msgid "Successfully cleaned"
+msgstr ""
+
+#: fMain.class:367
+msgid "There was an error while performing the automatic backup. Cleaning aborted."
+msgstr ""
+
+#: fMain.class:372
+msgid "Automatic backup of &1 skipped, size over maximum."
+msgstr ""
+
+#: fMain.class:485
+msgid "The directory was successfully backed up"
+msgstr ""
+
+#: fMain.class:518
+msgid "No description included"
+msgstr ""
+
+#: fMain.class:540
+msgid "No warnings has been provided"
+msgstr ""
+
+#: fMain.form:75
+msgid "Refresh"
+msgstr ""
+
+#: fMain.form:84
+msgid "Exit"
+msgstr ""
+
+#: fMain.form:89 fReports.form:43
+msgid "Edit"
+msgstr ""
+
+#: fMain.form:92 fSettings.form:47
+msgid "Settings"
+msgstr ""
+
+#: fMain.form:98
+msgid "View"
+msgstr ""
+
+#: fMain.form:101 fSettings.form:173
+msgid "Reports"
+msgstr ""
+
+#: fMain.form:106 fSettings.form:136
+msgid "Backups"
+msgstr ""
+
+#: fMain.form:111 fSupportedApps.form:8
+msgid "Supported Applications"
+msgstr ""
+
+#: fMain.form:117
+msgid "Filter"
+msgstr ""
+
+#: fMain.form:121
+msgid "List All Applications"
+msgstr ""
+
+#: fMain.form:128
+msgid "List Bundles"
+msgstr ""
+
+#: fMain.form:138
+msgid "List Installed Applications"
+msgstr ""
+
+#: fMain.form:144
+msgid "List Uninstalled Applications with Configuration"
+msgstr ""
+
+#: fMain.form:150
+msgid "Help"
+msgstr ""
+
+#: fMain.form:153
+msgid "Show Help"
+msgstr ""
+
+#: fMain.form:158
+msgid "Report a Bug"
+msgstr ""
+
+#: fMain.form:167
+msgid "Project Website"
+msgstr ""
+
+#: fMain.form:171
+msgid "Project Blog"
+msgstr ""
+
+#: fMain.form:179
+msgid "About Mundus"
+msgstr ""
+
+#: fMain.form:215
+msgid "Clear"
+msgstr ""
+
+#: fMain.form:295
+msgid "Installed"
+msgstr ""
+
+#: fMain.form:305
+msgid "Total Size:"
+msgstr ""
+
+#: fMain.form:327
+msgid "Has Configuration Files"
+msgstr ""
+
+#: fMain.form:337
+msgid "Total Files:"
+msgstr ""
+
+#: fMain.form:362
+msgid "Clean"
+msgstr ""
+
+#: fMain.form:367
+msgid "Preview Files"
+msgstr ""
+
+#: fMain.form:373
+msgid "Backup"
+msgstr ""
+
+#: fReports.class:77
+msgid "Mundus v&1"
+msgstr ""
+
+#: fReports.class:78
+msgid "Project URL: &1"
+msgstr ""
+
+#: fReports.class:79
+msgid "Date: &1"
+msgstr ""
+
+#: fReports.class:82
+msgid "Cleaned Modules:"
+msgstr ""
+
+#: fReports.class:93
+msgid "Total files cleaned: &1\n"
+msgstr ""
+
+#: fReports.class:94
+msgid "Total space cleaned: &1\n"
+msgstr ""
+
+#: fReports.class:95
+msgid "Total executions:    &1\n"
+msgstr ""
+
+#: fReports.class:99
+msgid "Per-Module Report\n"
+msgstr ""
+
+#: fReports.class:105
+msgid "Module:  &1\n"
+msgstr ""
+
+#: fReports.class:106
+msgid "Space Cleaned:  &1\n"
+msgstr ""
+
+#: fReports.class:107
+msgid "Files Cleaned:  &1\n"
+msgstr ""
+
+#: fReports.class:108
+msgid "Times Executed: &1\n"
+msgstr ""
+
+#: fReports.class:207
+msgid "Open a Report"
+msgstr ""
+
+#: fReports.class:208
+msgid "Mundus JSON Report"
+msgstr ""
+
+#: fReports.class:223
+msgid "The report file is invalid"
+msgstr ""
+
+#: fReports.form:17
+msgid "Mundus Reports"
+msgstr ""
+
+#: fReports.form:27
+msgid "Load Report From File"
+msgstr ""
+
+#: fReports.form:31
+msgid "Reload Reports"
+msgstr ""
+
+#: fReports.form:46
+msgid "Delete Report"
+msgstr ""
+
+#: fSettings.class:53
+msgid "Do you want to clear the unique hash that identifies this PC?"
+msgstr ""
+
+#: fSettings.class:115
+msgid "Are you sure you want to delete all your backups?"
+msgstr ""
+
+#: fSettings.class:124
+msgid "Are you sure you want to delete all your reports?"
+msgstr ""
+
+#: fSettings.class:137
+msgid "Are you sure you want to clean the downloaded cache?"
+msgstr ""
+
+#: fSettings.class:154
+msgid "Are you sure you want to reset the settings to it's default values?"
+msgstr ""
+
+#: fSettings.form:61
+msgid "General"
+msgstr ""
+
+#: fSettings.form:72
+msgid "Enable statistics upload:"
+msgstr ""
+
+#: fSettings.form:90
+msgid "Automatically expand submodules:"
+msgstr ""
+
+#: fSettings.form:108
+msgid "Enable notifications:"
+msgstr ""
+
+#: fSettings.form:126
+msgid "Reset Warnings"
+msgstr ""
+
+#: fSettings.form:132
+msgid "Reset Settings to Default"
+msgstr ""
+
+#: fSettings.form:147
+msgid "Automatically backup when cleaning:"
+msgstr ""
+
+#: fSettings.form:164
+msgid "Maximum directory size (KB):"
+msgstr ""
+
+#: fSettings.form:169
+msgid "Set to 0 to always backup"
+msgstr ""
+
+#: fSettings.form:184
+msgid "Enable reports:"
+msgstr ""
+
+#: fSettings.form:194
+msgid "Maintenance"
+msgstr ""
+
+#: fSettings.form:204
+msgid "Total Backups"
+msgstr ""
+
+#: fSettings.form:221
+msgid "Total Reports"
+msgstr ""
+
+#: fSettings.form:238
+msgid "Clean Backups Folder"
+msgstr ""
+
+#: fSettings.form:244
+msgid "Clean Reports Folder"
+msgstr ""
+
+#: fSettings.form:261
+msgid "Cached Icons"
+msgstr ""
+
+#: fSettings.form:288
+msgid "Clean Icons Cache"
+msgstr ""
+
+#: fSettings.form:294
+msgid "Fetch All Icons"
+msgstr ""
+
+#: fStartUp.class:23
+msgid "Welcome to Mundus &1"
+msgstr ""
+
+#: fStartUp.form:21
+msgid "Welcome to Mundus"
+msgstr ""
+
+#: fStartUp.form:56
+msgid "Warning:"
+msgstr ""
+
+#: fStartUp.form:62
+msgid ""
+"This tool can mess up your configuration if misused, please be sure when pressing the \"Clean\" button. \n"
+"Always make a backup if you think you may later need that data.\n"
+"\n"
+"I will not be responsible for any data loss that this application may incur.\n"
+"\n"
+msgstr ""
+
+#: fStartUp.form:93
+msgid "Would you like to enable the upload of anonymous statistics? "
+msgstr ""
+
+#: fStartUp.form:101
+msgid "More Info"
+msgstr ""

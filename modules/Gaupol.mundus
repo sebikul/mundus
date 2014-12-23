@@ -1,0 +1,15 @@
+{
+    "Name": "Gaupol",
+    "Category": "Subtitle Editor",
+    "Description": "Gaupol is an editor for text-based subtitle files.",
+    "Submodules": {
+        "0": {
+            "Path": "~/.config/gaupol",
+            "Name": "Configuration",
+            "Description": "Configuration files, including language and format preferences"
+        }
+    },
+    "Executable": "gaupol",
+    "Website": "http://home.gna.org/gaupol",
+    "Version": 1
+}

@@ -1,0 +1,16 @@
+{
+    "Name": "Inkscape",
+    "Category": "Vector Graphics Editor",
+    "Description": "An Open Source vector graphics editor, with capabilities similar to Illustrator, CorelDraw, or Xara X, using the W3C standard Scalable Vector Graphics (SVG) file format.",
+    "Submodules": {
+        "0": {
+            "Path": "~/.config/inkscape",
+            "Name": "Configuration & Custom imports",
+            "Description": "Configuration files and any other imported image, file, icon, template,  etc.",
+            "Warning": "You will lose any imported data!"
+        }
+    },
+    "Executable": "inkscape",
+    "Website": "http://inkscape.org",
+    "Version": 1
+}

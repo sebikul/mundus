@@ -1,0 +1,15 @@
+{
+    "Name": "Glippy",
+    "Category": "Clipboard Manager",
+    "Description": "Glippy is a clipboard manager for GNOME.",
+    "Submodules": {
+        "0": {
+            "Path": "~/.local/share/glippy",
+            "Name": "Configuration",
+            "Description": "Configuration Files"
+        }
+    },
+    "Executable": "glippy",
+    "Website": "https://launchpad.net/glippy",
+    "Version": 1
+}

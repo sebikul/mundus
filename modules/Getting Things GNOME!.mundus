@@ -1,0 +1,14 @@
+{
+    "Name": "Getting Things GNOME!",
+    "Category": "Tasks Organizer",
+    "Description": "GTG focuses on usability and ease of use. Its main objective is to provide a simple, powerful and flexible organization tool to the GNOME desktop environment.",
+    "Submodules": {
+        "0": {
+            "Path": "~/.config/gtg",
+            "Name": "Configuration"
+        }
+    },
+    "Executable": "gtg",
+    "Website": "http://gtg.fritalk.com",
+    "Version": 1
+}
