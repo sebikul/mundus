@@ -1,0 +1,82 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Mundus by sebikul</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Mundus</h1>
+        <p>Clean and backup your /home folder from old configuration files created by now uninstalled software.</p>
+
+        <p class="view"><a href="https://github.com/sebikul/mundus">View the Project on GitHub <small>sebikul/mundus</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/sebikul/mundus/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/sebikul/mundus/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/sebikul/mundus">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>
+<a id="mundus-home-folder-cleaner" class="anchor" href="#mundus-home-folder-cleaner" aria-hidden="true"><span class="octicon octicon-link"></span></a>Mundus Home Folder Cleaner</h1>
+
+<p>Mundus is a small utility that can help you keep your <code>/home</code> folder clean.
+It keeps an internal database of known applications and folders, and automagically 
+detects those apps that where uninstalled but left configuration files. Each supported
+application is also called a <em>module</em>, and each folder it describes is 
+called a <em>submodule</em>.</p>
+
+<h2>
+<a id="backups" class="anchor" href="#backups" aria-hidden="true"><span class="octicon octicon-link"></span></a>Backups</h2>
+
+<p>There are two options to make backups before cleaning a directory.</p>
+
+<ul>
+<li><p><strong>Automatic</strong>
+    If the directory to clean is below the size limit, a backup will be automatically
+    executed before the clean begins.</p></li>
+<li><p><strong>Manual</strong>
+    The alternative, just click the <code>Backup</code> button when selecting a submodule.</p></li>
+</ul>
+
+<h2>
+<a id="reports" class="anchor" href="#reports" aria-hidden="true"><span class="octicon octicon-link"></span></a>Reports</h2>
+
+<p>This feature is useful if you want to keep track of the freed space, the amount of files deleted,
+or any other data you are interested in. They are stored as JSON files and are easy viewable if you
+go to <code>View --&gt; Reports</code></p>
+
+<h2>
+<a id="software-requirements" class="anchor" href="#software-requirements" aria-hidden="true"><span class="octicon octicon-link"></span></a>Software Requirements</h2>
+
+<p>Mundus requires the <a href="http://gambas.sf.net">Gambas3</a> runtime, and the following components:</p>
+
+<ul>
+<li>gb.image</li>
+<li>gb.qt4</li>
+<li>gb.form</li>
+<li>gb.desktop</li>
+<li>gb.desktop.x11</li>
+<li>gb.settings</li>
+</ul>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/sebikul">sebikul</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
