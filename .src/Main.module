@@ -16,10 +16,10 @@
 ' You should have received a copy of the GNU General Public License
 ' along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-Public Const URL_PROJECT As String = "https://launchpad.net/mundus"
-Public Const URL_BLOG As String = "http://blog.mundusproject.org"
-Public Const URL_DOCS As String = "http://docs.mundusproject.org"
-Public Const URL_BUG_NEW As String = "https://bugs.launchpad.net/mundus/+filebug"
+Public Const URL_PROJECT As String = "https://github.com/sebikul/mundus"
+Public Const URL_BLOG As String = "http://sebikul.github.io/mundus"
+Public Const URL_DOCS As String = "https://github.com/sebikul/mundus/wiki"
+Public Const URL_BUG_NEW As String = "https://github.com/sebikul/mundus/issues/new"
 
 Property Read PATH_MAIN As String
 Property Read PATH_CONFIG As String
@@ -37,174 +37,174 @@ Public Sub Main()
     Message.Error(("You need to install coreutils"))
     Return
   Endif
-  
+
   If User.Name = "root" Then
     Message.Error(("Running as root is not allowed!"))
     Return
   Endif
-  
+
   If _IsRunning() Then Return
-  
+
   $sSettings = New Settings(Me.PATH_CONFIG &/ "settings.conf")
-  
+
   If $sSettings["LastVersionUsed", ""] < Application.Version Then
-    
+
     Upgrade()
-    
+
   Endif
-  
+
   Modules.Load()
-  
+
   fMain.ShowModal()
-  
+
 Finally
-  
+
   Kill Me.PATH_MAIN &/ "mundus.pid"
-  
+
   Main.Settings.Save()
-  
+
 End
 
 Private Sub Upgrade()
-  
+
   FStartUp.ShowModal()
-  
+
   $sSettings["LastVersionUsed"] = Application.Version
-  
+
 End
 
 Public Function CheckProgram(sProg As String) As Boolean
-  
+
   Dim iPos As Integer
-  
+
   iPos = InStr(sProg, " ")
   If iPos Then sProg = Left(sProg, iPos - 1)
-  
+
   Shell "which " & sProg & " >/dev/null 2>&1" Wait
-  
+
   Return (Process.LastValue = 0)
-  
+
 End
 
 Public Function GetDirectorySize(Path As String) As Long
-  
+
   Dim sSize As String
-  
+
   If Not Exist(Path) Then Return 0
-  
+
   Shell "du -bs " & Shell(Path) To sSize
-  
+
   Return CLong(Split(sSize, "\t")[0])
-  
+
 End
 
 Public Function Trim(Name As String) As String
-  
+
   Return Replace(Name, " ", "_")
-  
+
 End
 
 Public Function UnTrim(Name As String) As String
-  
+
   Return Replace(Name, "_", " ")
-  
+
 End
 
 Public Function SetSizeLabelScale(Size As Long) As String
-  
+
   Dim RetVal As Float
-  
+
   Dim sPower As String
-  
+
   Dim KB As Integer = 1024
   Dim MB As Integer = KB * KB
   Dim GB As Integer = MB * KB
-  
+
   If Size >= 0 And Size < KB Then
-    
+
     sPower = "B"
     RetVal = Size
-    
+
   Else If Size >= KB And Size < MB Then
-    
+
     sPower = "KB"
     RetVal = Round(Size / KB, -2)
-    
+
   Else If Size >= MB And Size < GB Then
-    
+
     sPower = "MB"
     RetVal = Round(Size / MB, -2)
-    
+
   Else If Size >= GB Then
-    
+
     sPower = "GB"
     RetVal = Round(Size / GB, -2)
-    
+
   Else
-    
+
     sPower = "B"
     RetVal = Size
-    
+
   Endif
-  
+
   Return Subst("&1 &2", RetVal, sPower)
-  
+
 End
 
 Private Function PATH_MAIN_Read() As String
-  
+
   Return _CheckAndCreate(User.Home &/ ".mundus")
-  
+
 End
 
 Private Function PATH_CONFIG_Read() As String
-  
+
   Return _CheckAndCreate(User.Home &/ ".config/Mundus")
-  
+
 End
 
 Private Function PATH_REPORTS_Read() As String
-  
+
   Return _CheckAndCreate(Me.PATH_MAIN &/ "reports")
-  
+
 End
 
 Private Function PATH_BACKUPS_Read() As String
-  
+
   Return _CheckAndCreate(Me.PATH_MAIN &/ "backups")
-  
+
 End
 
 Public Function _CheckAndCreate(sPath As String) As String
-  
+
   If Not Exist(sPath) Then Mkdir sPath
-  
+
   Chmod sPath To "rwx------"
-  
+
   Return sPath
-  
+
 End
 
 Private Function Settings_Read() As Settings
-  
+
   Return $sSettings
-  
+
 End
 
 Private Function _IsRunning() As Boolean
-  
+
   If Exist(Me.PATH_MAIN &/ "mundus.pid") Then
-    
+
     If Message.Question(("Mundus is already running!"), ("Close"), ("Continue anyway")) = 2 Then
       Kill Me.PATH_MAIN &/ "mundus.pid"
     Else
       Return True
     Endif
-    
+
   Endif
-  
+
   File.Save(Me.PATH_MAIN &/ "mundus.pid", Application.Id)
-  
+
   Return False
-  
+
 End

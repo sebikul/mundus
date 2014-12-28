@@ -42,7 +42,6 @@ clean:
 	rm -f mundus*.gambas
 	rm -f .gambas/*
 	rm -f .lang/*.pot
-	cd docs && make clean
 
 uninstall:
 	rm -f $(DESTDIR)$(bindir)/mundus
