@@ -2,32 +2,26 @@ Source: mundus
 Section: contrib/admin
 Priority: extra
 Maintainer: sebikul <sebikul@gmail.com>
-Build-Depends: debhelper (>= 5.0.0), gambas3-dev (>= 3.0.90), gambas3-dev (<< 3.99.0),
-  gambas3-gb-image (>= 3.2.90), gambas3-gb-image (<< 3.99.0),
-  gambas3-gb-qt4 (>= 3.2.90), gambas3-gb-qt4 (<< 3.99.0),
-  gambas3-gb-form (>= 3.2.90), gambas3-gb-form (<< 3.99.0),
-  gambas3-gb-form-stock (>= 3.2.90), gambas3-gb-form-stock (<< 3.99.0),
-  gambas3-gb-desktop (>= 3.2.90), gambas3-gb-desktop (<< 3.99.0),
-  gambas3-gb-settings (>= 3.2.90), gambas3-gb-settings (<< 3.99.0),
-  gambas3-gb-net (>= 3.2.90), gambas3-gb-net (<< 3.99.0),
-  gambas3-gb-net-curl (>= 3.2.90), gambas3-gb-net-curl (<< 3.99.0),
-  gambas3-gb-crypt (>= 3.2.90), gambas3-gb-crypt (<< 3.99.0)
+Build-Depends: debhelper (>= 5.0.0), gambas3-dev (>= 3.6.0),
+  gambas3-gb-image (>= 3.6.0),
+  gambas3-gb-qt4 (>= 3.6.0),
+  gambas3-gb-form (>= 3.6.0),
+  gambas3-gb-desktop (>= 3.6.0),
+  gambas3-gb-desktop-x11 (>= 3.6.0),
+  gambas3-gb-settings (>= 3.6.0)
 Standards-Version: 3.9.2
-Homepage: https://launchpad.net/mundus
+Homepage: http://sebikul.github.io/mundus/
 
 
 Package: mundus
 Architecture: all
-Depends: gambas3-runtime (>= 3.2.90), gambas3-runtime (<< 3.99.0),
-  gambas3-gb-image (>= 3.2.90), gambas3-gb-image (<< 3.99.0),
-  gambas3-gb-qt4 (>= 3.2.90), gambas3-gb-qt4 (<< 3.99.0),
-  gambas3-gb-form (>= 3.2.90), gambas3-gb-form (<< 3.99.0),
-  gambas3-gb-form-stock (>= 3.2.90), gambas3-gb-form-stock (<< 3.99.0),
-  gambas3-gb-desktop (>= 3.2.90), gambas3-gb-desktop (<< 3.99.0),
-  gambas3-gb-settings (>= 3.2.90), gambas3-gb-settings (<< 3.99.0),
-  gambas3-gb-net (>= 3.2.90), gambas3-gb-net (<< 3.99.0),
-  gambas3-gb-net-curl (>= 3.2.90), gambas3-gb-net-curl (<< 3.99.0),
-  gambas3-gb-crypt (>= 3.2.90), gambas3-gb-crypt (<< 3.99.0)
+Depends: gambas3-runtime (>= 3.6.0),
+  gambas3-gb-image (>= 3.6.0),
+  gambas3-gb-qt4 (>= 3.6.0),
+  gambas3-gb-form (>= 3.6.0),
+  gambas3-gb-desktop (>= 3.6.0),
+  gambas3-gb-desktop-x11 (>= 3.6.0),
+  gambas3-gb-settings (>= 3.6.0)
 Description: Clean your home folder from old configuration files
  Clean and backup your /home folder from old
  configuration files created by now uninstalled software.

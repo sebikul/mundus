@@ -1,6 +1,6 @@
 Format: http://dep.debian.net/deps/dep5
 Upstream-Name: mundus
-Source: https://launchpad.net/mundus
+Source: http://sebikul.github.io/mundus/
 
 Files: *
 Copyright: 2012 sebikul <sebikul@gmail.com>
