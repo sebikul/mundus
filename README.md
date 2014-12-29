@@ -6,7 +6,9 @@ detects those apps that where uninstalled but left configuration files. Each sup
 application is also called a _module_, and each folder it describes is 
 called a _submodule_.
 
-## Backups
+## Features
+
+### Backups
 
 There are two options to make backups before cleaning a directory.
 
@@ -18,12 +20,16 @@ There are two options to make backups before cleaning a directory.
 		The alternative, just click the `Backup` button when selecting a submodule.
 		
 
-## Reports
+### Reports
 
 This feature is useful if you want to keep track of the freed space, the amount of files deleted,
 or any other data you are interested in. They are stored as JSON files and are easy viewable if you
 go to `View --> Reports`
 
+
+## Installing
+
+Please refer to the [Installation instructions](https://github.com/sebikul/mundus/wiki/Installation) and follow the steps for your current Linux distribution.
 
 ## Software Requirements
 
