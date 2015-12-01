@@ -73,7 +73,7 @@ Public Sub Load()
 
   For Each sFile In Me.Executable
 
-    If Main.CheckProgram(sFile) Then
+    If PathHelper.CheckProgram(sFile) Then
       $isInstalled = True
       Break
     Endif
@@ -95,7 +95,7 @@ Public Function IsRunning() As Boolean
 
   Dim sExecutable As String
 
-  If Not Main.CheckProgram("pgrep") Or Not Me.Executable Then Return False
+  If Not PathHelper.CheckProgram("pgrep") Or Not Me.Executable Then Return False
 
   For Each sExecutable In Me.Executable
 

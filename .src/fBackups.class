@@ -87,7 +87,7 @@ Public Sub tvBackups_Select()
 
   sBackupPath = Main.PATH_BACKUPS &/ Main.Trim(mModule.Name) &/ GetSelectionComponents()[2]
 
-  tbSize.Text = Main.SetSizeLabelScale(Stat(sBackupPath).Size)
+  tbSize.Text = PathHelper.ScaleSize(Stat(sBackupPath).Size)
 
   MetadataContent = Backup.GetMetadata(sBackupPath)
 
@@ -197,7 +197,7 @@ Public Sub btnRestore_Click()
   Else
 
     Select Case MetadataContent["Version"]
-      Case "0.0.8", "1.0.0", "1.0.1", "1.1.0", "1.1.3", "1.2.0", "1.3.0", "1.4.0", "2.0.0", "2.1.0", "2.2.0", "2.3.0", "2.3.1"
+      Case "0.0.8", "1.0.0", "1.0.1", "1.1.0", "1.1.3", "1.2.0", "1.3.0", "1.4.0", "2.0.0", "2.1.0", "2.2.0", "2.3.0", "2.3.1", "3.0.0", "3.0.1"
         'Debug Subst("Restoring backup &1", BackupPath)
 
         If mModule.Name <> MetadataContent["Module"] Then Return

@@ -1,0 +1,86 @@
+' Gambas module file
+
+Public Function CheckProgram(sProg As String) As Boolean
+
+  Dim iPos As Integer
+
+  iPos = InStr(sProg, " ")
+  If iPos Then sProg = Left(sProg, iPos - 1)
+
+  Shell "which " & sProg & " >/dev/null 2>&1" Wait
+
+  Return (Process.LastValue = 0)
+
+End
+
+Public Function GetDirectorySize(sPath As String) As Long
+
+  Dim sSize, sCommand As String
+
+  If Not Exist(sPath) Then Return 0
+
+  sCommand = "du -bs " & Shell$(PathHelper.ResolvePath(sPath))
+
+  Shell sCommand To sSize
+
+  Return CLong(Split(sSize, "\t")[0])
+
+End
+
+Public Function ResolvePath(sPath As String) As String
+
+  Dim sFullPath As String
+
+  If sPath Begins "~/" Then
+
+    sPath = Mid(sPath, 3)
+
+    sFullPath = User.Home &/ sPath
+  Else
+    sFullPath = sPath
+  Endif
+
+  Return sFullPath
+
+End
+
+Public Function ScaleSize(Size As Long) As String
+
+  Dim RetVal As Float
+
+  Dim sPower As String
+
+  Dim iKB As Integer = 1024
+  Dim iMB As Integer = iKB * iKB
+  Dim iGB As Integer = iMB * iKB
+
+  If Size >= 0 And Size < iKB Then
+
+    sPower = "B"
+    RetVal = Size
+
+  Else If Size >= iKB And Size < iMB Then
+
+    sPower = "KB"
+    RetVal = Round(Size / iKB, -2)
+
+  Else If Size >= iMB And Size < iGB Then
+
+    sPower = "MB"
+    RetVal = Round(Size / iMB, -2)
+
+  Else If Size >= iGB Then
+
+    sPower = "GB"
+    RetVal = Round(Size / iGB, -2)
+
+  Else
+
+    sPower = "B"
+    RetVal = Size
+
+  Endif
+
+  Return Subst("&1 &2", RetVal, sPower)
+
+End

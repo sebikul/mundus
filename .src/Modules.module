@@ -22,87 +22,87 @@ Property Read All As Collection
 Property Read Count As Integer
 
 Public Function _get(sName As String) As Module
-  
+
   If $cModules.Exist(sName) Then Return $cModules[sName]
-  
+
 End
 
 Public Sub _put(mModule As Module, sName As String)
-  
+
   If Not $cModules.Exist(sName) Then $cModules.Add(mModule, sName)
-  
+
 End
 
 Public Sub Load() As Boolean
-  
+
   Dim sList As String[]
-  
+
   Dim sModule As String
-  
+
   Dim tmpModule As Module
-  
+
   $cModules.Clear()
-  
+
   sList = Dir("./modules", "*.mundus")
-  
+
   fProgress.Start(sList.Count, ("Loading Modules"), False)
-  
+
   For Each sModule In sList
-    
+
     sModule = File.BaseName(sModule)
-    
+
     fProgress.SetStatus(Subst(("Loading module: &1"), sModule))
-    
+
     tmpModule = Get(sModule)
-    
+
     $cModules.Add(tmpModule, sModule)
-    
+
     fProgress.Increment()
-    
+
   Next
-  
+
   fProgress.Finish()
-  
+
 End
 
 Public Sub Reload(sName As String)
-  
+
   Dim tmpModule As Module
-  
+
   tmpModule = Get(sName)
-  
+
   $cModules[sName] = tmpModule
-  
+
 End
 
 Public Function Get(sName As String, Optional bLoadModule As Boolean = True) As Module
-  
+
   Dim sPath As String
-  
+
   Dim cModule As Collection
-  
+
   sPath = "./modules" &/ sName & ".mundus"
-  
+
   cModule = JSON.Decode(File.Load(sPath))
-  
+
   Return New Module(cModule, bLoadModule)
-  
+
 Catch
-  
+
   Debug "Module is corrupted: " & sName
-  
+
   Return Null
-  
+
 End
 
 Private Function All_Read() As Collection
-  
+
   Return $cModules
-  
+
 End
 
 Private Function Count_Read() As Integer
-  
+
   Return $cModules.Count
-  
+
 End

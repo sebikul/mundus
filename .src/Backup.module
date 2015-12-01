@@ -138,6 +138,6 @@ End
 
 Private Function HasTar_Read() As Boolean
 
-  Return Main.CheckProgram("tar")
+  Return PathHelper.CheckProgram("tar")
 
 End

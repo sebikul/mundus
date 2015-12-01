@@ -158,7 +158,7 @@ Public Sub tvModules_Select()
         If Not Exist(oSubmodule.Path) Then Continue
 
         If IsDir(oSubmodule.Path) Then
-          fSize += Main.GetDirectorySize(oSubmodule.Path)
+          fSize += PathHelper.GetDirectorySize(oSubmodule.Path)
           iFiles += RDir(oSubmodule.Path).Count
         Else
           fSize += Stat(oSubmodule.Path).Size
@@ -167,7 +167,7 @@ Public Sub tvModules_Select()
 
       Next
 
-      lblSize.Text = Main.SetSizeLabelScale(fSize)
+      lblSize.Text = PathHelper.ScaleSize(fSize)
 
       lblFiles.Text = Subst(IIf(iFiles > 1, ("&1 files"), ("&1 file")), iFiles)
 
@@ -182,14 +182,14 @@ Public Sub tvModules_Select()
 
         If IsDir(sPath) Then
 
-          lblSize.Text = Main.SetSizeLabelScale(Main.GetDirectorySize(sPath))
+          lblSize.Text = PathHelper.ScaleSize(PathHelper.GetDirectorySize(sPath))
 
           iFiles = RDir(sPath).Count
 
           lblFiles.Text = Subst(IIf(iFiles > 1, ("&1 files"), ("&1 file")), iFiles)
         Else
 
-          lblSize.Text = Main.SetSizeLabelScale(Stat(sPath).Size)
+          lblSize.Text = PathHelper.ScaleSize(Stat(sPath).Size)
 
           lblFiles.Text = Subst(("&1 file"), 1)
         Endif
@@ -290,7 +290,7 @@ Public Sub btnClean_Click()
 
         sPath = oSubmodule.Path
 
-        Report.Session.Add(mModule, Main.GetDirectorySize(sPath), RDir(sPath).Count)
+        Report.Session.Add(mModule, PathHelper.GetDirectorySize(sPath), RDir(sPath).Count)
 
         'Debug "Cleaning " & sPath
 
@@ -315,7 +315,7 @@ Public Sub btnClean_Click()
 
       iFiles = RDir(sPath).Count
 
-      Report.Session.Add(mModule, Main.GetDirectorySize(sPath), iFiles)
+      Report.Session.Add(mModule, PathHelper.GetDirectorySize(sPath), iFiles)
 
       bResult = ExecuteClean(sPath, mModule, sSubmodule)
 
@@ -349,7 +349,7 @@ Private Function ExecuteClean(sPath As String, mModule As Module, sSubmodule As 
 
   If Main.Settings["Backups/AutoBackup", True] Then
 
-    If Main.Settings["Backups/MaxSize", 0] = 0 Or Main.GetDirectorySize(sPath) <= (Main.Settings["Backups/MaxSize", 0] * 1024) Then
+    If Main.Settings["Backups/MaxSize", 0] = 0 Or PathHelper.GetDirectorySize(sPath) <= (Main.Settings["Backups/MaxSize", 0] * 1024) Then
 
       'Debug Subst("Automatic backup of &1 prior deletion", sPath)
       If Not Backup.Backup(mModule, sSubmodule) Then

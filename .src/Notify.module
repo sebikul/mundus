@@ -110,7 +110,7 @@ End
 
 Private Function Haslibnotify_Read() As Boolean
 
-  Return Main.CheckProgram("notify-send")
+  Return PathHelper.CheckProgram("notify-send")
 
 End
 

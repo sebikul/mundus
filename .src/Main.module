@@ -32,7 +32,7 @@ Private $sSettings As Settings
 
 Public Sub Main()
 
-  If Not CheckProgram("du") Then
+  If Not PathHelper.CheckProgram("du") Then
     Message.Title = ("coreutils not found")
     Message.Error(("You need to install coreutils"))
     Return
@@ -73,31 +73,6 @@ Private Sub Upgrade()
 
 End
 
-Public Function CheckProgram(sProg As String) As Boolean
-
-  Dim iPos As Integer
-
-  iPos = InStr(sProg, " ")
-  If iPos Then sProg = Left(sProg, iPos - 1)
-
-  Shell "which " & sProg & " >/dev/null 2>&1" Wait
-
-  Return (Process.LastValue = 0)
-
-End
-
-Public Function GetDirectorySize(Path As String) As Long
-
-  Dim sSize As String
-
-  If Not Exist(Path) Then Return 0
-
-  Shell "du -bs " & Shell(Path) To sSize
-
-  Return CLong(Split(sSize, "\t")[0])
-
-End
-
 Public Function Trim(Name As String) As String
 
   Return Replace(Name, " ", "_")
@@ -107,47 +82,6 @@ End
 Public Function UnTrim(Name As String) As String
 
   Return Replace(Name, "_", " ")
-
-End
-
-Public Function SetSizeLabelScale(Size As Long) As String
-
-  Dim RetVal As Float
-
-  Dim sPower As String
-
-  Dim KB As Integer = 1024
-  Dim MB As Integer = KB * KB
-  Dim GB As Integer = MB * KB
-
-  If Size >= 0 And Size < KB Then
-
-    sPower = "B"
-    RetVal = Size
-
-  Else If Size >= KB And Size < MB Then
-
-    sPower = "KB"
-    RetVal = Round(Size / KB, -2)
-
-  Else If Size >= MB And Size < GB Then
-
-    sPower = "MB"
-    RetVal = Round(Size / MB, -2)
-
-  Else If Size >= GB Then
-
-    sPower = "GB"
-    RetVal = Round(Size / GB, -2)
-
-  Else
-
-    sPower = "B"
-    RetVal = Size
-
-  Endif
-
-  Return Subst("&1 &2", RetVal, sPower)
 
 End
 
