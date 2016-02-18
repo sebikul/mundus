@@ -9,7 +9,7 @@
             "Warning": "You will lose any credentials stored to automatically login to a server."
         }
     },
-    "Executable": "xchat",
+    "Executable": "xchat|xchat-gnome",
     "Website": "http://xchat.org",
     "Version": 1
 }
