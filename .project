@@ -1,9 +1,9 @@
 # Gambas Project File 3.0
-# Compiled with Gambas 3.8.2
+# Compiled with Gambas 3.8.4
 Title=Mundus
 Startup=Main
 Icon=icon.png
-Version=3.0.1
+Version=3.0.2
 Component=gb.image
 Component=gb.qt4
 Component=gb.form
@@ -15,15 +15,18 @@ Authors="sebikul  <sebikul@gmail.com>"
 TabSize=2
 Translate=1
 Language=en_US
-SourcePath=/home/sebi/Documentos/Mundus/Releases/2.3.1
+SourcePath=/home/sebi/mundus-builds/3.0.1
 Maintainer=sebikul
 Address=sebikul@gmail.com
-Url=https://launchpad.net/mundus
+Url=http://sebikul.github.io/mundus/
 License=General Public License
-PackageName=mundus-1.4
+PackageName=mundus-3.0.1
 CreateEachDirectory=1
 Packager=1
-Systems=archlinux
+Systems=ubuntu
 Menus=archlinux:"Applications/System/Administration"
 Categories=archlinux:"System"
 Groups=archlinux:"admin"
+Menus=ubuntu:"Applications/System/Administration"
+Categories=ubuntu:"System"
+Groups=ubuntu:"admin"
