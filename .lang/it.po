@@ -1,149 +1,169 @@
+#
+# Igor Calì <igor.cali0@gmail.com>, 2016.
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2002-11-01 04:27+0100\n"
-"PO-Revision-Date: 2012-12-28 00:16+0000\n"
-"Last-Translator: sebikul <Unknown>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2016-03-05 20:25+0100\n"
+"Last-Translator: Igor Calì <igor.cali0@gmail.com>\n"
+"Language-Team: Italiano <>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2013-07-12 00:44+0000\n"
-"X-Generator: Launchpad (build 16696)\n"
+"X-Generator: Gtranslator 2.91.6\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
 
 #: .project:1 fMain.form:64
 msgid "Mundus"
 msgstr "Mundus"
 
 #: .project:2
-msgid "Clean and backup your /home folder from old configuration files created by now uninstalled software."
+msgid ""
+"Clean and backup your /home folder from old configuration files created by "
+"now uninstalled software."
 msgstr ""
+"Pulisce e archivia la cartella /home dai vecchi file di configurazione del "
+"software non più installato."
 
 #: Cleaner.module:38
 msgid "Done"
-msgstr ""
+msgstr "Fatto"
 
 #: Cleaner.module:44
 msgid "Access forbiden. You can't access &1"
-msgstr ""
+msgstr "Accesso vietato. Non puoi accedere a &1"
 
 #: Cleaner.module:47
 msgid "Directory has content"
-msgstr ""
+msgstr "La cartella contiene dei file"
 
 #: Cleaner.module:61
 msgid "Failed"
-msgstr ""
+msgstr "Fallito"
 
 #: Cleaner.module:87
 msgid "Access forbiden. You don't have write permissions on &1"
-msgstr ""
+msgstr "Accesso vietato. Non hai diritti in scrittura su &1"
 
 #: Cleaner.module:151
 msgid "Deleting directory &1\t"
-msgstr ""
+msgstr "Sto cancellando la cartella &1\t"
 
 #: Cleaner.module:160
 msgid "Cleaning file &1\t"
-msgstr ""
+msgstr "Sto cancellando il file &1\t"
 
 #: Icons.module:61
 msgid "Could not fetch icons index. Using cached pictures."
-msgstr ""
+msgstr "Indice delle icone non trovato. Utilizzo delle immagini salvate."
 
 #: Icons.module:152
 msgid "Mundus Icons Downloader"
-msgstr ""
+msgstr "Scarica icone di Mundus"
 
 #: Icons.module:158
 msgid "Downlaoding icon for &1"
-msgstr ""
+msgstr "Scaricamento icona per &1"
 
 #: Index.module:120
 msgid "Unable to fetch index file. Code: &1"
-msgstr ""
+msgstr "Impossibile trovare il file indice. Codice: &1"
 
 #: Index.module:133
 msgid "The index is corrupted. Using local cache"
-msgstr ""
+msgstr "Indice corrotto. Utilizzo la cache locale"
 
 #: Index.module:196
 msgid "Module does not exist"
-msgstr ""
+msgstr "Il modulo non esiste"
 
 #: Index.module:210
 msgid "Downloading &1"
-msgstr ""
+msgstr "Scaricamento &1"
 
 #: Index.module:366
 msgid "Updating Index"
-msgstr ""
+msgstr "Aggiornamento indice"
 
 #: Main.module:40
 msgid "coreutils not found"
-msgstr ""
+msgstr "coreutils non trovato"
 
 #: Main.module:41
 msgid "You need to install coreutils"
-msgstr ""
+msgstr "Devi installare coreutils"
 
 #: Main.module:46
 msgid "Running as root is not allowed!"
-msgstr ""
+msgstr "Impossibile avviare come amministratore!"
 
 #: Main.module:63
 msgid "You are working in offline mode. Modules won't be updated."
 msgstr ""
+"Stai lavorando in modalità non in linea. I moduli non saranno aggiornati."
 
 #: Main.module:86
 msgid "The index will be automatically rebuilt."
-msgstr ""
+msgstr "L'indice sarà automaticamente ricostruito."
 
 #: Main.module:244 fBackups.form:59 fReports.form:38 fStartUp.form:108
 msgid "Close"
-msgstr ""
+msgstr "Chiudi"
 
 #: Main.module:244
 msgid "Continue anyway"
-msgstr ""
+msgstr "Continua comunque"
 
 #: Main.module:244
 msgid "Mundus is already running!"
-msgstr ""
+msgstr "Mundus è già in esecuzione!"
 
 #: Modules.module:51
 msgid "Loading Modules"
-msgstr ""
+msgstr "Caricamento moduli"
 
 #: Modules.module:57
 msgid "Loading module: &1"
-msgstr ""
+msgstr "Caricamento modulo: &1"
 
 #: Modules.module:62
-msgid "Sorry, module &1 does not exist or is corrupted. It will be automatically fixed the next time you execute Mundus."
+msgid ""
+"Sorry, module &1 does not exist or is corrupted. It will be automatically "
+"fixed the next time you execute Mundus."
 msgstr ""
+"Spiacente, il modulo &1 non esiste o è danneggiato. Esso sarà "
+"automaticamente corretto la prossima volta che Mundus viene avviato."
 
 #: _Report.class:31
 msgid "The report does no exist."
-msgstr ""
+msgstr "Il report non esiste."
 
 #: _Report.class:98
 msgid "You don't have permission to save this report."
-msgstr ""
+msgstr "Permessi insufficienti a salvare questo report."
 
 #: _Report.class:112
-msgid "There was an error saving one of the reports. The last clean won't be saved."
+msgid ""
+"There was an error saving one of the reports. The last clean won't be saved."
 msgstr ""
+"C'è stato un errore durante il salvataggio di un report. L'ultima pulizia "
+"non sarà salvata."
 
 #: fAbout.class:24
-msgid "<h2>Mundus Home Folder Cleaner v&1</h2><p><h4> by sebikul</h4><p><p>Includes icon from the Faenza Icons Theme"
+msgid ""
+"<h2>Mundus Home Folder Cleaner v&1</h2><p><h4> by sebikul</h4><p><p>Includes "
+"icon from the Faenza Icons Theme"
 msgstr ""
+"<h2>Pulitore cartella Home Mundus v&1</h2><p><h4> by sebikul</"
+"h4><p><p>Include icone dal tema icone Faenza"
 
 #: fAbout.form:9
 msgid "About"
-msgstr ""
+msgstr "Informazioni"
 
 #: fAbout.form:17 fBackups.class:216
 msgid "Ok"
@@ -151,15 +171,15 @@ msgstr ""
 
 #: fBackups.class:99
 msgid "Not Supported"
-msgstr ""
+msgstr "Non supportato"
 
 #: fBackups.class:152
 msgid "Backup Deletion"
-msgstr ""
+msgstr "Cancellazione backup"
 
 #: fBackups.class:153
 msgid "Are you sure you want to delete this backup?"
-msgstr ""
+msgstr "Sei sicuro di voler cancellare questo backup?"
 
 #: fBackups.class:153 fSettings.form:78 fStartUp.form:82
 msgid "No"
@@ -167,111 +187,111 @@ msgstr ""
 
 #: fBackups.class:153 fMain.class:286 fSettings.form:78 fStartUp.form:76
 msgid "Yes"
-msgstr ""
+msgstr "Sì"
 
 #: fBackups.class:160
 msgid "The backup does not exist or you do not have permission to delete it."
-msgstr ""
+msgstr "Il backup non esiste o non hai permessi sufficienti per cancellarlo."
 
 #: fBackups.class:215
 msgid "Backup restore completed"
-msgstr ""
+msgstr "Ripristino backup completato"
 
 #: fBackups.class:216
 msgid "The backup was successfully restored."
-msgstr ""
+msgstr "Il backup è stato ripristinato con successo."
 
 #: fBackups.class:222
 msgid "Backup restore failed"
-msgstr ""
+msgstr "Ripristino backup fallito"
 
 #: fBackups.class:227
 msgid "Backup destination already exist"
-msgstr ""
+msgstr "La destinazione di backup esiste già"
 
 #: fBackups.class:324
 msgid "You don't have permission to delete &1."
-msgstr ""
+msgstr "Permessi insufficienti per cancellare &1."
 
 #: fBackups.class:341
 msgid "Cleaning completed"
-msgstr ""
+msgstr "Pulizia completata"
 
 #: fBackups.class:342
 msgid "Cleaned &1 backups."
-msgstr ""
+msgstr "Cancellati &1 backup."
 
 #: fBackups.class:366
 msgid "Saving Mundus Backup"
-msgstr ""
+msgstr "Salvataggio backup Mundus"
 
 #: fBackups.class:367
 msgid "gzip Compressed Tarball"
-msgstr ""
+msgstr "Archivio compresso gzip"
 
 #: fBackups.class:373
 msgid "You don't have permission to write &1."
-msgstr ""
+msgstr "Permessi insufficienti per scrivere &1."
 
 #: fBackups.form:41
 msgid "Mundus Backups"
-msgstr ""
+msgstr "Backup Mundus"
 
 #: fBackups.form:49 fMain.form:72 fReports.form:24
 msgid "File"
-msgstr ""
+msgstr "Documento"
 
 #: fBackups.form:52
 msgid "Reload Backups"
-msgstr ""
+msgstr "Ricarica backup"
 
 #: fBackups.form:64
 msgid "Actions"
-msgstr ""
+msgstr "Azioni"
 
 #: fBackups.form:67
 msgid "Clear backups made with previous versions"
-msgstr ""
+msgstr "Cancella i backup creati con le versioni precedenti"
 
 #: fBackups.form:94
 msgid "Source Version"
-msgstr ""
+msgstr "Versione sorgente"
 
 #: fBackups.form:111
 msgid "Created"
-msgstr ""
+msgstr "Creato"
 
 #: fBackups.form:128
 msgid "Size"
-msgstr ""
+msgstr "Dimensione"
 
 #: fBackups.form:148
 msgid "Module"
-msgstr ""
+msgstr "Modulo"
 
 #: fBackups.form:164
 msgid "Submodule"
-msgstr ""
+msgstr "Sottomodulo"
 
 #: fBackups.form:180
 msgid "Path"
-msgstr ""
+msgstr "Percorso"
 
 #: fBackups.form:203
 msgid "Restore"
-msgstr ""
+msgstr "Ripristina"
 
 #: fBackups.form:209
 msgid "Delete"
-msgstr ""
+msgstr "Cancella"
 
 #: fBackups.form:215
 msgid "Save As..."
-msgstr ""
+msgstr "Salva come..."
 
 #: fBackups.form:221
 msgid "Open"
-msgstr ""
+msgstr "Apri"
 
 #: fMain.class:179
 msgid "&1 file"
@@ -279,167 +299,173 @@ msgstr ""
 
 #: fMain.class:179
 msgid "&1 files"
-msgstr ""
+msgstr "&1 file"
 
 #: fMain.class:227
 msgid "No category found"
-msgstr ""
+msgstr "Nessuna categoria trovata"
 
 #: fMain.class:270
-msgid "To avoid damage or any undesired behaviour, you need to close the application first."
+msgid ""
+"To avoid damage or any undesired behaviour, you need to close the "
+"application first."
 msgstr ""
+"Per evitare danni o comportamenti indesiderati è necessario prima chiudere "
+"l'applicazione."
 
 #: fMain.class:285
 msgid "Cleaning &1"
-msgstr ""
+msgstr "Pulizia di &1"
 
 #: fMain.class:286
 msgid "Are you sure you want to clean &1?"
-msgstr ""
+msgstr "Sei sicuro di voler pulire &1?"
 
 #: fMain.class:286 fProgress.form:26
 msgid "Cancel"
-msgstr ""
+msgstr "Cancella"
 
 #: fMain.class:316
 msgid "module"
-msgstr ""
+msgstr "modulo"
 
 #: fMain.class:339
 msgid "submodule"
-msgstr ""
+msgstr "sottomodulo"
 
 #: fMain.class:344
 msgid "The selected &1 was successfully cleaned."
-msgstr ""
+msgstr "Il &1 selezionato è stato pulito con successo."
 
 #: fMain.class:346
 msgid "Successfully cleaned"
-msgstr ""
+msgstr "Pulizia avvenuta con successo"
 
 #: fMain.class:367
-msgid "There was an error while performing the automatic backup. Cleaning aborted."
+msgid ""
+"There was an error while performing the automatic backup. Cleaning aborted."
 msgstr ""
+"C'è stato un errore nell'esecuzione del backup automatico. Pulizia abortita."
 
 #: fMain.class:372
 msgid "Automatic backup of &1 skipped, size over maximum."
-msgstr ""
+msgstr "Backup automatico di &1 saltato, dimensioni eccedenti."
 
 #: fMain.class:485
 msgid "The directory was successfully backed up"
-msgstr ""
+msgstr "La cartella è stata archiviata con successo"
 
 #: fMain.class:518
 msgid "No description included"
-msgstr ""
+msgstr "Nessuna descrizione inclusa"
 
 #: fMain.class:540
 msgid "No warnings has been provided"
-msgstr ""
+msgstr "Nessun avvertimento fornito"
 
 #: fMain.form:75
 msgid "Refresh"
-msgstr ""
+msgstr "Aggiorna"
 
 #: fMain.form:84
 msgid "Exit"
-msgstr ""
+msgstr "Esci"
 
 #: fMain.form:89 fReports.form:43
 msgid "Edit"
-msgstr ""
+msgstr "Modifica"
 
 #: fMain.form:92 fSettings.form:47
 msgid "Settings"
-msgstr ""
+msgstr "Impostazioni"
 
 #: fMain.form:98
 msgid "View"
-msgstr ""
+msgstr "Visualizza"
 
 #: fMain.form:101 fSettings.form:173
 msgid "Reports"
-msgstr ""
+msgstr "Report"
 
 #: fMain.form:106 fSettings.form:136
 msgid "Backups"
-msgstr ""
+msgstr "Backup"
 
 #: fMain.form:111 fSupportedApps.form:8
 msgid "Supported Applications"
-msgstr ""
+msgstr "Applicazioni supportate"
 
 #: fMain.form:117
 msgid "Filter"
-msgstr ""
+msgstr "Filtro"
 
 #: fMain.form:121
 msgid "List All Applications"
-msgstr ""
+msgstr "Mostra tutte le applicazioni"
 
 #: fMain.form:128
 msgid "List Bundles"
-msgstr ""
+msgstr "Elenca i pacchetti"
 
 #: fMain.form:138
 msgid "List Installed Applications"
-msgstr ""
+msgstr "Elenca le applicazioni installate"
 
 #: fMain.form:144
 msgid "List Uninstalled Applications with Configuration"
-msgstr ""
+msgstr "Elenca le applicazioni disinstallate con configurazione"
 
 #: fMain.form:150
 msgid "Help"
-msgstr ""
+msgstr "Aiuto"
 
 #: fMain.form:153
 msgid "Show Help"
-msgstr ""
+msgstr "Mostra manuale"
 
 #: fMain.form:158
 msgid "Report a Bug"
-msgstr ""
+msgstr "Segnala un problema"
 
 #: fMain.form:167
 msgid "Project Website"
-msgstr ""
+msgstr "Sito del progetto"
 
 #: fMain.form:171
 msgid "Project Blog"
-msgstr ""
+msgstr "Blog del progetto"
 
 #: fMain.form:179
 msgid "About Mundus"
-msgstr ""
+msgstr "Informazioni su Mundus"
 
 #: fMain.form:215
 msgid "Clear"
-msgstr ""
+msgstr "Cancella"
 
 #: fMain.form:295
 msgid "Installed"
-msgstr ""
+msgstr "Installato"
 
 #: fMain.form:305
 msgid "Total Size:"
-msgstr ""
+msgstr "Dimensione totale:"
 
 #: fMain.form:327
 msgid "Has Configuration Files"
-msgstr ""
+msgstr "Esistono file di configurazione"
 
 #: fMain.form:337
 msgid "Total Files:"
-msgstr ""
+msgstr "File totali:"
 
 #: fMain.form:362
 msgid "Clean"
-msgstr ""
+msgstr "Pulisci"
 
 #: fMain.form:367
 msgid "Preview Files"
-msgstr ""
+msgstr "Anteprima file"
 
 #: fMain.form:373
 msgid "Backup"
@@ -451,193 +477,202 @@ msgstr ""
 
 #: fReports.class:78
 msgid "Project URL: &1"
-msgstr ""
+msgstr "URL del progetto: &1"
 
 #: fReports.class:79
 msgid "Date: &1"
-msgstr ""
+msgstr "Data: &1"
 
 #: fReports.class:82
 msgid "Cleaned Modules:"
-msgstr ""
+msgstr "Moduli puliti:"
 
 #: fReports.class:93
 msgid "Total files cleaned: &1\n"
-msgstr ""
+msgstr "Totale file cancellati: &1\n"
 
 #: fReports.class:94
 msgid "Total space cleaned: &1\n"
-msgstr ""
+msgstr "Totale spazio pulito: &1\n"
 
 #: fReports.class:95
 msgid "Total executions:    &1\n"
-msgstr ""
+msgstr "Esecuzioni totali:    &1\n"
 
 #: fReports.class:99
 msgid "Per-Module Report\n"
-msgstr ""
+msgstr "Report per modulo\n"
 
 #: fReports.class:105
 msgid "Module:  &1\n"
-msgstr ""
+msgstr "Modulo:  &1\n"
 
 #: fReports.class:106
 msgid "Space Cleaned:  &1\n"
-msgstr ""
+msgstr "Spazio pulito:  &1\n"
 
 #: fReports.class:107
 msgid "Files Cleaned:  &1\n"
-msgstr ""
+msgstr "File puliti:  &1\n"
 
 #: fReports.class:108
 msgid "Times Executed: &1\n"
-msgstr ""
+msgstr "Numero esecuzioni: &1\n"
 
 #: fReports.class:207
 msgid "Open a Report"
-msgstr ""
+msgstr "Apri un report"
 
 #: fReports.class:208
 msgid "Mundus JSON Report"
-msgstr ""
+msgstr "Report JSON Mundus"
 
 #: fReports.class:223
 msgid "The report file is invalid"
-msgstr ""
+msgstr "Il file del report è invalido"
 
 #: fReports.form:17
 msgid "Mundus Reports"
-msgstr ""
+msgstr "Report Mundus"
 
 #: fReports.form:27
 msgid "Load Report From File"
-msgstr ""
+msgstr "Carica report da file"
 
 #: fReports.form:31
 msgid "Reload Reports"
-msgstr ""
+msgstr "Ricarica i report"
 
 #: fReports.form:46
 msgid "Delete Report"
-msgstr ""
+msgstr "Cancella report"
 
 #: fSettings.class:53
 msgid "Do you want to clear the unique hash that identifies this PC?"
-msgstr ""
+msgstr "Vuoi cancellare l'identificativo univoco di questo PC?"
 
 #: fSettings.class:115
 msgid "Are you sure you want to delete all your backups?"
-msgstr ""
+msgstr "Sei sicuro di voler cancellare tutti i tuoi backup?"
 
 #: fSettings.class:124
 msgid "Are you sure you want to delete all your reports?"
-msgstr ""
+msgstr "Sei sicuro di voler cancellare tutti i tuoi report?"
 
 #: fSettings.class:137
 msgid "Are you sure you want to clean the downloaded cache?"
-msgstr ""
+msgstr "Sei sicuro di voler cancellare la cache scaricata?"
 
 #: fSettings.class:154
 msgid "Are you sure you want to reset the settings to it's default values?"
-msgstr ""
+msgstr "Sei sicuro di voler ripristinare le impostazioni predefinite?"
 
 #: fSettings.form:61
 msgid "General"
-msgstr ""
+msgstr "Generali"
 
 #: fSettings.form:72
 msgid "Enable statistics upload:"
-msgstr ""
+msgstr "Abilita l'invio delle statistiche:"
 
 #: fSettings.form:90
 msgid "Automatically expand submodules:"
-msgstr ""
+msgstr "Espandi automaticamente i sottomoduli:"
 
 #: fSettings.form:108
 msgid "Enable notifications:"
-msgstr ""
+msgstr "Abilita le notifiche:"
 
 #: fSettings.form:126
 msgid "Reset Warnings"
-msgstr ""
+msgstr "Reimposta avvertimenti:"
 
 #: fSettings.form:132
 msgid "Reset Settings to Default"
-msgstr ""
+msgstr "Ripristina valori predefiniti"
 
 #: fSettings.form:147
 msgid "Automatically backup when cleaning:"
-msgstr ""
+msgstr "Backup automatica durante la pulizia:"
 
 #: fSettings.form:164
 msgid "Maximum directory size (KB):"
-msgstr ""
+msgstr "Dimensione massima cartella (KB):"
 
 #: fSettings.form:169
 msgid "Set to 0 to always backup"
-msgstr ""
+msgstr "Imposta a 0 per archiviare sempre"
 
 #: fSettings.form:184
 msgid "Enable reports:"
-msgstr ""
+msgstr "Abilita report:"
 
 #: fSettings.form:194
 msgid "Maintenance"
-msgstr ""
+msgstr "Manutenzione"
 
 #: fSettings.form:204
 msgid "Total Backups"
-msgstr ""
+msgstr "Backup totali"
 
 #: fSettings.form:221
 msgid "Total Reports"
-msgstr ""
+msgstr "Report totali"
 
 #: fSettings.form:238
 msgid "Clean Backups Folder"
-msgstr ""
+msgstr "Cancella la cartella di backup"
 
 #: fSettings.form:244
 msgid "Clean Reports Folder"
-msgstr ""
+msgstr "Cancella la cartella dei report"
 
 #: fSettings.form:261
 msgid "Cached Icons"
-msgstr ""
+msgstr "Icone salvate"
 
 #: fSettings.form:288
 msgid "Clean Icons Cache"
-msgstr ""
+msgstr "Cancella icone salvate"
 
 #: fSettings.form:294
 msgid "Fetch All Icons"
-msgstr ""
+msgstr "Recupera tutte le icone"
 
 #: fStartUp.class:23
 msgid "Welcome to Mundus &1"
-msgstr ""
+msgstr "Benvenuto in Mundus &1"
 
 #: fStartUp.form:21
 msgid "Welcome to Mundus"
-msgstr ""
+msgstr "Benvenuto in Mundus"
 
 #: fStartUp.form:56
 msgid "Warning:"
-msgstr ""
+msgstr "Attenzione:"
 
 #: fStartUp.form:62
 msgid ""
-"This tool can mess up your configuration if misused, please be sure when pressing the \"Clean\" button. \n"
+"This tool can mess up your configuration if misused, please be sure when "
+"pressing the \"Clean\" button. \n"
 "Always make a backup if you think you may later need that data.\n"
 "\n"
-"I will not be responsible for any data loss that this application may incur.\n"
+"I will not be responsible for any data loss that this application may "
+"incur.\n"
 "\n"
 msgstr ""
+"Questo strumento può danneggiare la tua configurazione se male utilizzato, "
+"premi il tasto \"Pulisci\" solo se sei sicuro di cosa stai facendo.\n"
+"Fai sempre il backup se pensi di aver bisogno dei dati in seguito.\n"
+"\n"
+"Non sarò responsabile per nessuna perdita di dati causata da questa "
+"applicazione.\n"
+"\n"
 
 #: fStartUp.form:93
 msgid "Would you like to enable the upload of anonymous statistics? "
-msgstr ""
+msgstr "Vuoi abilitare l'invio anonimo delle statistiche?"
 
 #: fStartUp.form:101
 msgid "More Info"
-msgstr ""
+msgstr "Informazioni aggiuntive"
