@@ -7,7 +7,7 @@
             "Path": "~/.eclipse"
         },
         "1": {
-            "Name": "Profivioning platform files",
+            "Name": "Provisioning platform files",
             "Path": "~/.p2"
         },
         "2": {
