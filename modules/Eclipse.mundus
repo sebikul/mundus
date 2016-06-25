@@ -5,6 +5,30 @@
         "0": {
             "Name": "Configuration",
             "Path": "~/.eclipse"
+        },
+        "1": {
+            "Name": "Provisioning platform files",
+            "Path": "~/.p2"
+        },
+        "2": {
+            "Name": "Extension data",
+            "Path": "~/.config/.eclipseextension"
+        },
+        "3": {
+            "Name": "Plugin metadata",
+            "Path": "~/.config/features"
+        },
+        "4": {
+            "Name": "Provisioning platform configuration",
+            "Path": "~/.config/p2"
+        },
+        "5": {
+            "Name": "Plugins",
+            "Path": "~/.config/plugins"
+        },
+        "6": {
+            "Name": "Local artifacts file",
+            "Path": "~/.config/artifacts.xml"
         }
     },
     "Category": "Integrated Development Environment",
